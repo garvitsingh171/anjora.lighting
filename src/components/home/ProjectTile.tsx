@@ -9,8 +9,8 @@ export function ProjectTile({ project }: ProjectTileProps) {
       <Link to={`/projects/${project.slug}`} aria-label={`View ${project.title} project`}>
         <div className="project-tile__media">
           <img
-            src={project.image}
-            alt={project.imageAlt}
+            src={project.cover.src}
+            alt={project.cover.alt}
             width="1200"
             height="800"
             loading="lazy"

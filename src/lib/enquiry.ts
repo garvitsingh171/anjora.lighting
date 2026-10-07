@@ -18,26 +18,3 @@ export function getProductEnquiryUrl(product: Product) {
 
   return `mailto:${ANJORA_ENQUIRY_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
 }
-
-export interface ProjectEnquiry {
-  name: string
-  email: string
-  phone: string
-  projectType: string
-  message: string
-}
-
-export function getProjectEnquiryUrl(enquiry: ProjectEnquiry) {
-  const subject = 'New Project Enquiry - Anjora Lighting'
-  const body = [
-    `Name: ${enquiry.name}`,
-    `Email: ${enquiry.email}`,
-    `Phone: ${enquiry.phone || 'Not provided'}`,
-    `Project Type: ${enquiry.projectType}`,
-    '',
-    'Message:',
-    enquiry.message,
-  ].join('\n')
-
-  return `mailto:${ANJORA_ENQUIRY_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-}

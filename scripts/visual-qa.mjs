@@ -78,6 +78,83 @@ await desktop.locator('.product-card').first().screenshot({ path: `${outputDirec
 await desktop.goto(`${baseUrl}/products/recessed-downlight-type-01`, { waitUntil: 'domcontentloaded' })
 await desktop.locator('.product-detail__hero').screenshot({ path: `${outputDirectory}/product-detail.png` })
 
+await desktop.goto(`${baseUrl}/projects`, { waitUntil: 'domcontentloaded' })
+await checkHorizontalOverflow(desktop, 'desktop projects')
+await desktop.locator('.projects-hero').screenshot({ path: `${outputDirectory}/projects-hero.png` })
+await desktop.locator('.featured-project').screenshot({ path: `${outputDirectory}/projects-featured.png` })
+const projectCount = await desktop.locator('.project-card').count() + await desktop.locator('.featured-project').count()
+if (projectCount !== 20) errors.push(`projects inventory rendered ${projectCount} entries instead of 20`)
+const projectHrefs = await desktop.locator('a[href^="/projects/"]').evaluateAll((links) => (
+  [...new Set(links.map((link) => link.getAttribute('href')).filter(Boolean))]
+))
+if (projectHrefs.length !== 20) errors.push(`project archive exposed ${projectHrefs.length} unique routes instead of 20`)
+
+for (const href of projectHrefs) {
+  await desktop.goto(`${baseUrl}${href}`, { waitUntil: 'domcontentloaded' })
+  await desktop.evaluate(() => window.scrollTo(0, document.body.scrollHeight))
+  await desktop.waitForTimeout(120)
+  const routeState = await desktop.evaluate(async () => {
+    await Promise.race([
+      Promise.all([...document.images].map((image) => image.complete ? undefined : new Promise((resolve) => {
+        image.addEventListener('load', resolve, { once: true })
+        image.addEventListener('error', resolve, { once: true })
+      }))),
+      new Promise((resolve) => setTimeout(resolve, 2_000)),
+    ])
+    return {
+      detail: Boolean(document.querySelector('.project-detail')),
+      broken: [...document.images].filter((image) => image.complete && image.naturalWidth === 0).map((image) => image.currentSrc || image.src),
+    }
+  })
+  if (!routeState.detail) errors.push(`${href}: direct route did not render a project detail`)
+  if (routeState.broken.length) errors.push(`${href}: broken images: ${routeState.broken.join(', ')}`)
+}
+
+await desktop.goto(`${baseUrl}/projects`, { waitUntil: 'domcontentloaded' })
+
+for (const [filter, expected] of Object.entries({ Clubs: 10, Heritage: 1, Commercial: 1, Facade: 3, Gym: 1, Office: 3, Theatre: 1 })) {
+  await desktop.getByRole('button', { name: filter, exact: true }).click()
+  await desktop.waitForTimeout(50)
+  const filteredCount = await desktop.locator('.project-card').count() + await desktop.locator('.featured-project').count()
+  if (filteredCount !== expected) errors.push(`${filter} filter returned ${filteredCount} projects instead of ${expected}`)
+}
+
+await desktop.getByRole('button', { name: 'Office', exact: true }).click()
+await desktop.waitForTimeout(250)
+const officeCategories = await desktop.locator('.project-card__caption > div > p').allTextContents()
+if (officeCategories.length !== 3 || officeCategories.some((category) => category !== 'Office')) {
+  errors.push(`Office filter returned unexpected categories: ${officeCategories.join(', ')}`)
+}
+const officeWidths = await desktop.locator('.project-card').evaluateAll((cards) => cards.map((card) => card.getBoundingClientRect().width))
+if (officeWidths.some((width) => width < 300)) errors.push(`Office filter produced a collapsed card: ${officeWidths.join(', ')}`)
+await desktop.locator('.project-grid').screenshot({ path: `${outputDirectory}/projects-filter-office.png` })
+
+await desktop.getByRole('button', { name: 'All', exact: true }).click()
+await desktop.waitForTimeout(150)
+await desktop.evaluate(() => window.scrollTo(0, document.body.scrollHeight / 2))
+await desktop.locator('.project-card').first().locator('a').click()
+await desktop.waitForLoadState('domcontentloaded')
+await desktop.waitForTimeout(100)
+if (!desktop.url().includes('/projects/kingsman')) errors.push('project card did not open its detail route')
+const projectScrollTop = await desktop.evaluate(() => window.scrollY)
+if (projectScrollTop > 2) errors.push(`project detail did not reset scroll position (${projectScrollTop}px)`)
+await desktop.goBack({ waitUntil: 'domcontentloaded' })
+if (!desktop.url().endsWith('/projects')) errors.push('browser back did not return to the project archive')
+await desktop.goForward({ waitUntil: 'domcontentloaded' })
+if (!desktop.url().includes('/projects/kingsman')) errors.push('browser forward did not restore the project detail route')
+
+await desktop.goto(`${baseUrl}/projects/rosado`, { waitUntil: 'domcontentloaded' })
+await checkHorizontalOverflow(desktop, 'desktop project detail')
+await desktop.locator('.project-detail__hero').screenshot({ path: `${outputDirectory}/project-detail-hero.png` })
+await desktop.locator('.project-gallery').screenshot({ path: `${outputDirectory}/project-detail-gallery.png` })
+if (!(await desktop.title()).startsWith('Rosado')) errors.push('project detail document title was not updated')
+await desktop.locator('.next-project a').click()
+await desktop.waitForTimeout(100)
+if (!desktop.url().includes('/projects/office-1')) errors.push('Next Project did not advance to the next verified project')
+
+await desktop.goto(`${baseUrl}/projects/not-a-real-project`, { waitUntil: 'domcontentloaded' })
+if (await desktop.locator('.project-not-found').count() !== 1) errors.push('invalid project slug did not render the not-found state')
+
 await desktop.goto(baseUrl, { waitUntil: 'domcontentloaded' })
 await desktop.locator('.hero__enquiry').click()
 await desktop.waitForTimeout(800)
@@ -111,6 +188,15 @@ await mobile.locator('.project-tile').first().screenshot({ path: `${outputDirect
 await mobile.locator('.menu-toggle').click()
 await mobile.waitForTimeout(400)
 await mobile.screenshot({ path: `${outputDirectory}/menu-mobile.png` })
+
+await mobile.goto(`${baseUrl}/projects`, { waitUntil: 'domcontentloaded' })
+await checkHorizontalOverflow(mobile, 'mobile projects')
+await mobile.locator('.projects-hero').screenshot({ path: `${outputDirectory}/projects-mobile-hero.png` })
+await mobile.locator('.project-card').first().screenshot({ path: `${outputDirectory}/project-card-mobile.png` })
+
+await mobile.goto(`${baseUrl}/projects/rosado`, { waitUntil: 'domcontentloaded' })
+await checkHorizontalOverflow(mobile, 'mobile project detail')
+await mobile.locator('.project-detail__hero').screenshot({ path: `${outputDirectory}/project-detail-mobile.png` })
 
 await browser.close()
 

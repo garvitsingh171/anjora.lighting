@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useLayoutEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import { Navbar } from './Navbar'
 import { Footer } from './Footer'
@@ -6,7 +6,7 @@ import { Footer } from './Footer'
 export function SiteLayout() {
   const { pathname, hash } = useLocation()
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (hash) {
       window.requestAnimationFrame(() => {
         document.querySelector(hash)?.scrollIntoView()

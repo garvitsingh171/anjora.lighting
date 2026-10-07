@@ -33,9 +33,13 @@
   gap: 1.5rem clamp(1.5rem, 3vw, 3rem);
 }
 
-.enquiry-form label { display: grid; gap: 0.55rem; }
+.enquiry-form__field {
+  display: grid;
+  align-content: start;
+  gap: 0.55rem;
+}
 
-.enquiry-form label > span {
+.enquiry-form label {
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.16em;
@@ -72,6 +76,16 @@
 .enquiry-form select:focus,
 .enquiry-form textarea:focus { border-color: var(--ink-deep); }
 
+.enquiry-form input[aria-invalid='true'],
+.enquiry-form textarea[aria-invalid='true'] { border-color: #711c28; }
+
+.enquiry-form__field-error {
+  margin: -0.15rem 0 0;
+  color: #711c28;
+  font-size: 0.78rem;
+  line-height: 1.2;
+}
+
 .enquiry-form__message,
 .enquiry-form__submit { grid-column: 1 / -1; }
 
@@ -83,11 +97,36 @@
   margin-top: 0.5rem;
 }
 
-.enquiry-form__submit p {
+.enquiry-form__status {
+  min-height: 2.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.enquiry-form__note,
+.enquiry-form__feedback {
   margin: 0;
   color: rgba(9, 20, 30, 0.65);
   font-size: 0.86rem;
+  line-height: 1.25;
 }
+
+.enquiry-form__feedback--success {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  color: var(--ink-deep);
+}
+
+.enquiry-form__feedback--success strong {
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.enquiry-form__feedback--error { color: #711c28; }
+
+.enquiry-form__botcheck { display: none; }
 
 .enquiry-form__submit button {
   display: inline-flex;
@@ -112,6 +151,16 @@
 .enquiry-form__submit button:focus-visible {
   color: var(--ink-deep);
   background: transparent;
+}
+
+.enquiry-form__submit button:disabled {
+  cursor: not-allowed;
+  opacity: 0.68;
+}
+
+.enquiry-form__submit button:disabled:hover {
+  color: var(--accent);
+  background: var(--ink-deep);
 }
 
 @media (max-width: 820px) {

@@ -57,8 +57,8 @@
 
 .project-tile--kingsman .project-tile__media { aspect-ratio: 730 / 486; }
 .project-tile--city-palace .project-tile__media { aspect-ratio: 418 / 487; }
-.project-tile--office-three .project-tile__media { aspect-ratio: 1180 / 378; }
-.project-tile--hospitality-study .project-tile__media { aspect-ratio: 367 / 378; }
+.project-tile--office-1 .project-tile__media { aspect-ratio: 1180 / 378; }
+.project-tile--turmeric .project-tile__media { aspect-ratio: 367 / 378; }
 .project-tile--gym-ajmer .project-tile__media { aspect-ratio: 774 / 378; }
 
 .project-tile__media img {
@@ -163,8 +163,8 @@
 
   .project-tile--kingsman .project-tile__media { aspect-ratio: 3 / 2; }
   .project-tile--city-palace .project-tile__media { aspect-ratio: 4 / 5; }
-  .project-tile--office-three .project-tile__media { aspect-ratio: 16 / 9; }
-  .project-tile--hospitality-study .project-tile__media { aspect-ratio: 4 / 5; }
+  .project-tile--office-1 .project-tile__media { aspect-ratio: 16 / 9; }
+  .project-tile--turmeric .project-tile__media { aspect-ratio: 4 / 5; }
   .project-tile--gym-ajmer .project-tile__media { aspect-ratio: 3 / 2; }
 
   .project-tile__location { display: none; }

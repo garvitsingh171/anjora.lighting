@@ -1,20 +1,63 @@
-import { ProjectTile } from '../components/home/ProjectTile'
-import { projects } from '../data/projects'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { useGSAP } from '@gsap/react'
+import { EnquirySection } from '../components/home/EnquirySection'
+import { FeaturedProject } from '../components/projects/FeaturedProject'
+import { ProjectFilters } from '../components/projects/ProjectFilters'
+import type { ProjectFilter } from '../components/projects/ProjectFilters'
+import { ProjectGrid } from '../components/projects/ProjectGrid'
+import { ProjectsHero } from '../components/projects/ProjectsHero'
+import { projectCategories, projects } from '../data/projects'
+import { gsap } from '../lib/gsap'
 import './Projects.css'
 
 export function Projects() {
+  const rootRef = useRef<HTMLElement>(null)
+  const [activeFilter, setActiveFilter] = useState<ProjectFilter>('All')
+
+  useEffect(() => {
+    document.title = 'Projects | Anjora Lighting'
+  }, [])
+
+  useGSAP(
+    () => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+      gsap.timeline({ defaults: { ease: 'power3.out' } })
+        .fromTo('[data-hero-line]', { yPercent: 110 }, { yPercent: 0, duration: 0.95, stagger: 0.12 })
+        .fromTo('[data-hero-item]', { autoAlpha: 0, y: 18 }, { autoAlpha: 1, y: 0, duration: 0.65, stagger: 0.08 }, '-=0.45')
+        .fromTo('[data-hero-rule]', { scaleX: 0 }, { scaleX: 1, duration: 0.8 }, '-=0.55')
+    },
+    { scope: rootRef },
+  )
+
+  const visibleProjects = useMemo(
+    () => activeFilter === 'All'
+      ? projects
+      : projects.filter((project) => project.category === activeFilter),
+    [activeFilter],
+  )
+
+  const featuredProject = visibleProjects.find((project) => project.slug === 'city-palace')
+  const gridProjects = visibleProjects.filter((project) => project.slug !== 'city-palace')
+
   return (
-    <main id="main-content" className="projects-page">
-      <header className="projects-page__hero container">
-        <p className="eyebrow">Lighting across typologies</p>
-        <div>
-          <h1 className="display-title">Selected projects</h1>
-          <p>Residential, hospitality, workplace, club, institutional and heritage lighting—each resolved from the architecture outward.</p>
+    <main ref={rootRef} id="main-content" className="projects-page">
+      <ProjectsHero count={projects.length} />
+
+      <section className="project-index container" aria-label="Project archive">
+        <div className="project-index__controls">
+          <p>{String(visibleProjects.length).padStart(2, '0')} projects</p>
+          <ProjectFilters
+            active={activeFilter}
+            categories={projectCategories}
+            onChange={setActiveFilter}
+          />
         </div>
-      </header>
-      <section className="projects-page__grid container" aria-label="Selected projects">
-        {projects.map((project) => <ProjectTile key={project.slug} project={project} />)}
+
+        {featuredProject && <FeaturedProject project={featuredProject} />}
+        <ProjectGrid projects={gridProjects} motionKey={activeFilter} />
       </section>
+
+      <EnquirySection />
     </main>
   )
 }

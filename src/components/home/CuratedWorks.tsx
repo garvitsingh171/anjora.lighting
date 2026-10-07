@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { useGSAP } from '@gsap/react'
-import { projects } from '../../data/projects'
+import { homeProjects } from '../../data/projects'
 import { gsap } from '../../lib/gsap'
 import { ProjectTile } from './ProjectTile'
 import './CuratedWorks.css'
@@ -42,13 +42,13 @@ export function CuratedWorks() {
 
       <div className="curated-works__grid container">
         <div className="curated-works__row curated-works__row--top">
-          {projects.slice(0, 2).map((project) => <ProjectTile key={project.slug} project={project} />)}
+          {homeProjects.slice(0, 2).map((project) => <ProjectTile key={project.slug} project={project} />)}
         </div>
         <div className="curated-works__row curated-works__row--middle">
-          {projects.slice(2, 3).map((project) => <ProjectTile key={project.slug} project={project} />)}
+          {homeProjects.slice(2, 3).map((project) => <ProjectTile key={project.slug} project={project} />)}
         </div>
         <div className="curated-works__row curated-works__row--bottom">
-          {projects.slice(3, 5).map((project) => <ProjectTile key={project.slug} project={project} />)}
+          {homeProjects.slice(3, 5).map((project) => <ProjectTile key={project.slug} project={project} />)}
         </div>
       </div>
     </section>
