@@ -1,16 +1,27 @@
-# React + Vite
+# Anjora Lighting
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Premium React website for Anjora Lighting, positioned as an architectural lighting consultancy.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React 19 + strict TypeScript
+- Vite
+- Tailwind CSS 4
+- GSAP, ScrollTrigger and `@gsap/react`
+- React Router
 
-## React Compiler
+## Commands
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm run dev
+npm run typecheck
+npm run lint
+npm run build
+npm run visual:qa
+```
 
-## Expanding the ESLint configuration
+`visual:qa` uses the system installation of Google Chrome through Playwright Core and saves review captures to `/tmp/anjora-visual-qa`.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Content
+
+Service, project and product content lives in `src/data`. Product photography and final catalogue specifications are deliberately marked as pending rather than represented with unrelated assets.
