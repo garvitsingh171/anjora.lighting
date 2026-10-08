@@ -19,6 +19,8 @@ export type ProjectCategory = (typeof projectCategories)[number]
 export interface ProjectImage {
   src: string
   alt: string
+  orientation?: 'landscape' | 'portrait' | 'square'
+  objectPosition?: string
 }
 
 export interface ProjectFact {
@@ -46,8 +48,13 @@ function asset(project: string, filename: string) {
   return source
 }
 
-function image(project: string, filename: string, alt: string): ProjectImage {
-  return { src: asset(project, filename), alt }
+function image(
+  project: string,
+  filename: string,
+  alt: string,
+  options: Pick<ProjectImage, 'orientation' | 'objectPosition'> = {},
+): ProjectImage {
+  return { src: asset(project, filename), alt, ...options }
 }
 
 export const projects: Project[] = [
@@ -61,7 +68,7 @@ export const projects: Project[] = [
       'Decorative statement lighting and landscape highlights are paired with RGBW lighting and Madrix-controlled programs. Dynamic colour scenes, transitions and beat-synchronised effects let the space move between a relaxed lounge atmosphere and a high-energy club environment.',
     ],
     sourceUrl: 'https://anjora.lighting/',
-    cover: image('kingsman', 'cover.jpg', 'Kingsman Club illuminated at night'),
+    cover: image('kingsman', 'cover.jpg', 'Kingsman Club illuminated at night', { orientation: 'portrait', objectPosition: 'center 54%' }),
     gallery: [],
   },
   {
@@ -74,7 +81,7 @@ export const projects: Project[] = [
       'Careful colour-temperature and fixture selection reveals stone, arches, carvings and artwork without over-lighting the architecture. Considered beam angles, glare-free fixtures and balanced warm-white tones preserve the character of the palace after dark.',
     ],
     sourceUrl: 'https://anjora.lighting/',
-    cover: image('city-palace', 'cover.jpg', 'Mubarak Mahal at City Palace illuminated at night'),
+    cover: image('city-palace', 'cover.jpg', 'Mubarak Mahal at City Palace illuminated at night', { orientation: 'landscape' }),
     gallery: [],
   },
   {
@@ -85,7 +92,7 @@ export const projects: Project[] = [
     description: ['At 135 feet tall, Rosado brings together 35,000 square feet of lounge and dining in Jaipur.'],
     facts: [{ label: 'Designer', value: 'Shubham Khandelwal' }],
     sourceUrl: 'https://anjora.lighting/project/rosado/',
-    cover: image('rosado', 'cover.jpeg', 'Rosado lounge and dining interior'),
+    cover: image('rosado', 'cover.jpeg', 'Rosado lounge and dining interior', { orientation: 'landscape', objectPosition: 'center 48%' }),
     gallery: [
       image('rosado', 'gallery-01.jpeg', 'Rosado terrace at night'),
       image('rosado', 'gallery-02.jpg', 'Rosado illuminated exterior'),
@@ -106,7 +113,7 @@ export const projects: Project[] = [
       'The Card Design Co. needed an office where the light could change with the colours of the cards, helping clients experience the work in context. The office lighting was designed to create an easy, comfortable setting for client conversations.',
     ],
     sourceUrl: 'https://anjora.lighting/project/office-1/',
-    cover: image('office-1', 'cover.jpg', 'Office 1 interior with integrated lighting'),
+    cover: image('office-1', 'cover.jpg', 'Office 1 interior with integrated lighting', { orientation: 'landscape' }),
     gallery: [
       image('office-1', 'gallery-01.jpg', 'Office 1 workspace lighting'),
       image('office-1', 'gallery-02.jpg', 'Office 1 lighting detail'),
@@ -117,7 +124,7 @@ export const projects: Project[] = [
     title: 'Facade 3',
     category: 'Facade',
     sourceUrl: 'https://anjora.lighting/project/facade-3/',
-    cover: image('facade-3', 'cover.jpg', 'Facade 3 architectural lighting'),
+    cover: image('facade-3', 'cover.jpg', 'Facade 3 architectural lighting', { orientation: 'landscape' }),
     gallery: [image('facade-3', 'gallery-01.jpg', 'Facade 3 exterior lighting view')],
   },
   {
@@ -129,7 +136,7 @@ export const projects: Project[] = [
       'The scheme can create accent and drama around products or provide uniform brightness when needed, while a high colour-rendering index helps preserve the true colours of the merchandise.',
     ],
     sourceUrl: 'https://anjora.lighting/project/turmeric/',
-    cover: image('turmeric', 'cover.jpg', 'Turmeric retail interior with track lighting'),
+    cover: image('turmeric', 'cover.jpg', 'Turmeric retail interior with track lighting', { orientation: 'landscape' }),
     gallery: [],
   },
   {
@@ -138,7 +145,7 @@ export const projects: Project[] = [
     category: 'Clubs',
     description: ['A club with a heritage character, designed with chromatic colour that changes when light falls across the surfaces.'],
     sourceUrl: 'https://anjora.lighting/project/baramasi/',
-    cover: image('baramasi', 'cover.jpg', 'Peacock-gate lighting feature at Baramasi'),
+    cover: image('baramasi', 'cover.jpg', 'Peacock-gate lighting feature at Baramasi', { orientation: 'portrait', objectPosition: 'center 40%' }),
     gallery: [image('baramasi', 'gallery-01.jpg', 'Baramasi club lighting view')],
   },
   {
@@ -147,7 +154,7 @@ export const projects: Project[] = [
     category: 'Gym',
     location: 'Ajmer',
     sourceUrl: 'https://anjora.lighting/project/gym-ajmer/',
-    cover: image('gym-ajmer', 'cover.jpg', 'Gym Ajmer interior lighting'),
+    cover: image('gym-ajmer', 'cover.jpg', 'Gym Ajmer interior lighting', { orientation: 'landscape', objectPosition: 'center 52%' }),
     gallery: [
       image('gym-ajmer', 'gallery-01.jpg', 'Gym Ajmer illuminated training area'),
       image('gym-ajmer', 'gallery-02.jpg', 'Gym Ajmer ceiling lighting detail'),
@@ -162,7 +169,7 @@ export const projects: Project[] = [
     location: 'Jaipur',
     description: ['VR Theme Park brings a new gaming universe and a collection of virtual experiences to Jaipur.'],
     sourceUrl: 'https://anjora.lighting/project/vr-theme-park/',
-    cover: image('vr-theme-park', 'cover.jpg', 'VR Theme Park immersive lighting'),
+    cover: image('vr-theme-park', 'cover.jpg', 'VR Theme Park immersive lighting', { orientation: 'portrait', objectPosition: 'center 48%' }),
     gallery: [
       image('vr-theme-park', 'gallery-01.jpg', 'VR Theme Park interior lighting'),
       image('vr-theme-park', 'gallery-02.jpg', 'VR Theme Park gaming environment'),
@@ -175,7 +182,7 @@ export const projects: Project[] = [
     category: 'Clubs',
     description: ['A rooftop bar and café shaped around hut-like pitched roofs. The lighting design gives the late-night club a vivid, recognisable colour presence against the sky.'],
     sourceUrl: 'https://anjora.lighting/project/code-black/',
-    cover: image('code-black', 'cover.jpg', 'Code Black rooftop lighting'),
+    cover: image('code-black', 'cover.jpg', 'Code Black rooftop lighting', { orientation: 'landscape' }),
     gallery: [image('code-black', 'gallery-01.jpg', 'Code Black club lighting view')],
   },
   {
@@ -184,7 +191,7 @@ export const projects: Project[] = [
     category: 'Office',
     status: 'Ongoing',
     sourceUrl: 'https://anjora.lighting/project/office-2/',
-    cover: image('office-2', 'cover.jpg', 'Office 2 interior lighting study'),
+    cover: image('office-2', 'cover.jpg', 'Office 2 interior lighting study', { orientation: 'portrait' }),
     gallery: [image('office-2', 'gallery-01.jpg', 'Office 2 workspace lighting')],
   },
   {
@@ -192,7 +199,7 @@ export const projects: Project[] = [
     title: 'Facade 2',
     category: 'Facade',
     sourceUrl: 'https://anjora.lighting/project/facade2/',
-    cover: image('facade-2', 'cover.jpg', 'Facade 2 architectural lighting'),
+    cover: image('facade-2', 'cover.jpg', 'Facade 2 architectural lighting', { orientation: 'square' }),
     gallery: [image('facade-2', 'gallery-01.jpg', 'Facade 2 exterior lighting view')],
   },
   {
@@ -200,7 +207,7 @@ export const projects: Project[] = [
     title: 'Neo',
     category: 'Clubs',
     sourceUrl: 'https://anjora.lighting/project/neo/',
-    cover: image('neo', 'cover.jpeg', 'Neo hospitality interior lighting'),
+    cover: image('neo', 'cover.jpeg', 'Neo hospitality interior lighting', { orientation: 'landscape' }),
     gallery: [
       image('neo', 'gallery-01.jpg', 'Neo lighting detail'),
       image('neo', 'gallery-02.jpg', 'Neo interior lighting view'),
@@ -211,7 +218,7 @@ export const projects: Project[] = [
     title: 'Hobs and Taters',
     category: 'Clubs',
     sourceUrl: 'https://anjora.lighting/project/hobs-and-taters/',
-    cover: image('hobs-and-taters', 'cover.jpg', 'Hobs and Taters club lighting'),
+    cover: image('hobs-and-taters', 'cover.jpg', 'Hobs and Taters club lighting', { orientation: 'landscape' }),
     gallery: [
       image('hobs-and-taters', 'gallery-01.jpg', 'Hobs and Taters interior lighting'),
       image('hobs-and-taters', 'gallery-02.jpg', 'Hobs and Taters illuminated interior'),
@@ -222,7 +229,7 @@ export const projects: Project[] = [
     title: 'Ohana',
     category: 'Clubs',
     sourceUrl: 'https://anjora.lighting/project/ohana/',
-    cover: image('ohana', 'cover.jpg', 'Ohana club lighting'),
+    cover: image('ohana', 'cover.jpg', 'Ohana club lighting', { orientation: 'landscape' }),
     gallery: [
       image('ohana', 'gallery-01.jpg', 'Ohana hospitality lighting detail'),
       image('ohana', 'gallery-02.jpg', 'Ohana interior lighting'),
@@ -236,7 +243,7 @@ export const projects: Project[] = [
     title: 'Dyore',
     category: 'Clubs',
     sourceUrl: 'https://anjora.lighting/project/dyore/',
-    cover: image('dyore', 'cover.jpg', 'Dyore club lighting'),
+    cover: image('dyore', 'cover.jpg', 'Dyore club lighting', { orientation: 'landscape' }),
     gallery: [
       image('dyore', 'gallery-01.png', 'Dyore interior lighting view'),
       image('dyore', 'gallery-02.png', 'Dyore hospitality lighting'),
@@ -247,7 +254,7 @@ export const projects: Project[] = [
     title: 'Boozup',
     category: 'Clubs',
     sourceUrl: 'https://anjora.lighting/project/boozup/',
-    cover: image('boozup', 'cover.webp', 'Boozup bar lighting'),
+    cover: image('boozup', 'cover.webp', 'Boozup bar lighting', { orientation: 'landscape' }),
     gallery: [
       image('boozup', 'gallery-01.png', 'Boozup club interior'),
       image('boozup', 'gallery-02.jpg', 'Boozup lighting detail'),
@@ -260,7 +267,7 @@ export const projects: Project[] = [
     category: 'Office',
     status: 'Ongoing',
     sourceUrl: 'https://anjora.lighting/project/office-3/',
-    cover: image('office-3', 'cover.jpg', 'Office 3 interior lighting study'),
+    cover: image('office-3', 'cover.jpg', 'Office 3 interior lighting study', { orientation: 'landscape' }),
     gallery: [image('office-3', 'gallery-01.jpg', 'Office 3 workspace lighting')],
   },
   {
@@ -268,7 +275,7 @@ export const projects: Project[] = [
     title: 'Facade 1',
     category: 'Facade',
     sourceUrl: 'https://anjora.lighting/project/facade-1/',
-    cover: image('facade-1', 'cover.jpg', 'Facade 1 architectural lighting'),
+    cover: image('facade-1', 'cover.jpg', 'Facade 1 architectural lighting', { orientation: 'landscape' }),
     gallery: [],
   },
   {
@@ -277,7 +284,7 @@ export const projects: Project[] = [
     category: 'Theatre',
     status: 'Ongoing',
     sourceUrl: 'https://anjora.lighting/project/theatre/',
-    cover: image('theatre', 'cover.jpg', 'Theatre interior lighting study'),
+    cover: image('theatre', 'cover.jpg', 'Theatre interior lighting study', { orientation: 'landscape' }),
     gallery: [image('theatre', 'gallery-01.jpg', 'Theatre lighting view')],
   },
 ]

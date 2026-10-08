@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useGSAP } from '@gsap/react'
 import { EnquirySection } from '../components/home/EnquirySection'
-import { FeaturedProject } from '../components/projects/FeaturedProject'
 import { ProjectFilters } from '../components/projects/ProjectFilters'
 import type { ProjectFilter } from '../components/projects/ProjectFilters'
 import { ProjectGrid } from '../components/projects/ProjectGrid'
@@ -36,9 +35,6 @@ export function Projects() {
     [activeFilter],
   )
 
-  const featuredProject = visibleProjects.find((project) => project.slug === 'city-palace')
-  const gridProjects = visibleProjects.filter((project) => project.slug !== 'city-palace')
-
   return (
     <main ref={rootRef} id="main-content" className="projects-page">
       <ProjectsHero count={projects.length} />
@@ -53,8 +49,7 @@ export function Projects() {
           />
         </div>
 
-        {featuredProject && <FeaturedProject project={featuredProject} />}
-        <ProjectGrid projects={gridProjects} motionKey={activeFilter} />
+        <ProjectGrid projects={visibleProjects} motionKey={activeFilter} />
       </section>
 
       <EnquirySection />

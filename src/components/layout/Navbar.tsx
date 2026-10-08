@@ -14,6 +14,7 @@ const navItems = [
 export function Navbar() {
   const [open, setOpen] = useState(false)
   const { pathname } = useLocation()
+  const isProjectRoute = pathname === '/projects' || pathname.startsWith('/projects/')
 
   useEffect(() => {
     document.body.classList.toggle('menu-open', open)
@@ -29,7 +30,10 @@ export function Navbar() {
   }, [])
 
   return (
-    <header className={`site-header${pathname === '/' ? '' : ' site-header--inner'}`} data-hero-ui>
+    <header
+      className={`site-header${pathname === '/' ? '' : ' site-header--inner'}${isProjectRoute ? ' site-header--projects' : ''}`}
+      data-hero-ui
+    >
       <Link className="brand-logo" to="/" aria-label="Anjora Lighting home">
         <img src={anjoraLogo} alt="Anjora Lighting" width="1600" height="570" />
       </Link>

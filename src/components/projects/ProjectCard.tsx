@@ -1,27 +1,42 @@
 import { Link } from 'react-router-dom'
 import type { Project } from '../../data/projects'
 
-const cardSizes = ['wide', 'portrait', 'regular', 'regular', 'wide', 'portrait'] as const
+export type ProjectTileSize = 'large' | 'compact' | 'full' | 'balanced'
 
-export function ProjectCard({ project, index }: { project: Project; index: number }) {
+interface ProjectCardProps {
+  project: Project
+  size: ProjectTileSize
+  priority?: boolean
+  parallax?: boolean
+}
+
+export function ProjectCard({ project, size, priority = false, parallax = false }: ProjectCardProps) {
   return (
-    <article className="project-card" data-project-card data-size={cardSizes[index % cardSizes.length]}>
-      <Link to={`/projects/${project.slug}`} aria-label={`View ${project.title} project`}>
+    <article
+      className="project-card"
+      data-project-card
+      data-tile-size={size}
+      data-orientation={project.cover.orientation ?? 'landscape'}
+      data-project-parallax={parallax || undefined}
+    >
+      <Link className="project-card__link" to={`/projects/${project.slug}`} aria-label={`View ${project.title} project`}>
         <div className="project-card__media">
           <img
             src={project.cover.src}
             alt={project.cover.alt}
-            loading={index < 3 ? 'eager' : 'lazy'}
+            loading={priority ? 'eager' : 'lazy'}
             decoding="async"
+            style={{ objectPosition: project.cover.objectPosition ?? 'center' }}
           />
-          <span className="project-card__action" aria-hidden="true">View ↗</span>
-        </div>
-        <div className="project-card__caption">
-          <div>
+          <div className="project-card__overlay" />
+          <div className="project-card__caption">
             <h2>{project.title}</h2>
-            <p>{project.category}</p>
+            <p>
+              <span>{project.category}</span>
+              {project.location && <span>{project.location}</span>}
+            </p>
           </div>
-          {project.location && <p>{project.location}</p>}
+          <span className="project-card__action" aria-hidden="true">View project <b>↗</b></span>
         </div>
       </Link>
     </article>

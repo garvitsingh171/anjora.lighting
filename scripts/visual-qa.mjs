@@ -81,9 +81,35 @@ await desktop.locator('.product-detail__hero').screenshot({ path: `${outputDirec
 await desktop.goto(`${baseUrl}/projects`, { waitUntil: 'domcontentloaded' })
 await checkHorizontalOverflow(desktop, 'desktop projects')
 await desktop.locator('.projects-hero').screenshot({ path: `${outputDirectory}/projects-hero.png` })
-await desktop.locator('.featured-project').screenshot({ path: `${outputDirectory}/projects-featured.png` })
-const projectCount = await desktop.locator('.project-card').count() + await desktop.locator('.featured-project').count()
+const projectGroups = desktop.locator('[data-project-group]')
+for (let index = 0; index < await projectGroups.count(); index += 1) {
+  await projectGroups.nth(index).scrollIntoViewIfNeeded()
+  await desktop.waitForTimeout(60)
+}
+await desktop.locator('.project-grid').screenshot({ path: `${outputDirectory}/projects-grid.png` })
+const projectCount = await desktop.locator('.project-card').count()
 if (projectCount !== 20) errors.push(`projects inventory rendered ${projectCount} entries instead of 20`)
+const projectLayout = await desktop.locator('.project-grid').evaluate((grid) => ({
+  gap: Number.parseFloat(getComputedStyle(grid).rowGap),
+  objectFits: [...grid.querySelectorAll('.project-card__media img')].map((image) => getComputedStyle(image).objectFit),
+  reducedMotion: {
+    clipPath: getComputedStyle(grid.querySelector('.project-card__media')).clipPath,
+    captionOpacity: getComputedStyle(grid.querySelector('.project-card__caption')).opacity,
+  },
+  groups: [...grid.querySelectorAll('[data-project-group]')].map((group) => ({
+    cards: group.querySelectorAll('[data-project-card]').length,
+    heights: [...group.querySelectorAll('.project-card__media')].map((media) => media.getBoundingClientRect().height),
+  })),
+}))
+if (projectLayout.gap > 20) errors.push(`desktop project group gap is ${projectLayout.gap}px instead of 20px or less`)
+if (projectLayout.objectFits.some((value) => value !== 'cover')) errors.push('one or more project images do not use object-fit: cover')
+if (projectLayout.reducedMotion.clipPath !== 'none' || projectLayout.reducedMotion.captionOpacity !== '1') {
+  errors.push(`reduced motion did not leave project media fully visible (${JSON.stringify(projectLayout.reducedMotion)})`)
+}
+if (projectLayout.groups.some((group) => group.cards < 1 || group.cards > 2)) errors.push('editorial grouping produced an invalid group size')
+if (projectLayout.groups.some((group) => group.heights.length === 2 && Math.abs(group.heights[0] - group.heights[1]) > 2)) {
+  errors.push('paired project tiles do not share a coherent row height')
+}
 const projectHrefs = await desktop.locator('a[href^="/projects/"]').evaluateAll((links) => (
   [...new Set(links.map((link) => link.getAttribute('href')).filter(Boolean))]
 ))
@@ -115,13 +141,20 @@ await desktop.goto(`${baseUrl}/projects`, { waitUntil: 'domcontentloaded' })
 for (const [filter, expected] of Object.entries({ Clubs: 10, Heritage: 1, Commercial: 1, Facade: 3, Gym: 1, Office: 3, Theatre: 1 })) {
   await desktop.getByRole('button', { name: filter, exact: true }).click()
   await desktop.waitForTimeout(50)
-  const filteredCount = await desktop.locator('.project-card').count() + await desktop.locator('.featured-project').count()
+  const filteredCount = await desktop.locator('.project-card').count()
   if (filteredCount !== expected) errors.push(`${filter} filter returned ${filteredCount} projects instead of ${expected}`)
+  const filteredGroups = await desktop.locator('[data-project-group]').evaluateAll((groups) => groups.map((group) => ({
+    count: group.querySelectorAll('[data-project-card]').length,
+    fullWidth: group.classList.contains('project-group--full-width'),
+  })))
+  if (filteredGroups.some((group) => group.count < 1 || group.count > 2)) errors.push(`${filter} filter produced an invalid editorial group`)
+  const lastGroup = filteredGroups.at(-1)
+  if (lastGroup?.count === 1 && !lastGroup.fullWidth) errors.push(`${filter} filter left a narrow orphan project`)
 }
 
 await desktop.getByRole('button', { name: 'Office', exact: true }).click()
 await desktop.waitForTimeout(250)
-const officeCategories = await desktop.locator('.project-card__caption > div > p').allTextContents()
+const officeCategories = await desktop.locator('.project-card__caption p span:first-child').allTextContents()
 if (officeCategories.length !== 3 || officeCategories.some((category) => category !== 'Office')) {
   errors.push(`Office filter returned unexpected categories: ${officeCategories.join(', ')}`)
 }
@@ -197,6 +230,41 @@ await mobile.locator('.project-card').first().screenshot({ path: `${outputDirect
 await mobile.goto(`${baseUrl}/projects/rosado`, { waitUntil: 'domcontentloaded' })
 await checkHorizontalOverflow(mobile, 'mobile project detail')
 await mobile.locator('.project-detail__hero').screenshot({ path: `${outputDirectory}/project-detail-mobile.png` })
+
+const motion = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 })
+await motion.goto(`${baseUrl}/projects`, { waitUntil: 'domcontentloaded' })
+const firstMotionGroup = motion.locator('[data-project-group]').first()
+await firstMotionGroup.scrollIntoViewIfNeeded()
+await motion.waitForTimeout(1400)
+const revealedState = await firstMotionGroup.evaluate((group) => ({
+  clipPath: getComputedStyle(group.querySelector('.project-card__media')).clipPath,
+  captionOpacity: getComputedStyle(group.querySelector('.project-card__caption')).opacity,
+}))
+if (!revealedState.clipPath.includes('0%') || revealedState.captionOpacity !== '1') {
+  errors.push(`project reveal animation did not settle visibly (${JSON.stringify(revealedState)})`)
+}
+await motion.close()
+
+const responsive = await browser.newPage({ viewport: { width: 375, height: 800 }, deviceScaleFactor: 1 })
+await responsive.emulateMedia({ reducedMotion: 'reduce' })
+for (const width of [375, 390, 430, 768, 1024, 1440]) {
+  await responsive.setViewportSize({ width, height: width < 768 ? 820 : 900 })
+  await responsive.goto(`${baseUrl}/projects`, { waitUntil: 'domcontentloaded' })
+  await checkHorizontalOverflow(responsive, `${width}px projects`)
+  const layout = await responsive.locator('.project-grid').evaluate((grid) => ({
+    gap: Number.parseFloat(getComputedStyle(grid).rowGap),
+    cardCount: grid.querySelectorAll('[data-project-card]').length,
+    escapedCards: [...grid.querySelectorAll('[data-project-card]')].filter((card) => {
+      const bounds = card.getBoundingClientRect()
+      return bounds.left < -1 || bounds.right > document.documentElement.clientWidth + 1 || card.scrollWidth > card.clientWidth + 1
+    }).length,
+  }))
+  const maximumGap = width < 768 ? 14 : 20
+  if (layout.gap > maximumGap) errors.push(`${width}px project gap is ${layout.gap}px`)
+  if (layout.cardCount !== 20) errors.push(`${width}px project layout rendered ${layout.cardCount} cards`)
+  if (layout.escapedCards) errors.push(`${width}px project layout has ${layout.escapedCards} overflowing cards`)
+}
+await responsive.close()
 
 await browser.close()
 
