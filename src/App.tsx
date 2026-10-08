@@ -1,6 +1,8 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { SiteLayout } from './components/layout/SiteLayout'
 import { Home } from './pages/Home'
+import { Blog } from './pages/Blog'
+import { BlogDetail } from './pages/BlogDetail'
 import { PlaceholderPage } from './pages/PlaceholderPage'
 import { ProductDetail } from './pages/ProductDetail'
 import { Products } from './pages/Products'
@@ -17,7 +19,8 @@ export default function App() {
         <Route path="products" element={<Products />} />
         <Route path="products/:slug" element={<ProductDetail />} />
         <Route path="research" element={<PlaceholderPage title="Research" />} />
-        <Route path="blog" element={<PlaceholderPage title="Journal" />} />
+        <Route path="blog" element={<Blog />} />
+        <Route path="blog/:slug" element={<BlogDetail />} />
         <Route path="about" element={<PlaceholderPage title="About Anjora" />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>

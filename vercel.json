@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/2026/01/:day/:slug",
+      "destination": "/blog/:slug",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

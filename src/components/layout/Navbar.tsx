@@ -15,6 +15,7 @@ export function Navbar() {
   const [open, setOpen] = useState(false)
   const { pathname } = useLocation()
   const isProjectRoute = pathname === '/projects' || pathname.startsWith('/projects/')
+  const isBlogRoute = pathname === '/blog' || pathname.startsWith('/blog/')
 
   useEffect(() => {
     document.body.classList.toggle('menu-open', open)
@@ -31,7 +32,7 @@ export function Navbar() {
 
   return (
     <header
-      className={`site-header${pathname === '/' ? '' : ' site-header--inner'}${isProjectRoute ? ' site-header--projects' : ''}`}
+      className={`site-header${pathname === '/' ? '' : ' site-header--inner'}${isProjectRoute ? ' site-header--projects' : ''}${isBlogRoute ? ' site-header--blog' : ''}`}
       data-hero-ui
     >
       <Link className="brand-logo" to="/" aria-label="Anjora Lighting home">

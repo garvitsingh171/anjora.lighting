@@ -4,6 +4,7 @@ import { CuratedWorks } from '../components/home/CuratedWorks'
 import { ConsultancyProcess } from '../components/home/ConsultancyProcess'
 import { ProductPreview } from '../components/home/ProductPreview'
 import { EnquirySection } from '../components/home/EnquirySection'
+import { InsightsPreview } from '../components/home/InsightsPreview'
 
 export function Home() {
   return (
@@ -13,6 +14,7 @@ export function Home() {
       <CuratedWorks />
       <ConsultancyProcess />
       <ProductPreview />
+      <InsightsPreview />
       <EnquirySection />
     </main>
   )

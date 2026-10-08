@@ -10,6 +10,7 @@
     "typecheck": "tsc -b --pretty false",
     "enquiry:qa": "node scripts/enquiry-qa.mjs",
     "visual:qa": "node scripts/visual-qa.mjs",
+    "blog:qa": "node scripts/blog-qa.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
