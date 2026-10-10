@@ -10,6 +10,7 @@ export function CuratedWorks() {
 
   useGSAP(
     () => {
+      if (!sectionRef.current) return
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
       gsap.utils.toArray<HTMLElement>('[data-project-tile]').forEach((tile) => {

@@ -11,6 +11,8 @@ export function InsightsPreview() {
 
   useGSAP(
     () => {
+      const section = rootRef.current
+      if (!section) return
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
       gsap.fromTo('[data-home-insight]', { autoAlpha: 0, y: 28 }, {
         autoAlpha: 1,
@@ -18,7 +20,7 @@ export function InsightsPreview() {
         duration: 0.75,
         stagger: 0.08,
         ease: 'power3.out',
-        scrollTrigger: { trigger: rootRef.current, start: 'top 78%', once: true },
+        scrollTrigger: { trigger: section, start: 'top 78%', once: true },
       })
     },
     { scope: rootRef },

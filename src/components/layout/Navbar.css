@@ -62,7 +62,8 @@
 .site-header--inner .brand-logo img { filter: none; }
 
 .site-header--projects .brand-logo img,
-.site-header--blog .brand-logo img { filter: invert(1); }
+.site-header--blog .brand-logo img,
+.site-header--about .brand-logo img { filter: invert(1); }
 
 .site-header--inner .desktop-nav {
   border-color: rgba(241, 240, 233, 0.14);

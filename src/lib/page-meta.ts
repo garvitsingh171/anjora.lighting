@@ -5,6 +5,7 @@ interface PageMeta {
   description: string
   canonical: string
   image?: string
+  ogType?: 'website' | 'article'
   structuredData?: Record<string, unknown>
 }
 
@@ -24,7 +25,7 @@ export function usePageMeta(meta: PageMeta) {
     upsertMeta('meta[name="description"]', 'name', 'description', meta.description)
     upsertMeta('meta[property="og:title"]', 'property', 'og:title', meta.title)
     upsertMeta('meta[property="og:description"]', 'property', 'og:description', meta.description)
-    upsertMeta('meta[property="og:type"]', 'property', 'og:type', meta.structuredData ? 'article' : 'website')
+    upsertMeta('meta[property="og:type"]', 'property', 'og:type', meta.ogType ?? (meta.structuredData ? 'article' : 'website'))
     if (meta.image) upsertMeta('meta[property="og:image"]', 'property', 'og:image', meta.image)
 
     let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]')
@@ -46,5 +47,5 @@ export function usePageMeta(meta: PageMeta) {
     return () => {
       jsonLd.remove()
     }
-  }, [meta.canonical, meta.description, meta.image, meta.structuredData, meta.title])
+  }, [meta.canonical, meta.description, meta.image, meta.ogType, meta.structuredData, meta.title])
 }

@@ -3,6 +3,7 @@ import { SiteLayout } from './components/layout/SiteLayout'
 import { Home } from './pages/Home'
 import { Blog } from './pages/Blog'
 import { BlogDetail } from './pages/BlogDetail'
+import { About } from './pages/About'
 import { PlaceholderPage } from './pages/PlaceholderPage'
 import { ProductDetail } from './pages/ProductDetail'
 import { Products } from './pages/Products'
@@ -21,7 +22,8 @@ export default function App() {
         <Route path="research" element={<PlaceholderPage title="Research" />} />
         <Route path="blog" element={<Blog />} />
         <Route path="blog/:slug" element={<BlogDetail />} />
-        <Route path="about" element={<PlaceholderPage title="About Anjora" />} />
+        <Route path="about-us" element={<About />} />
+        <Route path="about" element={<Navigate to="/about-us" replace />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>

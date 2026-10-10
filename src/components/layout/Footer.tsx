@@ -25,7 +25,7 @@ export function Footer() {
           <Link to="/products">Products</Link>
           <Link to="/research">Research</Link>
           <Link to="/blog">Blog</Link>
-          <Link to="/about">About Us</Link>
+          <Link to="/about-us">About Us</Link>
         </nav>
       </div>
 
