@@ -6,6 +6,7 @@ import { BlogHero } from '../components/blog/BlogHero'
 import { EnquirySection } from '../components/home/EnquirySection'
 import { blogPosts, featuredBlogPost, formatBlogDate } from '../data/blogs'
 import { gsap } from '../lib/gsap'
+import { EASE_IN_OUT, EASE_REVEAL, prefersReducedMotion } from '../lib/motion'
 import { usePageMeta } from '../lib/page-meta'
 import './Blog.css'
 
@@ -21,17 +22,17 @@ export function Blog() {
 
   useGSAP(
     () => {
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-      gsap.timeline({ defaults: { ease: 'power3.out' } })
+      if (prefersReducedMotion()) return
+      gsap.timeline({ defaults: { ease: EASE_REVEAL } })
         .fromTo('[data-blog-hero-title]', { yPercent: 110 }, { yPercent: 0, duration: 0.95 })
         .fromTo('[data-blog-hero-item]', { autoAlpha: 0, y: 18 }, { autoAlpha: 1, y: 0, duration: 0.6, stagger: 0.1 }, '-=0.5')
         .fromTo('[data-blog-hero-rule]', { scaleX: 0 }, { scaleX: 1, duration: 0.8 }, '-=0.45')
 
       gsap.timeline({
-        scrollTrigger: { trigger: '[data-featured-story]', start: 'top 88%', once: true },
+        scrollTrigger: { trigger: '[data-featured-story]', start: 'top 88%', once: true, fastScrollEnd: true },
       })
-        .fromTo('[data-featured-media]', { clipPath: 'inset(100% 0 0 0)' }, { clipPath: 'inset(0% 0 0 0)', duration: 1, ease: 'power3.inOut' })
-        .fromTo('[data-featured-media] img', { scale: 1.06 }, { scale: 1, duration: 1.2, ease: 'power3.out' }, 0)
+        .fromTo('[data-featured-media]', { clipPath: 'inset(100% 0 0 0)' }, { clipPath: 'inset(0% 0 0 0)', duration: 1, ease: EASE_IN_OUT })
+        .fromTo('[data-featured-media] img', { scale: 1.06 }, { scale: 1, duration: 1.2, ease: EASE_REVEAL }, 0)
         .fromTo('[data-featured-copy]', { autoAlpha: 0, y: 18 }, { autoAlpha: 1, y: 0, duration: 0.65 }, 0.45)
     },
     { scope: rootRef },

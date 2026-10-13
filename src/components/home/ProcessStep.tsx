@@ -10,7 +10,7 @@ export function ProcessStep({ stage, expanded, onActivate }: ProcessStepProps) {
   const contentId = `process-${stage.number}`
 
   return (
-    <li className="process-step" data-expanded={expanded}>
+    <li className="process-step" data-expanded={expanded} data-process-step>
       <button
         type="button"
         aria-expanded={expanded}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import anjoraLogo from '../../assets/branding/anjora-logo.png'
+import { ThemeToggle } from './ThemeToggle'
 import './Navbar.css'
 
 const navItems = [
@@ -13,10 +14,14 @@ const navItems = [
 
 export function Navbar() {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const [pastHero, setPastHero] = useState(false)
   const { pathname } = useLocation()
   const isProjectRoute = pathname === '/projects' || pathname.startsWith('/projects/')
+  const isProjectDetail = pathname.startsWith('/projects/')
   const isBlogRoute = pathname === '/blog' || pathname.startsWith('/blog/')
   const isAboutRoute = pathname === '/about-us'
+  const isHeroContext = pathname === '/' || isProjectDetail
 
   useEffect(() => {
     document.body.classList.toggle('menu-open', open)
@@ -31,9 +36,29 @@ export function Navbar() {
     return () => window.removeEventListener('keydown', closeOnEscape)
   }, [])
 
+  useEffect(() => {
+    let frame = 0
+    const updateScrollState = () => {
+      window.cancelAnimationFrame(frame)
+      frame = window.requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 48)
+        setPastHero(isHeroContext && window.scrollY > window.innerHeight * 0.72)
+      })
+    }
+
+    updateScrollState()
+    window.addEventListener('scroll', updateScrollState, { passive: true })
+    window.addEventListener('resize', updateScrollState)
+    return () => {
+      window.cancelAnimationFrame(frame)
+      window.removeEventListener('scroll', updateScrollState)
+      window.removeEventListener('resize', updateScrollState)
+    }
+  }, [isHeroContext])
+
   return (
     <header
-      className={`site-header${pathname === '/' ? '' : ' site-header--inner'}${isProjectRoute ? ' site-header--projects' : ''}${isBlogRoute ? ' site-header--blog' : ''}${isAboutRoute ? ' site-header--about' : ''}`}
+      className={`site-header${pathname === '/' ? '' : ' site-header--inner'}${isProjectRoute ? ' site-header--projects' : ''}${isBlogRoute ? ' site-header--blog' : ''}${isAboutRoute ? ' site-header--about' : ''}${isHeroContext ? ' site-header--hero-context' : ''}${scrolled ? ' site-header--scrolled' : ''}${pastHero ? ' site-header--past-hero' : ''}`}
       data-hero-ui
     >
       <Link className="brand-logo" to="/" aria-label="Anjora Lighting home">
@@ -44,19 +69,24 @@ export function Navbar() {
         {navItems.map((item) => (
           <NavLink key={item.to} to={item.to}>{item.label}</NavLink>
         ))}
+        <span className="desktop-nav__divider" aria-hidden="true" />
+        <ThemeToggle className="theme-toggle--desktop" />
       </nav>
 
-      <button
-        className="menu-toggle"
-        type="button"
-        aria-expanded={open}
-        aria-controls="mobile-navigation"
-        aria-label={open ? 'Close menu' : 'Open menu'}
-        onClick={() => setOpen((current) => !current)}
-      >
-        <span />
-        <span />
-      </button>
+      <div className="mobile-header-controls">
+        <ThemeToggle className="theme-toggle--mobile" />
+        <button
+          className="menu-toggle"
+          type="button"
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          onClick={() => setOpen((current) => !current)}
+        >
+          <span />
+          <span />
+        </button>
+      </div>
 
       <div
         className="mobile-menu"

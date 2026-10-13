@@ -14,8 +14,8 @@ export function LightingPhilosophy() {
         <div className="about-philosophy__grid container">
           <div className="about-philosophy__sticky">
             <div className="about-section-label" data-story-reveal>
-              <span>02</span>
-              <p className="eyebrow">How we think</p>
+              <span>05</span>
+              <p className="eyebrow">Light as a design tool</p>
             </div>
             <h2 id="philosophy-title" className="display-title" data-story-reveal>
               Light belongs in the same conversation as form, scale and material.

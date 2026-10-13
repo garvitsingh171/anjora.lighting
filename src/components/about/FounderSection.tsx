@@ -35,8 +35,8 @@ export function FounderSection() {
     <section className="about-founder container" aria-labelledby="founder-title">
       <div className="about-founder__visual">
         <div className="about-section-label" data-story-reveal>
-          <span>03</span>
-          <p className="eyebrow">Shining innovation</p>
+          <span>02</span>
+          <p className="eyebrow">Founder / Director</p>
         </div>
         <div className="about-founder__portrait" data-founder-portrait>
           <img
@@ -53,10 +53,13 @@ export function FounderSection() {
       </div>
 
       <article className="about-founder__story">
-        <header data-founder-copy>
-          <p className="eyebrow">Meet the director</p>
-          <h2 id="founder-title" className="display-title">Shubham<br />Khandelwal</h2>
-          <p className="about-founder__role">Director, Anjora Lighting</p>
+        <header>
+          <p className="eyebrow" data-founder-copy>Meet the director</p>
+          <h2 id="founder-title" className="display-title" aria-label="Shubham Khandelwal">
+            <span className="about-founder__name-line"><span data-founder-name-line>Shubham</span></span>
+            <span className="about-founder__name-line"><span data-founder-name-line>Khandelwal</span></span>
+          </h2>
+          <p className="about-founder__role" data-founder-copy>Director, Anjora Lighting</p>
         </header>
 
         <div className="about-founder__biography" data-founder-copy>

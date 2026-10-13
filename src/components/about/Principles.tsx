@@ -19,7 +19,7 @@ export function Principles() {
       <div className="about-principles__heading" data-story-reveal>
         <div className="about-section-label">
           <span>04</span>
-          <p className="eyebrow">What guides our work</p>
+          <p className="eyebrow">What Anjora believes</p>
         </div>
         <h2 id="principles-title" className="display-title">Designed to be felt.<br />Detailed to perform.</h2>
       </div>

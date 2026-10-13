@@ -1,4 +1,7 @@
-.site-footer { background: var(--ink); }
+.site-footer {
+  color: var(--color-footer-text);
+  background: var(--color-footer-bg);
+}
 
 .site-footer__main {
   display: grid;
@@ -22,20 +25,20 @@
 .site-footer__brand > p {
   max-width: 18rem;
   margin: 1.2rem 0 0;
-  color: var(--muted);
+  color: var(--color-footer-muted);
   font-size: 1.1rem;
 }
 
 .site-footer address {
   display: grid;
   gap: 0.65rem;
-  color: var(--muted);
+  color: var(--color-footer-muted);
   font-style: normal;
 }
 
 .site-footer address p {
   margin: 0 0 0.5rem;
-  color: var(--paper);
+  color: var(--color-footer-text);
   font-size: 0.73rem;
   font-weight: 600;
   letter-spacing: 0.16em;
@@ -50,16 +53,35 @@
   gap: 0.6rem;
 }
 
-.site-footer__main nav a { color: var(--muted); }
-.site-footer__main nav a:hover { color: var(--paper); }
+.site-footer__main nav a {
+  position: relative;
+  width: fit-content;
+  color: var(--color-footer-muted);
+}
+
+.site-footer__main nav a::after {
+  position: absolute;
+  right: 0;
+  bottom: -0.15rem;
+  left: 0;
+  height: 1px;
+  content: '';
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--motion-fast) var(--ease-ui);
+}
+.site-footer__main nav a:hover { color: var(--color-footer-text); }
+.site-footer__main nav a:hover::after,
+.site-footer__main nav a:focus-visible::after { transform: scaleX(1); }
 
 .site-footer__legal {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
   padding-block: 1.2rem;
-  border-top: 1px solid var(--line);
-  color: rgba(241, 240, 233, 0.46);
+  border-top: 1px solid var(--color-footer-line);
+  color: var(--color-footer-legal);
   font-size: 0.68rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;

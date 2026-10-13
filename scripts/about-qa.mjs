@@ -36,6 +36,15 @@ async function checkOverflow(page, label) {
   }
 }
 
+async function followRoute(page, linkName, pathname) {
+  await page.getByRole('link', { name: linkName, exact: true }).first().click()
+  await page.waitForURL((url) => url.pathname === pathname)
+  await page.waitForFunction(() => {
+    const panel = document.querySelector('.route-transition')
+    return !panel || getComputedStyle(panel).visibility === 'hidden'
+  })
+}
+
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 })
 page.on('console', (message) => {
   if (message.type() === 'error' || message.type() === 'warning') errors.push(`${new URL(page.url()).pathname} console ${message.type()}: ${message.text()}`)
@@ -87,28 +96,22 @@ await navigation.goto(`${baseUrl}/about`, { waitUntil: 'networkidle' })
 if (!navigation.url().endsWith('/about-us')) errors.push(`legacy /about did not redirect to /about-us: ${navigation.url()}`)
 
 await navigation.goto(baseUrl, { waitUntil: 'networkidle' })
-await navigation.waitForTimeout(700)
-await navigation.getByRole('link', { name: 'About Us', exact: true }).first().click()
-await navigation.waitForTimeout(700)
+await followRoute(navigation, 'About Us', '/about-us')
 if (!navigation.url().endsWith('/about-us')) errors.push('Home navigation did not reach /about-us')
 
-await navigation.getByRole('link', { name: 'Projects', exact: true }).first().click()
-await navigation.waitForTimeout(700)
-await navigation.getByRole('link', { name: 'About Us', exact: true }).first().click()
-await navigation.waitForTimeout(700)
+await followRoute(navigation, 'Projects', '/projects')
+await followRoute(navigation, 'About Us', '/about-us')
 if (!navigation.url().endsWith('/about-us')) errors.push('Projects navigation did not reach /about-us')
 
-await navigation.getByRole('link', { name: 'Blog', exact: true }).first().click()
-await navigation.waitForTimeout(700)
-await navigation.getByRole('link', { name: 'About Us', exact: true }).first().click()
-await navigation.waitForTimeout(700)
+await followRoute(navigation, 'Blog', '/blog')
+await followRoute(navigation, 'About Us', '/about-us')
 if (!navigation.url().endsWith('/about-us')) errors.push('Blog navigation did not reach /about-us')
 
-await navigation.goBack()
-await navigation.waitForTimeout(500)
+await navigation.goBack({ waitUntil: 'domcontentloaded' })
+await navigation.waitForURL((url) => url.pathname === '/blog')
 if (!navigation.url().endsWith('/blog')) errors.push('browser back did not return Blog')
-await navigation.goForward()
-await navigation.waitForTimeout(500)
+await navigation.goForward({ waitUntil: 'domcontentloaded' })
+await navigation.waitForURL((url) => url.pathname === '/about-us')
 if (!navigation.url().endsWith('/about-us')) errors.push('browser forward did not restore About')
 await navigation.close()
 

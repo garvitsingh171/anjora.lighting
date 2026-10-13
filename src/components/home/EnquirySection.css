@@ -3,6 +3,7 @@
   padding-block: var(--section-space-md);
   color: var(--ink-deep);
   background: var(--accent);
+  overflow: clip;
 }
 
 .enquiry-section .eyebrow { color: rgba(9, 20, 30, 0.7); }
@@ -40,10 +41,18 @@
 }
 
 .enquiry-form label {
+  color: rgba(9, 20, 30, 0.72);
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
+  transform-origin: left center;
+  transition: color var(--motion-fast) ease, transform var(--motion-fast) var(--ease-ui);
+}
+
+.enquiry-form__field:focus-within label {
+  color: var(--ink-deep);
+  transform: translateY(-2px);
 }
 
 .enquiry-form input,
@@ -75,6 +84,10 @@
 .enquiry-form input:focus,
 .enquiry-form select:focus,
 .enquiry-form textarea:focus { border-color: var(--ink-deep); }
+
+.enquiry-form__field:focus-within input,
+.enquiry-form__field:focus-within select,
+.enquiry-form__field:focus-within textarea { box-shadow: 0 1px 0 var(--ink-deep); }
 
 .enquiry-form input[aria-invalid='true'],
 .enquiry-form textarea[aria-invalid='true'] { border-color: #711c28; }

@@ -1,13 +1,48 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import { useGSAP } from '@gsap/react'
 import { processStages } from '../../data/process'
+import { gsap, ScrollTrigger } from '../../lib/gsap'
 import { ProcessStep } from './ProcessStep'
 import './ConsultancyProcess.css'
 
 export function ConsultancyProcess() {
-  const [activeStep, setActiveStep] = useState(1)
+  const sectionRef = useRef<HTMLElement>(null)
+  const [activeStep, setActiveStep] = useState(0)
+
+  useGSAP(() => {
+    const section = sectionRef.current
+    if (!section) return
+
+    const media = gsap.matchMedia()
+    media.add('(min-width: 760px) and (prefers-reduced-motion: no-preference)', () => {
+      const steps = gsap.utils.toArray<HTMLElement>(section.querySelectorAll('[data-process-step]'))
+      gsap.fromTo('[data-process-progress]', { scaleY: 0 }, {
+        scaleY: 1,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.consultancy-process__steps-wrap',
+          start: 'top 72%',
+          end: 'bottom 58%',
+          scrub: 0.45,
+          fastScrollEnd: true,
+        },
+      })
+
+      const triggers = steps.map((step, index) => ScrollTrigger.create({
+        trigger: step,
+        start: 'top 64%',
+        end: 'bottom 48%',
+        onEnter: () => setActiveStep(index),
+        onEnterBack: () => setActiveStep(index),
+      }))
+
+      return () => triggers.forEach((trigger) => trigger.kill())
+    })
+    return () => media.revert()
+  }, { scope: sectionRef })
 
   return (
-    <section className="consultancy-process" aria-labelledby="process-title">
+    <section ref={sectionRef} className="consultancy-process" aria-labelledby="process-title">
       <div className="container consultancy-process__grid">
         <div className="consultancy-process__heading">
           <p className="eyebrow">From intent to illumination</p>
@@ -17,16 +52,21 @@ export function ConsultancyProcess() {
           </p>
         </div>
 
-        <ol className="consultancy-process__steps">
-          {processStages.map((stage, index) => (
-            <ProcessStep
-              key={stage.number}
-              stage={stage}
-              expanded={activeStep === index}
-              onActivate={() => setActiveStep(index)}
-            />
-          ))}
-        </ol>
+        <div className="consultancy-process__steps-wrap">
+          <span className="consultancy-process__track" aria-hidden="true">
+            <span data-process-progress />
+          </span>
+          <ol className="consultancy-process__steps">
+            {processStages.map((stage, index) => (
+              <ProcessStep
+                key={stage.number}
+                stage={stage}
+                expanded={activeStep === index}
+                onActivate={() => setActiveStep(index)}
+              />
+            ))}
+          </ol>
+        </div>
       </div>
     </section>
   )

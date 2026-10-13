@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { useGSAP } from '@gsap/react'
 import heroImage from '../../assets/images/hero-exterior.jpg'
 import { gsap } from '../../lib/gsap'
+import { EASE_REVEAL, EASE_UI, prefersReducedMotion } from '../../lib/motion'
 import './Hero.css'
 
 export function Hero() {
@@ -10,19 +11,60 @@ export function Hero() {
   useGSAP(
     () => {
       if (!heroRef.current) return
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+      if (prefersReducedMotion()) return
 
-      const timeline = gsap.timeline({ defaults: { ease: 'power3.out' } })
+      const timeline = gsap.timeline({ defaults: { ease: EASE_REVEAL } })
       const header = document.querySelector('.site-header')
       timeline
-        .fromTo('.hero__image', { scale: 1.07 }, { scale: 1, duration: 1.9 })
+        .fromTo('.hero__image', { scale: 1.07 }, { scale: 1, duration: 1.6 })
+        .fromTo('.hero__shade', { opacity: 0.76 }, { opacity: 1, duration: 0.9 }, 0)
       if (header) {
-        timeline.fromTo(header, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.8 }, 0.2)
+        timeline.fromTo(header, { autoAlpha: 0, y: -8 }, { autoAlpha: 1, y: 0, duration: 0.65 }, 0.16)
       }
       timeline
         .fromTo('.hero__eyebrow', { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 0.65 }, 0.45)
-        .fromTo('.hero__line > span', { yPercent: 112 }, { yPercent: 0, duration: 1, stagger: 0.12 }, 0.55)
-        .fromTo('.hero__footer', { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 0.7 }, 1.2)
+        .fromTo('.hero__line > span', { yPercent: 112 }, { yPercent: 0, duration: 0.9, stagger: 0.1 }, 0.52)
+        .fromTo('.hero__footer > *', { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 0.58, stagger: 0.1 }, 1.08)
+        .fromTo('.hero__scroll', { autoAlpha: 0, y: -6 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: EASE_UI }, 1.35)
+
+      const media = gsap.matchMedia()
+      media.add('(min-width: 900px) and (prefers-reduced-motion: no-preference)', () => {
+        gsap.timeline({
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 0.55,
+          },
+        })
+          .to('.hero__media', { yPercent: 4, ease: 'none' }, 0)
+          .to('.hero__content', { y: -30, ease: 'none' }, 0)
+          .to('.hero__footer', { autoAlpha: 0.36, ease: 'none' }, 0)
+          .to('.hero__scroll', { autoAlpha: 0, y: 10, ease: 'none' }, 0)
+
+        const hero = heroRef.current
+        const lightField = hero?.querySelector<HTMLElement>('.hero__light-field')
+        if (!hero || !lightField) return
+
+        const handlePointerMove = (event: PointerEvent) => {
+          const bounds = hero.getBoundingClientRect()
+          lightField.style.setProperty('--pointer-x', `${event.clientX - bounds.left}px`)
+          lightField.style.setProperty('--pointer-y', `${event.clientY - bounds.top}px`)
+        }
+        const handlePointerLeave = () => {
+          lightField.style.removeProperty('--pointer-x')
+          lightField.style.removeProperty('--pointer-y')
+        }
+
+        hero.addEventListener('pointermove', handlePointerMove)
+        hero.addEventListener('pointerleave', handlePointerLeave)
+        return () => {
+          hero.removeEventListener('pointermove', handlePointerMove)
+          hero.removeEventListener('pointerleave', handlePointerLeave)
+        }
+      })
+
+      return () => media.revert()
     },
     { scope: heroRef },
   )
@@ -40,6 +82,7 @@ export function Hero() {
         />
       </div>
       <div className="hero__shade" />
+      <div className="hero__light-field" aria-hidden="true" />
 
       <div className="hero__content container">
         <p className="eyebrow hero__eyebrow">Architectural lighting consultancy</p>

@@ -7,6 +7,7 @@ import { ProjectGrid } from '../components/projects/ProjectGrid'
 import { ProjectsHero } from '../components/projects/ProjectsHero'
 import { projectCategories, projects } from '../data/projects'
 import { gsap } from '../lib/gsap'
+import { EASE_REVEAL, prefersReducedMotion } from '../lib/motion'
 import './Projects.css'
 
 export function Projects() {
@@ -19,8 +20,8 @@ export function Projects() {
 
   useGSAP(
     () => {
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-      gsap.timeline({ defaults: { ease: 'power3.out' } })
+      if (prefersReducedMotion()) return
+      gsap.timeline({ defaults: { ease: EASE_REVEAL } })
         .fromTo('[data-hero-line]', { yPercent: 110 }, { yPercent: 0, duration: 0.95, stagger: 0.12 })
         .fromTo('[data-hero-item]', { autoAlpha: 0, y: 18 }, { autoAlpha: 1, y: 0, duration: 0.65, stagger: 0.08 }, '-=0.45')
         .fromTo('[data-hero-rule]', { scaleX: 0 }, { scaleX: 1, duration: 0.8 }, '-=0.55')

@@ -88,12 +88,12 @@
   gap: 0.4rem 1rem;
   align-items: end;
   padding: clamp(1.1rem, 1.8vw, 1.75rem);
-  color: var(--paper);
+  color: var(--color-on-media);
 }
 
 .project-tile__caption p {
   margin: 0 0 0.25rem;
-  color: var(--accent-soft);
+  color: var(--color-media-accent);
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.2em;
@@ -111,7 +111,7 @@
 }
 
 .project-tile__location {
-  color: rgba(241, 240, 233, 0.65);
+  color: var(--color-on-media-muted);
   font-size: 0.82rem;
 }
 
@@ -142,6 +142,16 @@
     margin-top: 0.6rem;
     opacity: 1;
   }
+}
+
+.project-tile a:focus-visible img { transform: scale(1.025); }
+.project-tile a:focus-visible .project-tile__overlay { background: linear-gradient(180deg, rgba(6, 14, 20, 0.2) 30%, rgba(6, 14, 20, 0.84) 100%); }
+.project-tile a:focus-visible h3 { transform: translateY(-3px); }
+
+.project-tile a:focus-visible .project-tile__view {
+  max-height: 2rem;
+  margin-top: 0.6rem;
+  opacity: 1;
 }
 
 @media (max-width: 760px) {

@@ -6,6 +6,7 @@ import { BlogCard } from '../components/blog/BlogCard'
 import { EnquirySection } from '../components/home/EnquirySection'
 import { formatBlogDate, getBlogPost, getRelatedBlogPosts } from '../data/blogs'
 import { gsap } from '../lib/gsap'
+import { EASE_IN_OUT, EASE_REVEAL, prefersReducedMotion } from '../lib/motion'
 import { usePageMeta } from '../lib/page-meta'
 import './Blog.css'
 
@@ -36,12 +37,12 @@ export function BlogDetail() {
 
   useGSAP(
     () => {
-      if (!post || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+      if (!post || prefersReducedMotion()) return
 
-      gsap.timeline({ defaults: { ease: 'power3.out' } })
+      gsap.timeline({ defaults: { ease: EASE_REVEAL } })
         .fromTo('[data-article-meta]', { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.55 })
         .fromTo('[data-article-title]', { yPercent: 110 }, { yPercent: 0, duration: 1 }, '-=0.35')
-        .fromTo('[data-article-hero-media]', { clipPath: 'inset(100% 0 0 0)' }, { clipPath: 'inset(0% 0 0 0)', duration: 1.05, ease: 'power3.inOut' }, '-=0.55')
+        .fromTo('[data-article-hero-media]', { clipPath: 'inset(100% 0 0 0)' }, { clipPath: 'inset(0% 0 0 0)', duration: 1.05, ease: EASE_IN_OUT }, '-=0.55')
         .fromTo('[data-article-hero-media] img', { scale: 1.06 }, { scale: 1, duration: 1.25 }, '-=1.05')
 
       gsap.to('[data-reading-progress]', {
@@ -59,8 +60,8 @@ export function BlogDetail() {
         gsap.fromTo(figure, { clipPath: 'inset(100% 0 0 0)' }, {
           clipPath: 'inset(0% 0 0 0)',
           duration: 0.9,
-          ease: 'power3.inOut',
-          scrollTrigger: { trigger: figure, start: 'top 88%', once: true },
+          ease: EASE_IN_OUT,
+          scrollTrigger: { trigger: figure, start: 'top 88%', once: true, fastScrollEnd: true },
         })
       })
     },

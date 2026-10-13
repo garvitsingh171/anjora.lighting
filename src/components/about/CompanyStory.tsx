@@ -15,8 +15,8 @@ export function CompanyStory() {
   return (
     <section className="about-company container" aria-labelledby="company-title">
       <div className="about-section-label" data-story-reveal>
-        <span>01</span>
-        <p className="eyebrow">Our company</p>
+        <span>06</span>
+        <p className="eyebrow">What we do</p>
       </div>
 
       <div className="about-company__narrative">

@@ -73,7 +73,7 @@
   align-items: center;
   gap: 1rem;
   padding: 0.4rem 0 0;
-  color: rgba(241, 240, 233, 0.48);
+  color: var(--color-text-subtle);
   font-size: 0.67rem;
   font-weight: 600;
   letter-spacing: 0.2em;
@@ -83,11 +83,29 @@
 .services__rail span { writing-mode: vertical-rl; }
 
 .services__rule {
+  position: relative;
   width: 1px;
   min-height: 4rem;
   flex: 1;
   background: var(--line);
+  overflow: hidden;
 }
+
+.services__rule > span {
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: top center;
+}
+
+.services__progress {
+  display: flex;
+  gap: 0.22rem;
+  writing-mode: horizontal-tb !important;
+}
+
+.services__progress b { color: var(--accent); font-weight: 600; }
 
 .services__stage {
   position: relative;
@@ -102,13 +120,14 @@
   grid-template-columns: minmax(0, 1.2fr) minmax(19rem, 0.8fr);
   gap: clamp(2rem, 4vw, 3.75rem);
   align-items: stretch;
-  background: var(--ink);
+  background: transparent;
 }
 
 .service-slide__visual {
   min-height: 0;
   overflow: hidden;
   background: var(--ink-deep);
+  will-change: clip-path;
 }
 
 .service-slide__image {
@@ -165,7 +184,7 @@
 }
 
 .service-slide li {
-  color: rgba(241, 240, 233, 0.72);
+  color: var(--color-text-subtle);
   font-size: 0.78rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;

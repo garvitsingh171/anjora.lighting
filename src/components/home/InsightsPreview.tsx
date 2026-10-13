@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { BlogCard } from '../blog/BlogCard'
 import { blogPosts } from '../../data/blogs'
 import { gsap } from '../../lib/gsap'
+import { EASE_REVEAL, prefersReducedMotion } from '../../lib/motion'
 import './InsightsPreview.css'
 
 export function InsightsPreview() {
@@ -13,14 +14,14 @@ export function InsightsPreview() {
     () => {
       const section = rootRef.current
       if (!section) return
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+      if (prefersReducedMotion()) return
       gsap.fromTo('[data-home-insight]', { autoAlpha: 0, y: 28 }, {
         autoAlpha: 1,
         y: 0,
         duration: 0.75,
         stagger: 0.08,
-        ease: 'power3.out',
-        scrollTrigger: { trigger: section, start: 'top 78%', once: true },
+        ease: EASE_REVEAL,
+        scrollTrigger: { trigger: section, start: 'top 78%', once: true, fastScrollEnd: true },
       })
     },
     { scope: rootRef },

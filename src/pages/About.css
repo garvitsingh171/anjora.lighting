@@ -8,7 +8,7 @@
 .about-page .container { width: min(100%, 1280px); }
 
 .about-hero {
-  min-height: clamp(36rem, 76svh, 46rem);
+  min-height: clamp(32rem, 62svh, 38rem);
   display: flex;
   align-items: flex-end;
   padding: clamp(8rem, 13vh, 10rem) 0 clamp(3rem, 6vh, 4.5rem);
@@ -144,7 +144,7 @@
 
 .about-philosophy {
   padding-block: var(--section-space-lg);
-  background: var(--ink-deep);
+  background: var(--color-section-contrast);
 }
 
 .about-philosophy__grid {
@@ -250,10 +250,11 @@
   bottom: clamp(1.5rem, 4vw, 3.5rem);
   left: clamp(1.5rem, 4vw, 4rem);
   max-width: 37rem;
+  color: var(--color-on-media);
 }
 
 .about-interlude figcaption span {
-  color: var(--accent-soft);
+  color: var(--color-media-accent);
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.18em;
@@ -330,6 +331,13 @@
   line-height: 0.91;
   text-transform: uppercase;
 }
+
+.about-founder__name-line {
+  display: block;
+  overflow: hidden;
+}
+
+.about-founder__name-line > span { display: block; }
 
 .about-founder__role {
   margin: 1.2rem 0 0;
@@ -548,7 +556,7 @@
   min-height: clamp(32rem, 70svh, 43rem);
   display: flex;
   align-items: center;
-  background: var(--ink-deep);
+  background: var(--color-section-contrast);
 }
 
 .about-closing__inner { padding-block: var(--section-space-lg); }
@@ -586,7 +594,7 @@
 
 @media (max-width: 760px) {
   .about-hero {
-    min-height: 39rem;
+    min-height: 35rem;
     padding-bottom: 2.75rem;
   }
 

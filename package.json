@@ -12,6 +12,8 @@
     "visual:qa": "node scripts/visual-qa.mjs",
     "blog:qa": "node scripts/blog-qa.mjs",
     "about:qa": "node scripts/about-qa.mjs",
+    "theme:qa": "node scripts/theme-qa.mjs",
+    "premium:qa": "node scripts/premium-qa.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

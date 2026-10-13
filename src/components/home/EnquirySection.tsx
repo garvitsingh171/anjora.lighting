@@ -2,6 +2,7 @@ import { useId, useRef, useState } from 'react'
 import type { ChangeEvent, FormEvent } from 'react'
 import { useGSAP } from '@gsap/react'
 import { gsap } from '../../lib/gsap'
+import { EASE_IN_OUT, EASE_REVEAL, EASE_UI, MOTION_BASE, prefersReducedMotion } from '../../lib/motion'
 import { submitWeb3FormsEnquiry } from '../../lib/web3forms'
 import './EnquirySection.css'
 
@@ -69,15 +70,44 @@ export function EnquirySection({ source, projectName }: EnquirySectionProps) {
   const [errorMessage, setErrorMessage] = useState('')
   const [botcheck, setBotcheck] = useState(false)
 
+  useGSAP(() => {
+    if (prefersReducedMotion()) return
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: 'top 90%',
+        once: true,
+        fastScrollEnd: true,
+        onEnter: (self) => {
+          const bounds = sectionRef.current?.getBoundingClientRect()
+          if (bounds && bounds.bottom < 0) self.animation?.progress(1)
+        },
+        onLeave: (self) => self.animation?.progress(1),
+      },
+    })
+      .fromTo(sectionRef.current, { clipPath: 'inset(9% 0 0 0)' }, {
+        clipPath: 'inset(0% 0 0 0)',
+        duration: 0.82,
+        ease: EASE_IN_OUT,
+      })
+      .fromTo('.enquiry-section__grid > *', { autoAlpha: 0, y: 18 }, {
+        autoAlpha: 1,
+        y: 0,
+        duration: MOTION_BASE,
+        stagger: 0.1,
+        ease: EASE_REVEAL,
+      }, 0.2)
+  }, { scope: sectionRef })
+
   useGSAP(
     () => {
       if (status !== 'success' || !successRef.current) return
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+      if (prefersReducedMotion()) return
       gsap.fromTo(successRef.current, { autoAlpha: 0, y: 10 }, {
         autoAlpha: 1,
         y: 0,
         duration: 0.5,
-        ease: 'power2.out',
+        ease: EASE_UI,
       })
     },
     { scope: sectionRef, dependencies: [status] },

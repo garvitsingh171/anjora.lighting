@@ -183,7 +183,7 @@
   position: absolute;
   right: 1rem;
   bottom: 0.9rem;
-  color: rgba(241, 240, 233, 0.78);
+  color: var(--color-on-media-muted);
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -237,6 +237,12 @@
   .blog-card a:hover .blog-card__action b { translate: 3px -3px; }
   .blog-card a:hover .blog-card__shade { background: linear-gradient(180deg, rgba(7, 16, 24, 0.08), rgba(7, 16, 24, 0.42)); }
 }
+
+.blog-feature a:focus-visible img,
+.blog-card a:focus-visible .blog-card__media img { scale: 1.025; }
+.blog-card a:focus-visible h2 { translate: 0 -3px; }
+.blog-card a:focus-visible .blog-card__action b { translate: 3px -3px; }
+.blog-card a:focus-visible .blog-card__shade { background: linear-gradient(180deg, rgba(7, 16, 24, 0.08), rgba(7, 16, 24, 0.42)); }
 
 .reading-progress {
   position: fixed;
@@ -310,7 +316,7 @@
 
 .article-body p,
 .article-body li {
-  color: rgba(241, 240, 233, 0.86);
+  color: var(--color-text);
   font-size: clamp(1.08rem, 1.45vw, 1.2rem);
   line-height: 1.72;
 }

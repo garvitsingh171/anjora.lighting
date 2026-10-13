@@ -1,0 +1,88 @@
+.theme-toggle {
+  position: relative;
+  display: inline-grid;
+  width: 2.9rem;
+  height: 2.9rem;
+  flex: 0 0 auto;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--nav-border);
+  border-radius: 50%;
+  color: var(--nav-text-strong);
+  background: var(--nav-control-bg);
+  cursor: pointer;
+  transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.theme-toggle:hover { background: var(--nav-active-bg); }
+
+.theme-toggle:disabled {
+  cursor: wait;
+  opacity: 0.78;
+}
+
+.theme-toggle__icons {
+  position: relative;
+  display: block;
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.theme-toggle__icon {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.6;
+  transform-origin: center;
+}
+
+.theme-toggle__tooltip {
+  position: absolute;
+  top: calc(100% + 0.6rem);
+  left: 50%;
+  width: max-content;
+  max-width: 10rem;
+  z-index: 4;
+  transform: translate(-50%, -0.25rem);
+  padding: 0.42rem 0.58rem;
+  border-radius: 0.25rem;
+  color: var(--color-tooltip-text);
+  background: var(--color-tooltip-bg);
+  box-shadow: var(--shadow-soft);
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: 0.04em;
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 160ms ease, transform 160ms ease, visibility 160ms step-end;
+}
+
+.theme-toggle:hover .theme-toggle__tooltip,
+.theme-toggle:focus-visible .theme-toggle__tooltip {
+  transform: translate(-50%, 0);
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 160ms ease, transform 160ms ease, visibility 0ms;
+}
+
+@media (max-width: 900px) {
+  .theme-toggle__tooltip {
+    right: 0;
+    left: auto;
+    transform: translateY(-0.25rem);
+  }
+
+  .theme-toggle:hover .theme-toggle__tooltip,
+  .theme-toggle:focus-visible .theme-toggle__tooltip { transform: translateY(0); }
+}
+
+@media (hover: none) {
+  .theme-toggle__tooltip { display: none; }
+}

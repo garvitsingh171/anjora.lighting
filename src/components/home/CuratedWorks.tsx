@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { useGSAP } from '@gsap/react'
 import { homeProjects } from '../../data/projects'
 import { gsap } from '../../lib/gsap'
+import { EASE_IN_OUT, EASE_REVEAL, prefersReducedMotion } from '../../lib/motion'
 import { ProjectTile } from './ProjectTile'
 import './CuratedWorks.css'
 
@@ -11,7 +12,7 @@ export function CuratedWorks() {
   useGSAP(
     () => {
       if (!sectionRef.current) return
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+      if (prefersReducedMotion()) return
 
       gsap.utils.toArray<HTMLElement>('[data-project-tile]').forEach((tile) => {
         const media = tile.querySelector('.project-tile__media')
@@ -19,11 +20,11 @@ export function CuratedWorks() {
         const caption = tile.querySelector('.project-tile__caption')
 
         gsap.timeline({
-          scrollTrigger: { trigger: tile, start: 'top 88%', once: true },
+          scrollTrigger: { trigger: tile, start: 'top 88%', once: true, fastScrollEnd: true },
         })
-          .fromTo(media, { clipPath: 'inset(0 0 100% 0)' }, { clipPath: 'inset(0 0 0% 0)', duration: 1.05, ease: 'power3.inOut' })
-          .fromTo(image, { scale: 1.06 }, { scale: 1, duration: 1.2, ease: 'power3.out' }, 0)
-          .fromTo(caption, { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.65, ease: 'power3.out' }, 0.5)
+          .fromTo(media, { clipPath: 'inset(0 0 100% 0)' }, { clipPath: 'inset(0 0 0% 0)', duration: 1.05, ease: EASE_IN_OUT })
+          .fromTo(image, { scale: 1.06 }, { scale: 1, duration: 1.2, ease: EASE_REVEAL }, 0)
+          .fromTo(caption, { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.65, ease: EASE_REVEAL }, 0.5)
       })
     },
     { scope: sectionRef },

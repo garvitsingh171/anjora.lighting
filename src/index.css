@@ -19,17 +19,45 @@
 :root {
   --color-background: #0e1c29;
   --color-background-elevated: #122432;
+  --color-surface: #152a39;
+  --color-section-contrast: #09141e;
   --color-text: #f1f0e9;
   --color-text-muted: #a7b0b7;
+  --color-text-subtle: rgba(241, 240, 233, 0.64);
   --color-accent: #a5c43a;
+  --color-accent-readable: #c2da6d;
+  --color-border: rgba(241, 240, 233, 0.2);
+  --color-border-strong: rgba(241, 240, 233, 0.34);
+  --color-on-media: #f1f0e9;
+  --color-on-media-muted: rgba(241, 240, 233, 0.68);
+  --color-on-media-subtle: rgba(241, 240, 233, 0.48);
+  --color-media-accent: #c2da6d;
+  --color-product-canvas: #182b38;
+  --color-product-line: rgba(241, 240, 233, 0.1);
+  --color-footer-bg: #09141e;
+  --color-footer-text: #f1f0e9;
+  --color-footer-muted: #a7b0b7;
+  --color-footer-line: rgba(241, 240, 233, 0.2);
+  --color-footer-legal: rgba(241, 240, 233, 0.46);
+  --color-tooltip-bg: #f1f0e9;
+  --color-tooltip-text: #09141e;
+  --nav-bg: rgba(9, 20, 30, 0.82);
+  --nav-bg-scrolled: rgba(9, 20, 30, 0.94);
+  --nav-border: rgba(241, 240, 233, 0.16);
+  --nav-text: rgba(241, 240, 233, 0.78);
+  --nav-text-strong: #f1f0e9;
+  --nav-active-bg: rgba(241, 240, 233, 0.09);
+  --nav-control-bg: rgba(6, 15, 23, 0.28);
+  --logo-filter: invert(1);
+  --shadow-soft: 0 12px 36px rgba(0, 0, 0, 0.18);
   --ink: var(--color-background);
   --ink-deep: #09141e;
   --ink-soft: var(--color-background-elevated);
   --paper: var(--color-text);
   --muted: var(--color-text-muted);
-  --line: rgba(241, 240, 233, 0.2);
+  --line: var(--color-border);
   --accent: var(--color-accent);
-  --accent-soft: #c2da6d;
+  --accent-soft: var(--color-accent-readable);
   --display: 'Aboreto', 'Times New Roman', serif;
   --sans: 'Darker Grotesque', 'Helvetica Neue', Arial, sans-serif;
   --fs-nav: clamp(0.98rem, 1.1vw, 1.08rem);
@@ -43,6 +71,11 @@
   --section-space-md: clamp(5rem, 7vw, 6.5rem);
   --section-space-lg: clamp(6rem, 8vw, 7.5rem);
   --section-space: var(--section-space-md);
+  --motion-fast: 240ms;
+  --motion-base: 680ms;
+  --motion-slow: 1050ms;
+  --ease-ui: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
   font-family: var(--sans);
   color: var(--paper);
   background: var(--ink);
@@ -50,6 +83,32 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+:root[data-theme='light'] {
+  --color-background: #f3f1e8;
+  --color-background-elevated: #eae7dc;
+  --color-surface: #f8f6f0;
+  --color-section-contrast: #eae7dc;
+  --color-text: #0e1c29;
+  --color-text-muted: #52616b;
+  --color-text-subtle: rgba(14, 28, 41, 0.68);
+  --color-accent-readable: #596a18;
+  --color-border: rgba(14, 28, 41, 0.18);
+  --color-border-strong: rgba(14, 28, 41, 0.32);
+  --color-product-canvas: #e2e0d7;
+  --color-product-line: rgba(9, 20, 30, 0.08);
+  --color-tooltip-bg: #09141e;
+  --color-tooltip-text: #f1f0e9;
+  --nav-bg: rgba(248, 246, 240, 0.82);
+  --nav-bg-scrolled: rgba(248, 246, 240, 0.95);
+  --nav-border: rgba(14, 28, 41, 0.16);
+  --nav-text: rgba(14, 28, 41, 0.76);
+  --nav-text-strong: #09141e;
+  --nav-active-bg: rgba(14, 28, 41, 0.08);
+  --nav-control-bg: rgba(248, 246, 240, 0.72);
+  --logo-filter: none;
+  --shadow-soft: 0 12px 36px rgba(14, 28, 41, 0.1);
 }
 
 * { box-sizing: border-box; }
@@ -64,6 +123,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   overflow-x: hidden;
+  color: var(--paper);
   background: var(--ink);
 }
 
@@ -78,7 +138,8 @@ a {
 }
 
 button,
-input { font: inherit; }
+input,
+textarea { font: inherit; }
 
 img {
   display: block;
@@ -152,6 +213,16 @@ img {
 }
 
 .text-link:hover::after { transform: translate(3px, -3px); }
+
+.theme-transition-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  will-change: clip-path, opacity;
+}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

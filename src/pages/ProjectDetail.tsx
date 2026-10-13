@@ -7,6 +7,7 @@ import { NextProject } from '../components/projects/NextProject'
 import { ProjectGallery } from '../components/projects/ProjectGallery'
 import { getNextProject, projects } from '../data/projects'
 import { gsap } from '../lib/gsap'
+import { EASE_IN_OUT, EASE_REVEAL, MOTION_BASE, MOTION_SLOW, prefersReducedMotion } from '../lib/motion'
 import './Projects.css'
 
 export function ProjectDetail() {
@@ -22,32 +23,60 @@ export function ProjectDetail() {
 
   useGSAP(
     () => {
-      if (!project || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+      if (!project || prefersReducedMotion()) return
 
-      gsap.timeline({ defaults: { ease: 'power3.out' } })
-        .fromTo('[data-detail-meta]', { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: 0.6 })
-        .fromTo('[data-detail-title]', { yPercent: 115 }, { yPercent: 0, duration: 1 }, '-=0.4')
+      gsap.timeline({ defaults: { ease: EASE_REVEAL } })
+        .fromTo('[data-detail-breadcrumb]', { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.5 })
+        .fromTo('[data-detail-title]', { yPercent: 115 }, { yPercent: 0, duration: 0.92 }, '-=0.3')
+        .fromTo('[data-detail-meta]', { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.55 }, '-=0.42')
+        .fromTo('[data-detail-image]', { clipPath: 'inset(100% 0 0 0)', scale: 1.05 }, {
+          clipPath: 'inset(0% 0 0 0)',
+          scale: 1,
+          duration: MOTION_SLOW,
+          ease: EASE_IN_OUT,
+        }, 0.08)
 
-      gsap.fromTo('[data-detail-image]', { yPercent: -4, scale: 1.03 }, {
-        yPercent: 4,
-        scale: 1,
+      gsap.fromTo('[data-detail-image]', { yPercent: -2 }, {
+        yPercent: 2,
         ease: 'none',
         scrollTrigger: {
           trigger: '[data-detail-hero]',
           start: 'top top',
           end: 'bottom top',
           scrub: true,
+          fastScrollEnd: true,
         },
       })
 
-      gsap.utils.toArray<HTMLElement>('[data-gallery-item]').forEach((item) => {
-        gsap.fromTo(item, { autoAlpha: 0, y: 42 }, {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.85,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: item, start: 'top 88%', once: true },
+      gsap.fromTo('.project-detail__story > *', { autoAlpha: 0, y: 18 }, {
+        autoAlpha: 1,
+        y: 0,
+        duration: MOTION_BASE,
+        stagger: 0.1,
+        ease: EASE_REVEAL,
+        scrollTrigger: { trigger: '.project-detail__story', start: 'top 82%', once: true, fastScrollEnd: true },
+      })
+
+      gsap.utils.toArray<HTMLElement>('[data-gallery-item]').forEach((item, index) => {
+        const image = item.querySelector('img')
+        const revealFrom = index % 3 === 0
+          ? 'inset(100% 0 0 0)'
+          : index % 3 === 1 ? 'inset(0 100% 0 0)' : 'inset(0 0 100% 0)'
+
+        gsap.timeline({
+          scrollTrigger: { trigger: item, start: 'top 88%', once: true, fastScrollEnd: true },
         })
+          .fromTo(item, { clipPath: revealFrom }, {
+            clipPath: 'inset(0% 0 0 0)',
+            duration: 0.92,
+            ease: EASE_IN_OUT,
+          })
+          .fromTo(image, { scale: 1.045, y: index % 2 === 0 ? 12 : -12 }, {
+            scale: 1,
+            y: 0,
+            duration: MOTION_SLOW,
+            ease: EASE_REVEAL,
+          }, 0)
       })
     },
     { scope: rootRef, dependencies: [slug] },
@@ -76,7 +105,7 @@ export function ProjectDetail() {
         <div className="project-detail__hero-shade" />
 
         <div className="project-detail__hero-content container">
-          <div className="project-detail__breadcrumb" data-detail-meta>
+          <div className="project-detail__breadcrumb" data-detail-breadcrumb>
             <Link to="/projects">Projects</Link>
             <span aria-hidden="true">/</span>
             <span>{project.category}</span>

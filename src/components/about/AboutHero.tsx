@@ -13,7 +13,7 @@ export function AboutHero() {
 
           <div className="about-hero__aside" data-about-hero-item>
             <span aria-hidden="true">01</span>
-            <p>Crafting light to elevate environments.</p>
+            <p>The person and thinking behind the practice.</p>
           </div>
         </div>
 

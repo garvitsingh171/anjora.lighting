@@ -1,12 +1,12 @@
 .products-page,
 .product-detail {
   min-height: 100svh;
-  background: var(--paper);
-  color: var(--ink-deep);
+  background: var(--ink);
+  color: var(--paper);
 }
 
 .products-page .eyebrow,
-.product-detail .eyebrow { color: #667529; }
+.product-detail .eyebrow { color: var(--accent-soft); }
 
 .products-page__hero {
   padding-top: clamp(8.5rem, 12vw, 10.5rem);
@@ -38,8 +38,8 @@
   max-width: 42rem;
   margin: clamp(3rem, 6vw, 6rem) 0 0 auto;
   padding: 1rem 0;
-  border-block: 1px solid rgba(9, 20, 30, 0.18);
-  color: rgba(9, 20, 30, 0.62);
+  border-block: 1px solid var(--line);
+  color: var(--muted);
   font-size: 0.88rem;
   letter-spacing: 0.04em;
 }
@@ -51,14 +51,14 @@
   flex-wrap: wrap;
   gap: 0.55rem;
   padding: 1.2rem 0 3.4rem;
-  border-top: 1px solid rgba(9, 20, 30, 0.2);
+  border-top: 1px solid var(--line);
 }
 
 .product-filters button {
   padding: 0.55rem 0.85rem;
-  border: 1px solid rgba(9, 20, 30, 0.22);
+  border: 1px solid var(--line);
   border-radius: 999px;
-  color: rgba(9, 20, 30, 0.72);
+  color: var(--muted);
   font-size: 0.76rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -69,9 +69,9 @@
 
 .product-filters button:hover,
 .product-filters button[aria-pressed='true'] {
-  border-color: var(--ink-deep);
-  color: var(--paper);
-  background: var(--ink-deep);
+  border-color: var(--paper);
+  color: var(--ink);
+  background: var(--paper);
 }
 
 .product-grid {
@@ -86,7 +86,7 @@
   display: block;
   overflow: hidden;
   aspect-ratio: 1;
-  background: #e2e0d7;
+  background: var(--color-product-canvas);
 }
 
 .product-card__visual img {
@@ -105,10 +105,10 @@
   justify-content: space-between;
   overflow: hidden;
   padding: 1.2rem;
-  color: rgba(9, 20, 30, 0.58);
+  color: var(--muted);
   background:
-    linear-gradient(135deg, transparent 49.8%, rgba(9, 20, 30, 0.08) 50%, transparent 50.2%),
-    #e2e0d7;
+    linear-gradient(135deg, transparent 49.8%, var(--color-product-line) 50%, transparent 50.2%),
+    var(--color-product-canvas);
 }
 
 .product-visual__placeholder[data-large='true'] { min-height: 34rem; }
@@ -152,7 +152,7 @@
 
 .product-card__meta > div:first-child > p {
   margin: 0 0 0.45rem;
-  color: #667529;
+  color: var(--accent-soft);
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.16em;
@@ -171,7 +171,7 @@
 
 .product-card__description {
   margin: 1rem 0 0;
-  color: rgba(9, 20, 30, 0.62);
+  color: var(--muted);
   font-size: 1rem;
   line-height: 1.35;
 }
@@ -183,7 +183,7 @@
   gap: 1rem;
   margin-top: 1.5rem;
   padding-top: 0.8rem;
-  border-top: 1px solid rgba(9, 20, 30, 0.18);
+  border-top: 1px solid var(--line);
 }
 
 .product-card__view,
@@ -197,7 +197,7 @@
   text-transform: uppercase;
 }
 
-.enquiry-button span:last-child { color: #667529; }
+.enquiry-button span:last-child { color: var(--accent-soft); }
 
 .product-detail { padding-top: 7.5rem; }
 
@@ -205,7 +205,7 @@
   display: flex;
   gap: 0.6rem;
   padding-block: 1.5rem;
-  color: rgba(9, 20, 30, 0.55);
+  color: var(--muted);
   font-size: 0.78rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -232,7 +232,7 @@
 .product-detail__summary > p {
   max-width: 31rem;
   margin: 2rem 0;
-  color: rgba(9, 20, 30, 0.66);
+  color: var(--muted);
   font-size: 1.25rem;
   line-height: 1.35;
 }
@@ -241,13 +241,13 @@
   width: min(100%, 22rem);
   justify-content: space-between;
   padding: 1rem 0;
-  border-block: 1px solid rgba(9, 20, 30, 0.3);
+  border-block: 1px solid var(--color-border-strong);
 }
 
 .product-detail__summary small {
   display: block;
   margin-top: 1.2rem;
-  color: rgba(9, 20, 30, 0.48);
+  color: var(--muted);
 }
 
 .product-detail__information {
@@ -257,7 +257,7 @@
   padding-block: var(--section-space);
 }
 
-.product-detail__information > div { border-top: 1px solid rgba(9, 20, 30, 0.2); padding-top: 1.2rem; }
+.product-detail__information > div { border-top: 1px solid var(--line); padding-top: 1.2rem; }
 
 .product-detail__information ul {
   display: grid;
@@ -276,12 +276,12 @@
   justify-content: space-between;
   gap: 2rem;
   padding: 0.8rem 0;
-  border-bottom: 1px solid rgba(9, 20, 30, 0.14);
+  border-bottom: 1px solid var(--line);
 }
 
 .product-detail__information dd {
   margin: 0;
-  color: rgba(9, 20, 30, 0.62);
+  color: var(--muted);
 }
 
 .product-detail__related { padding-bottom: var(--section-space); }
