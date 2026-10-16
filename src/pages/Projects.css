@@ -243,7 +243,7 @@
   bottom: clamp(1.15rem, 2vw, 1.75rem);
   z-index: 2;
   color: var(--color-on-media-muted);
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -273,7 +273,7 @@
   margin: 0;
   font-family: var(--display);
   font-size: clamp(1.45rem, 2.1vw, 2rem);
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1;
   letter-spacing: -0.035em;
   text-transform: uppercase;

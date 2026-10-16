@@ -83,9 +83,7 @@ const assets = {
   ],
   boozup: [
     ['cover.webp', 'https://anjora.lighting/wp-content/uploads/2023/12/unnamed.webp'],
-    ['gallery-01.png', 'https://anjora.lighting/wp-content/uploads/2023/12/1.png'],
     ['gallery-02.jpg', 'https://anjora.lighting/wp-content/uploads/2023/12/Picture4-e1706863826447.jpg'],
-    ['gallery-03.jpg', 'https://anjora.lighting/wp-content/uploads/2023/12/Picture5-e1706863811889.jpg'],
   ],
   'vr-theme-park': [
     ['cover.jpg', 'https://anjora.lighting/wp-content/uploads/2023/12/IMG_5972-1920x2560.jpg'],
@@ -95,7 +93,6 @@ const assets = {
   ],
   rosado: [
     ['cover.jpeg', 'https://anjora.lighting/wp-content/uploads/2023/12/banquet-halls-rosado-catering-setup_15_447360-168422601836157.jpeg'],
-    ['gallery-01.jpeg', 'https://anjora.lighting/wp-content/uploads/2023/12/banquet-halls-rosado-terrace-4_15_447360-168422607680466.jpeg'],
     ['gallery-02.jpg', 'https://anjora.lighting/wp-content/uploads/2023/12/360_bg_2.jpg'],
     ['gallery-03.jpg', 'https://anjora.lighting/wp-content/uploads/2023/12/360-3.jpg'],
     ['gallery-04.jpg', 'https://anjora.lighting/wp-content/uploads/2023/12/rosado_bar.jpg'],

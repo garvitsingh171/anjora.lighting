@@ -1,4 +1,4 @@
-import philosophyImage from '../../assets/projects/ohana/gallery-04.webp'
+import philosophyImage from '../../assets/projects/rosado/gallery-04.jpg'
 
 const elements = [
   { name: 'Form', detail: 'The geometry of the designed environment.' },
@@ -44,9 +44,9 @@ export function LightingPhilosophy() {
         <div className="about-interlude__media" data-about-image-reveal>
           <img
             src={philosophyImage}
-            alt="Anjora lighting detail revealing material, colour and form"
-            width="960"
-            height="960"
+            alt="Architectural ceiling and integrated warm lighting at Rosado, an Anjora project"
+            width="1600"
+            height="1067"
             loading="lazy"
           />
           <div className="about-interlude__shade" />

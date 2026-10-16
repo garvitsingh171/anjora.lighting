@@ -1,8 +1,8 @@
 import { useRef } from 'react'
 import { useGSAP } from '@gsap/react'
-import heroImage from '../../assets/images/hero-exterior.jpg'
+import heroImage from '../../assets/projects/city-palace/cover.jpg'
 import { gsap } from '../../lib/gsap'
-import { EASE_REVEAL, EASE_UI, prefersReducedMotion } from '../../lib/motion'
+import { EASE_REVEAL, prefersReducedMotion } from '../../lib/motion'
 import './Hero.css'
 
 export function Hero() {
@@ -16,52 +16,29 @@ export function Hero() {
       const timeline = gsap.timeline({ defaults: { ease: EASE_REVEAL } })
       const header = document.querySelector('.site-header')
       timeline
-        .fromTo('.hero__image', { scale: 1.07 }, { scale: 1, duration: 1.6 })
-        .fromTo('.hero__shade', { opacity: 0.76 }, { opacity: 1, duration: 0.9 }, 0)
+        .fromTo('.hero__image', { scale: 1.045 }, { scale: 1, duration: 1.5 })
+        .fromTo('.hero__shade', { opacity: 0.85 }, { opacity: 1, duration: 0.9 }, 0)
       if (header) {
         timeline.fromTo(header, { autoAlpha: 0, y: -8 }, { autoAlpha: 1, y: 0, duration: 0.65 }, 0.16)
       }
       timeline
-        .fromTo('.hero__eyebrow', { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 0.65 }, 0.45)
-        .fromTo('.hero__line > span', { yPercent: 112 }, { yPercent: 0, duration: 0.9, stagger: 0.1 }, 0.52)
-        .fromTo('.hero__footer > *', { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 0.58, stagger: 0.1 }, 1.08)
-        .fromTo('.hero__scroll', { autoAlpha: 0, y: -6 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: EASE_UI }, 1.35)
+        .fromTo('.hero__eyebrow', { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.55 }, 0.25)
+        .fromTo('.hero__line > span', { yPercent: 110 }, { yPercent: 0, duration: 0.8, stagger: 0.09 }, 0.36)
+        .fromTo('.hero__support', { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 0.58 }, 0.75)
+        .fromTo('.hero__enquiry', { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 0.55 }, 0.9)
 
       const media = gsap.matchMedia()
       media.add('(min-width: 900px) and (prefers-reduced-motion: no-preference)', () => {
-        gsap.timeline({
+        gsap.to('.hero__image', {
+          yPercent: 2,
+          ease: 'none',
           scrollTrigger: {
             trigger: heroRef.current,
             start: 'top top',
             end: 'bottom top',
-            scrub: 0.55,
+            scrub: 0.6,
           },
         })
-          .to('.hero__media', { yPercent: 4, ease: 'none' }, 0)
-          .to('.hero__content', { y: -30, ease: 'none' }, 0)
-          .to('.hero__footer', { autoAlpha: 0.36, ease: 'none' }, 0)
-          .to('.hero__scroll', { autoAlpha: 0, y: 10, ease: 'none' }, 0)
-
-        const hero = heroRef.current
-        const lightField = hero?.querySelector<HTMLElement>('.hero__light-field')
-        if (!hero || !lightField) return
-
-        const handlePointerMove = (event: PointerEvent) => {
-          const bounds = hero.getBoundingClientRect()
-          lightField.style.setProperty('--pointer-x', `${event.clientX - bounds.left}px`)
-          lightField.style.setProperty('--pointer-y', `${event.clientY - bounds.top}px`)
-        }
-        const handlePointerLeave = () => {
-          lightField.style.removeProperty('--pointer-x')
-          lightField.style.removeProperty('--pointer-y')
-        }
-
-        hero.addEventListener('pointermove', handlePointerMove)
-        hero.addEventListener('pointerleave', handlePointerLeave)
-        return () => {
-          hero.removeEventListener('pointermove', handlePointerMove)
-          hero.removeEventListener('pointerleave', handlePointerLeave)
-        }
       })
 
       return () => media.revert()
@@ -77,23 +54,22 @@ export function Hero() {
           src={heroImage}
           alt=""
           width="1600"
-          height="800"
+          height="1067"
           fetchPriority="high"
         />
       </div>
       <div className="hero__shade" />
-      <div className="hero__light-field" aria-hidden="true" />
-
       <div className="hero__content container">
-        <p className="eyebrow hero__eyebrow">Architectural lighting consultancy</p>
-        <h1 id="hero-title" className="display-title hero__title">
-          <span className="hero__line"><span>Anjora: Where</span></span>
-          <span className="hero__line"><span>Light Shapes</span></span>
-          <span className="hero__line"><span>Space</span></span>
-        </h1>
-
-        <div className="hero__footer">
-          <p>Consultancy · Design · Specification · Execution</p>
+        <div className="hero__body">
+          <p className="eyebrow hero__eyebrow">Architectural lighting consultancy</p>
+          <h1 id="hero-title" className="display-title hero__title">
+            <span className="hero__line"><span>Anjora: Where</span></span>
+            <span className="hero__line"><span>Light Shapes</span></span>
+            <span className="hero__line"><span>Space</span></span>
+          </h1>
+          <p className="hero__support">
+            We plan, specify and deliver light for architecture—working with designers and project teams from first concept through commissioning.
+          </p>
           <a
             className="hero__enquiry"
             href="#enquiry"
@@ -103,13 +79,6 @@ export function Hero() {
           </a>
         </div>
       </div>
-
-      <a className="hero__scroll" href="#services" aria-label="Scroll to services">
-        <span>Scroll</span>
-        <svg viewBox="0 0 16 36" aria-hidden="true">
-          <path d="M8 1v32M2 27l6 7 6-7" />
-        </svg>
-      </a>
     </section>
   )
 }

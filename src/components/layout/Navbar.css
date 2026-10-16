@@ -30,6 +30,7 @@
   width: 100%;
   height: auto;
   filter: var(--logo-filter);
+  transition: filter var(--motion-fast) ease;
 }
 
 .desktop-nav {
@@ -107,6 +108,10 @@
 .mobile-menu { display: none; }
 
 .site-header--hero-context .brand-logo img { filter: invert(1); }
+
+.site-header--hero-context .brand-logo {
+  filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.42));
+}
 
 .site-header--hero-context .desktop-nav {
   border-color: rgba(241, 240, 233, 0.14);

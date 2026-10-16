@@ -16,10 +16,12 @@ export function ServiceSlide({ service, index }: ServiceSlideProps) {
           className="service-slide__image"
           src={service.image}
           alt={service.imageAlt}
+          style={service.objectPosition ? { objectPosition: service.objectPosition } : undefined}
           width="600"
           height="400"
           loading={index === 0 ? 'eager' : 'lazy'}
         />
+        <span className="service-slide__image-note">Illustrative photography</span>
       </div>
       <div className="service-slide__body">
         <p className="service-slide__number">Service {service.number}</p>

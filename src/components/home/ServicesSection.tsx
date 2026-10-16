@@ -39,8 +39,8 @@ export function ServicesSection() {
             defaults: { ease: 'none' },
             scrollTrigger: {
               trigger: '.services__pin',
-              start: 'top top',
-              end: () => `+=${window.innerHeight * (slides.length - 1)}`,
+              start: 'top 5rem',
+              end: () => `+=${window.innerHeight * 0.8 * (slides.length - 1)}`,
               pin: true,
               scrub: 0.65,
               anticipatePin: 1,
@@ -49,7 +49,7 @@ export function ServicesSection() {
               onUpdate: (self) => {
                 const activeIndex = Math.min(
                   slides.length - 1,
-                  Math.floor(self.progress * (slides.length - 1) + 0.75),
+                  Math.floor(self.progress * (slides.length - 1) + 0.5),
                 )
                 if (currentIndicator) currentIndicator.textContent = String(activeIndex + 1).padStart(2, '0')
                 gsap.set(progressFill, { scaleY: self.progress })
@@ -67,29 +67,30 @@ export function ServicesSection() {
             const nextCopy = nextSlide.querySelectorAll('.service-slide__body > *')
 
             timeline
-              .to(currentImage, { yPercent: -5, scale: 1.03, autoAlpha: 0.38, duration: 0.72, ease: EASE_IN_OUT }, nextIndex)
-              .to(currentBody, { y: -18, autoAlpha: 0, duration: 0.28, ease: EASE_UI }, nextIndex)
-              .set(nextSlide, { autoAlpha: 1, zIndex: 2 }, nextIndex + 0.1)
+              .to(currentImage, { yPercent: -5, scale: 1.025, autoAlpha: 0.4, duration: 0.56, ease: EASE_IN_OUT }, nextIndex)
+              .to(currentBody, { y: -20, autoAlpha: 0, duration: 0.24, ease: EASE_UI }, nextIndex)
+              .set(nextSlide, { autoAlpha: 1, zIndex: 2 }, nextIndex + 0.08)
               .fromTo(
                 nextVisual,
                 { clipPath: 'inset(100% 0 0 0)' },
-                { clipPath: 'inset(0% 0 0 0)', duration: 0.76, ease: EASE_IN_OUT },
-                nextIndex + 0.1,
+                { clipPath: 'inset(0% 0 0 0)', duration: 0.56, ease: EASE_IN_OUT },
+                nextIndex + 0.08,
               )
               .fromTo(nextImage, { yPercent: 6, scale: 1.06 }, {
                 yPercent: 0,
                 scale: 1,
-                duration: 0.9,
+                duration: 0.65,
                 ease: EASE_REVEAL,
-              }, nextIndex + 0.1)
+              }, nextIndex + 0.08)
               .fromTo(nextCopy, { autoAlpha: 0, y: 18 }, {
                 autoAlpha: 1,
                 y: 0,
-                duration: 0.48,
-                stagger: 0.05,
+                duration: 0.38,
+                stagger: 0.035,
                 ease: EASE_REVEAL,
-              }, nextIndex + 0.14)
-              .set(currentSlide, { autoAlpha: 0, zIndex: 0 }, nextIndex + 0.96)
+              }, nextIndex + 0.12)
+              .set(currentSlide, { autoAlpha: 0, zIndex: 0 }, nextIndex + 0.72)
+              .set(nextSlide, { zIndex: 2 }, nextIndex + 1)
           })
 
           const refresh = () => ScrollTrigger.refresh()

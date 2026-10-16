@@ -42,7 +42,9 @@ export function Navbar() {
       window.cancelAnimationFrame(frame)
       frame = window.requestAnimationFrame(() => {
         setScrolled(window.scrollY > 48)
-        setPastHero(isHeroContext && window.scrollY > window.innerHeight * 0.72)
+        const hero = document.querySelector<HTMLElement>(pathname === '/' ? '.hero-section' : '.project-detail__hero')
+        const logo = document.querySelector<HTMLElement>('.brand-logo')
+        setPastHero(Boolean(isHeroContext && hero && logo && hero.getBoundingClientRect().bottom <= logo.getBoundingClientRect().bottom))
       })
     }
 
@@ -54,7 +56,7 @@ export function Navbar() {
       window.removeEventListener('scroll', updateScrollState)
       window.removeEventListener('resize', updateScrollState)
     }
-  }, [isHeroContext])
+  }, [isHeroContext, pathname])
 
   return (
     <header
@@ -107,13 +109,14 @@ export function Navbar() {
             </NavLink>
           ))}
         </nav>
-        <a
+        <Link
           className="mobile-menu__enquiry"
-          href="mailto:info@anjora.lighting?subject=Project%20Enquiry%20-%20Anjora%20Lighting"
+          to="/#enquiry"
           tabIndex={open ? 0 : -1}
+          onClick={() => setOpen(false)}
         >
           Start a project <span aria-hidden="true">↗</span>
-        </a>
+        </Link>
       </div>
     </header>
   )

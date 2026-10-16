@@ -94,7 +94,6 @@ export const projects: Project[] = [
     sourceUrl: 'https://anjora.lighting/project/rosado/',
     cover: image('rosado', 'cover.jpeg', 'Rosado lounge and dining interior', { orientation: 'landscape', objectPosition: 'center 48%' }),
     gallery: [
-      image('rosado', 'gallery-01.jpeg', 'Rosado terrace at night'),
       image('rosado', 'gallery-02.jpg', 'Rosado illuminated exterior'),
       image('rosado', 'gallery-03.jpg', 'Rosado interior lighting detail'),
       image('rosado', 'gallery-04.jpg', 'Rosado bar lighting'),
@@ -207,10 +206,9 @@ export const projects: Project[] = [
     title: 'Neo',
     category: 'Clubs',
     sourceUrl: 'https://anjora.lighting/project/neo/',
-    cover: image('neo', 'cover.jpeg', 'Neo hospitality interior lighting', { orientation: 'landscape' }),
+    cover: image('neo', 'gallery-02.jpg', 'Neo hospitality entrance with integrated colour lighting', { orientation: 'landscape' }),
     gallery: [
       image('neo', 'gallery-01.jpg', 'Neo lighting detail'),
-      image('neo', 'gallery-02.jpg', 'Neo interior lighting view'),
     ],
   },
   {
@@ -229,13 +227,11 @@ export const projects: Project[] = [
     title: 'Ohana',
     category: 'Clubs',
     sourceUrl: 'https://anjora.lighting/project/ohana/',
-    cover: image('ohana', 'cover.jpg', 'Ohana club lighting', { orientation: 'landscape' }),
+    cover: image('ohana', 'gallery-05.jpg', 'Ohana club architectural lighting', { orientation: 'landscape' }),
     gallery: [
       image('ohana', 'gallery-01.jpg', 'Ohana hospitality lighting detail'),
       image('ohana', 'gallery-02.jpg', 'Ohana interior lighting'),
-      image('ohana', 'gallery-03.webp', 'Ohana cocktail bar interior'),
       image('ohana', 'gallery-04.webp', 'Ohana lounge lighting'),
-      image('ohana', 'gallery-05.jpg', 'Ohana illuminated seating area'),
     ],
   },
   {
@@ -256,9 +252,7 @@ export const projects: Project[] = [
     sourceUrl: 'https://anjora.lighting/project/boozup/',
     cover: image('boozup', 'cover.webp', 'Boozup bar lighting', { orientation: 'landscape' }),
     gallery: [
-      image('boozup', 'gallery-01.png', 'Boozup club interior'),
       image('boozup', 'gallery-02.jpg', 'Boozup lighting detail'),
-      image('boozup', 'gallery-03.jpg', 'Boozup bar interior lighting'),
     ],
   },
   {

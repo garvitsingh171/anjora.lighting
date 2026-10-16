@@ -86,7 +86,7 @@
   margin: 0;
   font-family: var(--display);
   font-size: clamp(2.35rem, 4vw, 3.65rem);
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.05;
   letter-spacing: -0.045em;
 }
@@ -201,7 +201,7 @@
   margin: 0;
   font-family: var(--display);
   font-size: clamp(2.35rem, 4.5vw, 4.25rem);
-  font-weight: 400;
+  font-weight: 600;
   line-height: 0.95;
   letter-spacing: -0.045em;
   text-transform: uppercase;
@@ -278,13 +278,12 @@
 }
 
 .about-founder__visual {
-  position: sticky;
-  top: 6.5rem;
+  position: relative;
 }
 
 .about-founder__portrait {
   position: relative;
-  max-width: 31rem;
+  max-width: 24rem;
   aspect-ratio: 1 / 1;
   margin-top: 1.75rem;
   overflow: hidden;
@@ -312,18 +311,18 @@
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-  max-width: 31rem;
+  max-width: 24rem;
   padding-top: 0.9rem;
   border-bottom: 1px solid var(--line);
   padding-bottom: 0.9rem;
   color: var(--muted);
-  font-size: 0.67rem;
+  font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.13em;
   text-transform: uppercase;
 }
 
-.about-founder__story { padding-top: 2.6rem; }
+.about-founder__story { padding-top: 0; }
 
 .about-founder__story > header h2 {
   margin-top: 1.4rem;
@@ -402,7 +401,7 @@
   margin: 0;
   font-family: var(--display);
   font-size: clamp(1.9rem, 2.8vw, 2.55rem);
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1;
   letter-spacing: -0.04em;
 }
@@ -540,7 +539,7 @@
   margin: 0;
   font-family: var(--display);
   font-size: clamp(1.5rem, 2.3vw, 2.15rem);
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: -0.04em;
   text-transform: uppercase;
 }

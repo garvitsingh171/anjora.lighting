@@ -10,6 +10,7 @@
     "typecheck": "tsc -b --pretty false",
     "enquiry:qa": "node scripts/enquiry-qa.mjs",
     "visual:qa": "node scripts/visual-qa.mjs",
+    "refinement:qa": "node scripts/refinement-qa.mjs",
     "blog:qa": "node scripts/blog-qa.mjs",
     "about:qa": "node scripts/about-qa.mjs",
     "theme:qa": "node scripts/theme-qa.mjs",
