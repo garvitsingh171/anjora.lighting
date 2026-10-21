@@ -119,15 +119,15 @@
   position: absolute;
   inset: 0;
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(19rem, 0.8fr);
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
   gap: clamp(2rem, 4vw, 3.75rem);
-  align-items: stretch;
+  align-items: start;
   background: transparent;
 }
 
 .service-slide__visual {
   position: relative;
-  min-height: 0;
+  height: 100%;
   overflow: hidden;
   background: var(--ink-deep);
   will-change: clip-path;
@@ -157,12 +157,12 @@
 .service-slide__body {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: clamp(1rem, 2.5vw, 2.6rem) 0;
+  justify-content: flex-start;
+  padding: 0.4rem 0 0;
 }
 
 .service-slide__number {
-  margin: 0 0 auto;
+  margin: 0 0 clamp(0.8rem, 1.2vw, 1.1rem);
   color: var(--accent);
   font-size: 0.8rem;
   font-weight: 600;
@@ -171,10 +171,10 @@
 }
 
 .service-slide h3 {
-  max-width: 10ch;
+  max-width: 13ch;
   margin: 0;
   font-family: var(--display);
-  font-size: clamp(2.5rem, 3.5vw, 3.25rem);
+  font-size: clamp(2.65rem, 3.8vw, 3.7rem);
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.045em;
@@ -185,8 +185,8 @@
   max-width: 34rem;
   margin: clamp(1.3rem, 2vw, 2rem) 0 0;
   color: var(--muted);
-  font-size: var(--fs-body);
-  line-height: 1.4;
+  font-size: var(--fs-body-large);
+  line-height: 1.38;
 }
 
 .service-slide ul {
@@ -201,7 +201,7 @@
 
 .service-slide li {
   color: var(--color-text-subtle);
-  font-size: 0.86rem;
+  font-size: 0.95rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }

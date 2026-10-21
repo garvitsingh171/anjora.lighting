@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import type { Product } from '../../data/products'
 import { getProductEnquiryUrl } from '../../lib/enquiry'
 
@@ -9,9 +10,9 @@ interface EnquiryButtonProps {
 
 export function EnquiryButton({ product, className = '', label = 'Enquire' }: EnquiryButtonProps) {
   return (
-    <a className={`enquiry-button ${className}`.trim()} href={getProductEnquiryUrl(product)}>
+    <Link className={`enquiry-button ${className}`.trim()} to={getProductEnquiryUrl(product)} aria-label={`${label}: ${product.name}`}>
       <span>{label}</span>
       <span aria-hidden="true">↗</span>
-    </a>
+    </Link>
   )
 }

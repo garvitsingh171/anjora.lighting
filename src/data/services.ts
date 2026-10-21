@@ -1,9 +1,9 @@
 import consultancyImage from '../assets/services/consultancy.webp'
 import designImage from '../assets/services/design.webp'
-import sourcingImage from '../assets/images/service-sourcing.png'
-import executionImage from '../assets/images/service-execution.png'
+import sourcingImage from '../assets/services/procurement.webp'
+import executionImage from '../assets/services/audit.webp'
 import turnKeyImage from '../assets/services/turn-key.webp'
-import managementImage from '../assets/services/management.webp'
+import managementImage from '../assets/services/management-control.webp'
 import liaisonImage from '../assets/services/liaison.webp'
 
 export interface Service {
@@ -34,7 +34,7 @@ export const services: Service[] = [
     title: 'Lighting Procurement',
     description: 'We align luminaire selection, optics, output and finish with the approved design, then coordinate sourcing and delivery with the project team.',
     image: sourcingImage,
-    imageAlt: 'Project specialists discussing technical lighting specifications and sourcing',
+    imageAlt: 'Architectural track luminaires integrated with timber ceiling beams',
     capabilities: ['Fixture schedules', 'Sample review', 'Vendor coordination'],
   },
   {
@@ -62,7 +62,7 @@ export const services: Service[] = [
     title: 'Lighting Audit',
     description: 'We assess existing light levels, distribution and fixture performance to identify practical improvements to comfort, efficiency and visual quality.',
     image: executionImage,
-    imageAlt: 'Lighting specialists reviewing measured illumination and project documentation',
+    imageAlt: 'Linear lighting illuminating an interior ceiling for performance review',
     capabilities: ['Site assessment', 'Performance review', 'Upgrade guidance'],
   },
   {
@@ -71,8 +71,8 @@ export const services: Service[] = [
     title: 'Light Management',
     description: 'Control scenes, programming and ongoing system attention help the installed lighting continue to perform as intended.',
     image: managementImage,
-    imageAlt: 'Lighting control software in use during a live lighting setup',
-    objectPosition: '30% center',
+    imageAlt: 'Architectural wall dimmer that controls a lighting scene',
+    objectPosition: 'center 45%',
     capabilities: ['Scene programming', 'Controls', 'System support'],
   },
   {

@@ -1,8 +1,8 @@
 import { useRef } from 'react'
 import { useGSAP } from '@gsap/react'
 import { services } from '../../data/services'
-import { gsap, ScrollTrigger } from '../../lib/gsap'
-import { EASE_IN_OUT, EASE_REVEAL, EASE_UI } from '../../lib/motion'
+import { gsap } from '../../lib/gsap'
+import { EASE_IN_OUT, EASE_REVEAL } from '../../lib/motion'
 import { ServiceSlide } from './ServiceSlide'
 import './ServicesSection.css'
 
@@ -35,23 +35,28 @@ export function ServicesSection() {
           gsap.set(slides.slice(1), { autoAlpha: 0 })
           gsap.set(progressFill, { scaleY: 0, transformOrigin: 'top center' })
 
+          const updateActive = (progress: number) => {
+            const activeIndex = Math.min(slides.length - 1, Math.round(progress * (slides.length - 1)))
+            if (currentIndicator) currentIndicator.textContent = String(activeIndex + 1).padStart(2, '0')
+            slides.forEach((slide, index) => {
+              slide.inert = index !== activeIndex
+              slide.setAttribute('aria-hidden', String(index !== activeIndex))
+            })
+          }
+          updateActive(0)
+
           const timeline = gsap.timeline({
             defaults: { ease: 'none' },
             scrollTrigger: {
               trigger: '.services__pin',
-              start: 'top 5rem',
-              end: () => `+=${window.innerHeight * 0.8 * (slides.length - 1)}`,
+              start: 'top 80px',
+              end: () => `+=${Math.max(520, window.innerHeight * 0.72) * (slides.length - 1)}`,
               pin: true,
               scrub: 0.65,
               anticipatePin: 1,
               invalidateOnRefresh: true,
-              fastScrollEnd: true,
               onUpdate: (self) => {
-                const activeIndex = Math.min(
-                  slides.length - 1,
-                  Math.floor(self.progress * (slides.length - 1) + 0.5),
-                )
-                if (currentIndicator) currentIndicator.textContent = String(activeIndex + 1).padStart(2, '0')
+                updateActive(self.progress)
                 gsap.set(progressFill, { scaleY: self.progress })
               },
             },
@@ -61,41 +66,46 @@ export function ServicesSection() {
             const currentSlide = slides[nextIndex]
             if (!currentSlide) return
             const currentImage = currentSlide.querySelector('.service-slide__image')
-            const currentBody = currentSlide.querySelector('.service-slide__body')
+            const currentCopy = currentSlide.querySelectorAll('.service-slide__body > *')
             const nextVisual = nextSlide.querySelector('.service-slide__visual')
             const nextImage = nextSlide.querySelector('.service-slide__image')
             const nextCopy = nextSlide.querySelectorAll('.service-slide__body > *')
 
             timeline
-              .to(currentImage, { yPercent: -5, scale: 1.025, autoAlpha: 0.4, duration: 0.56, ease: EASE_IN_OUT }, nextIndex)
-              .to(currentBody, { y: -20, autoAlpha: 0, duration: 0.24, ease: EASE_UI }, nextIndex)
-              .set(nextSlide, { autoAlpha: 1, zIndex: 2 }, nextIndex + 0.08)
+              .set(nextSlide, { visibility: 'visible', zIndex: 3 }, nextIndex)
+              .fromTo(nextSlide, { opacity: 0 }, { opacity: 1, duration: 0.62 }, nextIndex)
+              .to(currentImage, { yPercent: -8, scale: 1.035, duration: 0.68, ease: EASE_IN_OUT }, nextIndex)
+              .to(currentCopy, { y: -18, opacity: 0, duration: 0.35, stagger: 0.02 }, nextIndex)
               .fromTo(
                 nextVisual,
                 { clipPath: 'inset(100% 0 0 0)' },
-                { clipPath: 'inset(0% 0 0 0)', duration: 0.56, ease: EASE_IN_OUT },
-                nextIndex + 0.08,
+                { clipPath: 'inset(0% 0 0 0)', duration: 0.68, ease: EASE_IN_OUT },
+                nextIndex,
               )
               .fromTo(nextImage, { yPercent: 6, scale: 1.06 }, {
                 yPercent: 0,
                 scale: 1,
-                duration: 0.65,
+                duration: 0.68,
                 ease: EASE_REVEAL,
-              }, nextIndex + 0.08)
+              }, nextIndex)
               .fromTo(nextCopy, { autoAlpha: 0, y: 18 }, {
                 autoAlpha: 1,
                 y: 0,
-                duration: 0.38,
+                duration: 0.46,
                 stagger: 0.035,
                 ease: EASE_REVEAL,
               }, nextIndex + 0.12)
               .set(currentSlide, { autoAlpha: 0, zIndex: 0 }, nextIndex + 0.72)
-              .set(nextSlide, { zIndex: 2 }, nextIndex + 1)
+              .set(nextSlide, { zIndex: 2 }, nextIndex + 0.98)
+              .to({}, { duration: 0.02 }, nextIndex + 0.98)
           })
 
-          const refresh = () => ScrollTrigger.refresh()
-          window.addEventListener('load', refresh, { once: true })
-          return () => window.removeEventListener('load', refresh)
+          return () => {
+            slides.forEach((slide) => {
+              slide.inert = false
+              slide.removeAttribute('aria-hidden')
+            })
+          }
         },
       )
 

@@ -1,9 +1,11 @@
 import { useId, useRef, useState } from 'react'
 import type { ChangeEvent, FormEvent } from 'react'
+import { useLocation } from 'react-router-dom'
 import { useGSAP } from '@gsap/react'
 import { gsap } from '../../lib/gsap'
 import { EASE_IN_OUT, EASE_REVEAL, EASE_UI, MOTION_BASE, prefersReducedMotion } from '../../lib/motion'
 import { submitWeb3FormsEnquiry } from '../../lib/web3forms'
+import { getProductBySlug, type Product } from '../../data/products'
 import './EnquirySection.css'
 
 const projectTypes = [
@@ -60,11 +62,22 @@ function validateForm(formData: EnquiryFormData): FormErrors {
   return errors
 }
 
-export function EnquirySection({ source, projectName }: EnquirySectionProps) {
+export function EnquirySection(props: EnquirySectionProps) {
+  const location = useLocation()
+  const selectedProduct = getProductBySlug(new URLSearchParams(location.search).get('product') ?? undefined)
+  return <EnquirySectionContent key={selectedProduct?.slug ?? 'general'} selectedProduct={selectedProduct} {...props} />
+}
+
+function EnquirySectionContent({ source, projectName, selectedProduct }: EnquirySectionProps & { selectedProduct?: Product }) {
   const sectionRef = useRef<HTMLElement>(null)
   const successRef = useRef<HTMLDivElement>(null)
   const fieldId = useId()
-  const [formData, setFormData] = useState<EnquiryFormData>(initialFormData)
+  const [formData, setFormData] = useState<EnquiryFormData>(() => ({
+    ...initialFormData,
+    message: selectedProduct
+      ? `I would like to enquire about ${selectedProduct.name} (${selectedProduct.id}), ${selectedProduct.category}. Please share the available specification options for my project.`
+      : '',
+  }))
   const [errors, setErrors] = useState<FormErrors>({})
   const [status, setStatus] = useState<SubmissionStatus>('idle')
   const [errorMessage, setErrorMessage] = useState('')
@@ -85,12 +98,13 @@ export function EnquirySection({ source, projectName }: EnquirySectionProps) {
         onLeave: (self) => self.animation?.progress(1),
       },
     })
-      .fromTo(sectionRef.current, { clipPath: 'inset(9% 0 0 0)' }, {
+      .fromTo('.enquiry-section__panel', { clipPath: 'inset(8% 0 0 0)', y: 28 }, {
         clipPath: 'inset(0% 0 0 0)',
+        y: 0,
         duration: 0.82,
         ease: EASE_IN_OUT,
       })
-      .fromTo('.enquiry-section__grid > *', { autoAlpha: 0, y: 18 }, {
+      .fromTo('.enquiry-section__intro > *, .enquiry-form', { autoAlpha: 0, y: 18 }, {
         autoAlpha: 1,
         y: 0,
         duration: MOTION_BASE,
@@ -157,7 +171,7 @@ export function EnquirySection({ source, projectName }: EnquirySectionProps) {
     try {
       await submitWeb3FormsEnquiry({
         access_key: accessKey,
-        subject: 'New Website Enquiry | Anjora Lighting',
+        subject: selectedProduct ? `Product Enquiry: ${selectedProduct.name} (${selectedProduct.id}) | Anjora Lighting` : 'New Website Enquiry | Anjora Lighting',
         from_name: 'Anjora Lighting Website',
         name: formData.name.trim(),
         email: formData.email.trim(),
@@ -166,7 +180,7 @@ export function EnquirySection({ source, projectName }: EnquirySectionProps) {
         message: formData.message.trim(),
         page_url: window.location.href,
         botcheck,
-        ...(source ? { source } : {}),
+        ...(source || selectedProduct ? { source: selectedProduct ? 'Product Enquiry' : source } : {}),
         ...(projectName ? { interested_project: projectName } : {}),
       }, controller.signal)
 
@@ -187,7 +201,7 @@ export function EnquirySection({ source, projectName }: EnquirySectionProps) {
     ? (
         <div ref={successRef} className="enquiry-form__feedback enquiry-form__feedback--success">
           <strong>Thank you.</strong>
-          <span>Your enquiry has been sent to Anjora. We’ll get back to you shortly.</span>
+          <span>Your enquiry was accepted. The Anjora team will be in touch.</span>
         </div>
       )
     : status === 'error'
@@ -204,11 +218,13 @@ export function EnquirySection({ source, projectName }: EnquirySectionProps) {
 
   return (
     <section ref={sectionRef} id="enquiry" className="enquiry-section" aria-labelledby={`${fieldId}-title`}>
-      <div className="container enquiry-section__grid">
+      <div className="container">
+      <div className="enquiry-section__panel enquiry-section__grid">
         <div className="enquiry-section__intro">
           <p className="eyebrow">Start a conversation</p>
           <h2 id={`${fieldId}-title`} className="display-title">Have a project in mind?</h2>
           <p>Let’s explore how thoughtful lighting can shape the way your space is seen and experienced.</p>
+          {selectedProduct && <p className="enquiry-section__product">Enquiring about <strong>{selectedProduct.name} · {selectedProduct.id}</strong></p>}
         </div>
 
         <form className="enquiry-form" onSubmit={handleSubmit} noValidate aria-busy={status === 'submitting'}>
@@ -309,6 +325,7 @@ export function EnquirySection({ source, projectName }: EnquirySectionProps) {
             </button>
           </div>
         </form>
+      </div>
       </div>
     </section>
   )

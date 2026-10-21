@@ -12,6 +12,7 @@
     <script>
       (() => {
         try {
+          history.scrollRestoration = 'manual'
           const savedTheme = localStorage.getItem('anjora-theme')
           const theme = savedTheme === 'light' || savedTheme === 'dark'
             ? savedTheme

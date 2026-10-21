@@ -16,6 +16,11 @@ export function ConsultancyProcess() {
     const media = gsap.matchMedia()
     media.add('(min-width: 760px) and (prefers-reduced-motion: no-preference)', () => {
       const steps = gsap.utils.toArray<HTMLElement>(section.querySelectorAll('[data-process-step]'))
+      let activeFrame = 0
+      const activate = (index: number) => {
+        window.cancelAnimationFrame(activeFrame)
+        activeFrame = window.requestAnimationFrame(() => setActiveStep(index))
+      }
       gsap.fromTo('[data-process-progress]', { scaleY: 0 }, {
         scaleY: 1,
         ease: 'none',
@@ -32,11 +37,14 @@ export function ConsultancyProcess() {
         trigger: step,
         start: 'top 64%',
         end: 'bottom 48%',
-        onEnter: () => setActiveStep(index),
-        onEnterBack: () => setActiveStep(index),
+        onEnter: () => activate(index),
+        onEnterBack: () => activate(index),
       }))
 
-      return () => triggers.forEach((trigger) => trigger.kill())
+      return () => {
+        window.cancelAnimationFrame(activeFrame)
+        triggers.forEach((trigger) => trigger.kill())
+      }
     })
     return () => media.revert()
   }, { scope: sectionRef })
