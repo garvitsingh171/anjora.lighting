@@ -1,0 +1,5 @@
+.instagram-reel { display: grid; grid-template-columns: 0.5fr 1.5fr auto; align-items: center; gap: 2rem; padding-block: 3rem; border-top: 1px solid var(--line); }
+.instagram-reel h2 { font-size: clamp(2rem, 3vw, 3.2rem); }
+.instagram-reel p:not(.eyebrow) { margin: 0.8rem 0 0; color: var(--muted); font-size: 1.15rem; }
+.instagram-reel > a { min-height: 44px; }
+@media (max-width: 767px) { .instagram-reel { grid-template-columns: 1fr; gap: 1.5rem; } }

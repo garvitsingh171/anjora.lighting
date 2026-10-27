@@ -1,34 +1,14 @@
 .route-transition {
   position: fixed;
-  inset: 0;
+  inset: 0 0 auto;
   z-index: 89;
-  display: grid;
-  place-content: center;
-  visibility: hidden;
-  overflow: hidden;
-  opacity: 0;
-  color: #f1f0e9;
-  background: #09141e;
-  pointer-events: none;
-  will-change: transform;
-}
-
-.route-transition__label {
-  font-family: var(--display);
-  font-size: clamp(0.8rem, 1.1vw, 1rem);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.route-transition__line {
-  width: 100%;
   height: 2px;
-  margin-top: 0.8rem;
+  visibility: hidden;
+  opacity: 0;
   background: var(--accent);
-  transform: scaleX(0);
   transform-origin: left center;
+  pointer-events: none;
 }
-
 @media (prefers-reduced-motion: reduce) {
   .route-transition { display: none; }
 }

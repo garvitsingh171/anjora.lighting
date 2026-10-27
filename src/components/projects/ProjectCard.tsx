@@ -24,6 +24,8 @@ export function ProjectCard({ project, size, priority = false, parallax = false 
           <img
             src={project.cover.src}
             alt={project.cover.alt}
+            width={project.cover.width}
+            height={project.cover.height}
             loading={priority ? 'eager' : 'lazy'}
             decoding="async"
             style={{ objectPosition: project.cover.objectPosition ?? 'center' }}

@@ -14,13 +14,9 @@ export function Hero() {
       if (prefersReducedMotion()) return
 
       const timeline = gsap.timeline({ defaults: { ease: EASE_REVEAL } })
-      const header = document.querySelector('.site-header')
       timeline
         .fromTo('.hero__image', { scale: 1.045 }, { scale: 1, duration: 1.5 })
         .fromTo('.hero__shade', { opacity: 0.85 }, { opacity: 1, duration: 0.9 }, 0)
-      if (header) {
-        timeline.fromTo(header, { autoAlpha: 0, y: -8 }, { autoAlpha: 1, y: 0, duration: 0.65 }, 0.16)
-      }
       timeline
         .fromTo('.hero__eyebrow', { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.55 }, 0.25)
         .fromTo('.hero__line > span', { yPercent: 110 }, { yPercent: 0, duration: 0.8, stagger: 0.09 }, 0.36)

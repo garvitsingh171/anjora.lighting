@@ -1,10 +1,12 @@
+import imageSizes from './project-image-sizes.json'
+
 const projectAssets = import.meta.glob('../assets/projects/**/*', {
   eager: true,
   import: 'default',
   query: '?url',
 }) as Record<string, string>
 
-export const projectCategories = [
+const categoryOrder = [
   'Clubs',
   'Heritage',
   'Commercial',
@@ -14,11 +16,13 @@ export const projectCategories = [
   'Theatre',
 ] as const
 
-export type ProjectCategory = (typeof projectCategories)[number]
+export type ProjectCategory = (typeof categoryOrder)[number]
 
 export interface ProjectImage {
   src: string
   alt: string
+  width: number
+  height: number
   orientation?: 'landscape' | 'portrait' | 'square'
   objectPosition?: string
 }
@@ -54,7 +58,8 @@ function image(
   alt: string,
   options: Pick<ProjectImage, 'orientation' | 'objectPosition'> = {},
 ): ProjectImage {
-  return { src: asset(project, filename), alt, ...options }
+  const size = imageSizes[`${project}/${filename}` as keyof typeof imageSizes]
+  return { src: asset(project, filename), alt, ...size, ...options }
 }
 
 export const projects: Project[] = [
@@ -283,11 +288,20 @@ export const projects: Project[] = [
   },
 ]
 
+// Categories remain editorially ordered, but only populated categories are offered.
+export const projectCategories = categoryOrder.filter(category => projects.some(project => project.category === category))
+
+export function projectCategoryPath(category: 'All' | ProjectCategory) {
+  return category === 'All' ? '/projects' : `/projects?category=${encodeURIComponent(category)}`
+}
+
 export const homeProjects = ['kingsman', 'city-palace', 'office-1', 'turmeric', 'gym-ajmer']
   .map((slug) => projects.find((project) => project.slug === slug))
   .filter((project): project is Project => Boolean(project))
 
 export function getNextProject(slug: string) {
   const index = projects.findIndex((project) => project.slug === slug)
-  return projects[(index + 1) % projects.length]!
+  const current = projects[index]
+  const remaining = [...projects.slice(index + 1), ...projects.slice(0, index)]
+  return remaining.find(project => project.category === current?.category) ?? remaining[0] ?? projects[0]!
 }

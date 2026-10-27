@@ -1,11 +1,10 @@
 import { useEffect, useRef } from 'react'
-import type { CSSProperties } from 'react'
 import { useGSAP } from '@gsap/react'
 import { Link, useParams } from 'react-router-dom'
 import { EnquirySection } from '../components/home/EnquirySection'
 import { NextProject } from '../components/projects/NextProject'
 import { ProjectGallery } from '../components/projects/ProjectGallery'
-import { getNextProject, projects } from '../data/projects'
+import { getNextProject, projectCategoryPath, projects } from '../data/projects'
 import { gsap } from '../lib/gsap'
 import { EASE_IN_OUT, EASE_REVEAL, MOTION_BASE, MOTION_SLOW, prefersReducedMotion } from '../lib/motion'
 import './Projects.css'
@@ -36,7 +35,7 @@ export function ProjectDetail() {
           ease: EASE_IN_OUT,
         }, 0.08)
 
-      gsap.fromTo('[data-detail-image]', { yPercent: -2 }, {
+      if (project.cover.orientation !== 'portrait') gsap.fromTo('[data-detail-image]', { yPercent: -2 }, {
         yPercent: 2,
         ease: 'none',
         scrollTrigger: {
@@ -79,7 +78,7 @@ export function ProjectDetail() {
           }, 0)
       })
     },
-    { scope: rootRef, dependencies: [slug] },
+    { scope: rootRef, dependencies: [slug], revertOnUpdate: true },
   )
 
   if (!project) {
@@ -95,20 +94,20 @@ export function ProjectDetail() {
 
   const nextProject = getNextProject(project.slug)
   const hasDetails = Boolean(project.description?.length || project.facts?.length)
-  const heroStyle = { '--project-hero': `url("${project.cover.src}")` } as CSSProperties
+  const portrait = project.cover.orientation === 'portrait'
 
   return (
     <main ref={rootRef} id="main-content" className="project-detail">
-      <header className="project-detail__hero" data-detail-hero style={heroStyle}>
-        <div className="project-detail__hero-backdrop" />
-        <img data-detail-image src={project.cover.src} alt={project.cover.alt} />
+      <header className={`project-detail__hero${portrait ? ' project-detail__hero--portrait' : ''}`} data-detail-hero>
+        <img data-detail-image src={project.cover.src} alt={project.cover.alt} width={project.cover.width} height={project.cover.height}
+          fetchPriority="high" style={{ objectPosition: project.cover.objectPosition }} />
         <div className="project-detail__hero-shade" />
 
         <div className="project-detail__hero-content container">
           <div className="project-detail__breadcrumb" data-detail-breadcrumb>
             <Link to="/projects">Projects</Link>
             <span aria-hidden="true">/</span>
-            <span>{project.category}</span>
+            <Link to={projectCategoryPath(project.category)}>Back to {project.category}</Link>
           </div>
           <div className="project-detail__title-mask">
             <h1 className="display-title" data-detail-title>{project.title}</h1>
@@ -118,11 +117,12 @@ export function ProjectDetail() {
             {project.location && <div><dt>Location</dt><dd>{project.location}</dd></div>}
             {project.status && <div><dt>Status</dt><dd>{project.status}</dd></div>}
           </dl>
+          {portrait && <a className="text-link project-detail__read" href={hasDetails ? "#project-story" : "#project-conclusion"}>Explore the project</a>}
         </div>
       </header>
 
       {hasDetails && (
-        <section className="project-detail__story container" aria-label="Project details">
+        <section id="project-story" className="project-detail__story container" aria-label="Project details">
           <p className="eyebrow">Project notes</p>
           <div className="project-detail__copy">
             {project.description?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
@@ -138,7 +138,12 @@ export function ProjectDetail() {
       )}
 
       <ProjectGallery images={project.gallery} title={project.title} />
-      <NextProject project={nextProject} />
+      <section id="project-conclusion" className="project-detail__conclusion container" aria-label="End of case study">
+        <div><p className="eyebrow">End of project</p><p>{project.title} · {project.category}</p></div>
+        <Link className="text-link" to={projectCategoryPath(project.category)}>Back to {project.category}</Link>
+        <a className="text-link" href="#enquiry">Start a project</a>
+      </section>
+      <NextProject project={nextProject} currentCategory={project.category} />
       <EnquirySection source="Project Detail" projectName={project.title} />
     </main>
   )

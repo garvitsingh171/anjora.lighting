@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { useGSAP } from '@gsap/react'
 import { EnquirySection } from '../components/home/EnquirySection'
 import { ProjectFilters } from '../components/projects/ProjectFilters'
@@ -12,7 +13,17 @@ import './Projects.css'
 
 export function Projects() {
   const rootRef = useRef<HTMLElement>(null)
-  const [activeFilter, setActiveFilter] = useState<ProjectFilter>('All')
+  const [searchParams, setSearchParams] = useSearchParams()
+  const requestedCategory = searchParams.get('category')
+  const activeFilter: ProjectFilter = projectCategories.find(category => category === requestedCategory) ?? 'All'
+  const setActiveFilter = (category: ProjectFilter) => {
+    setSearchParams(current => {
+      const next = new URLSearchParams(current)
+      if (category === 'All') next.delete('category')
+      else next.set('category', category)
+      return next
+    })
+  }
 
   useEffect(() => {
     document.title = 'Projects | Anjora Lighting'
@@ -42,7 +53,7 @@ export function Projects() {
 
       <section className="project-index container" aria-label="Project archive">
         <div className="project-index__controls">
-          <p>{String(visibleProjects.length).padStart(2, '0')} projects</p>
+          <p role="status">{String(visibleProjects.length).padStart(2, '0')} projects</p>
           <ProjectFilters
             active={activeFilter}
             categories={projectCategories}

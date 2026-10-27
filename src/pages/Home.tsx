@@ -1,3 +1,4 @@
+import { InstagramReel } from '../components/home/InstagramReel'
 import { Hero } from '../components/home/Hero'
 import { ServicesSection } from '../components/home/ServicesSection'
 import { CuratedWorks } from '../components/home/CuratedWorks'
@@ -15,6 +16,7 @@ export function Home() {
       <ConsultancyProcess />
       <ProductPreview />
       <InsightsPreview />
+      <InstagramReel />
       <EnquirySection />
     </main>
   )

@@ -14,6 +14,9 @@
     "blog:qa": "node scripts/blog-qa.mjs",
     "about:qa": "node scripts/about-qa.mjs",
     "theme:qa": "node scripts/theme-qa.mjs",
+    "services:qa": "node scripts/services-qa.mjs",
+    "client:qa": "node scripts/client-ux-qa.mjs",
+    "product-service:qa": "node scripts/product-service-qa.mjs",
     "premium:qa": "node scripts/premium-qa.mjs",
     "preview": "vite preview"
   },

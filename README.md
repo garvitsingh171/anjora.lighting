@@ -22,6 +22,10 @@ npm run visual:qa
 
 `visual:qa` uses the system installation of Google Chrome through Playwright Core and saves review captures to `/tmp/anjora-visual-qa`.
 
+Additional regression suites include `services:qa`, `client:qa`, `premium:qa`, `theme:qa`, `enquiry:qa`, `refinement:qa`, `product-service:qa`, `blog:qa` and `about:qa`. Run them with a local server available; use `ANJORA_QA_URL` to override the default `http://127.0.0.1:5173`. Services and trigger-inspection checks require the Vite development server. Enquiry tests mock Web3Forms and do not send real enquiries.
+
+See [the premium UX implementation report](docs/premium-client-upgrade.md) for changes, GSAP diagnosis, navigation behavior, responsive/accessibility checks, completed QA and remaining client content dependencies.
+
 ## Enquiry Form Setup
 
 The enquiry form submits directly from the browser through Web3Forms. To configure it:

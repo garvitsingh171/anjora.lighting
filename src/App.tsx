@@ -4,7 +4,7 @@ import { Home } from './pages/Home'
 import { Blog } from './pages/Blog'
 import { BlogDetail } from './pages/BlogDetail'
 import { About } from './pages/About'
-import { PlaceholderPage } from './pages/PlaceholderPage'
+import { Research } from './pages/Research'
 import { ProductDetail } from './pages/ProductDetail'
 import { Products } from './pages/Products'
 import { ProjectDetail } from './pages/ProjectDetail'
@@ -19,7 +19,7 @@ export default function App() {
         <Route path="projects/:slug" element={<ProjectDetail />} />
         <Route path="products" element={<Products />} />
         <Route path="products/:slug" element={<ProductDetail />} />
-        <Route path="research" element={<PlaceholderPage title="Research" />} />
+        <Route path="research" element={<Research />} />
         <Route path="blog" element={<Blog />} />
         <Route path="blog/:slug" element={<BlogDetail />} />
         <Route path="about-us" element={<About />} />

@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import { useGSAP } from '@gsap/react'
 import { services } from '../../data/services'
 import { gsap } from '../../lib/gsap'
-import { EASE_IN_OUT, EASE_REVEAL } from '../../lib/motion'
+import { getServiceFrame } from '../../lib/service-progress'
 import { ServiceSlide } from './ServiceSlide'
 import './ServicesSection.css'
 
@@ -27,84 +27,62 @@ export function ServicesSection() {
         (context) => {
           const { desktop, motion } = context.conditions ?? {}
           if (!desktop || !motion || slides.length < 2) return
-          const firstSlide = slides[0]
-          if (!firstSlide) return
+          const pin = section.querySelector<HTMLElement>('.services__pin')
+          if (!pin) return
 
-          gsap.set(slides, { zIndex: 0 })
-          gsap.set(firstSlide, { zIndex: 2, autoAlpha: 1 })
-          gsap.set(slides.slice(1), { autoAlpha: 0 })
-          gsap.set(progressFill, { scaleY: 0, transformOrigin: 'top center' })
-
-          const updateActive = (progress: number) => {
-            const activeIndex = Math.min(slides.length - 1, Math.round(progress * (slides.length - 1)))
-            if (currentIndicator) currentIndicator.textContent = String(activeIndex + 1).padStart(2, '0')
+          // One playhead owns presentation, accessibility and the counter. No slide
+          // tweens can capture stale visibility when seeking, reversing or refreshing.
+          const bodies = slides.map(slide => slide.querySelector<HTMLElement>('.service-slide__body'))
+          const playhead = { value: 0 }
+          section.dataset.enhanced = 'true'
+          const render = () => {
+            const frame = getServiceFrame(playhead.value, slides.length)
             slides.forEach((slide, index) => {
-              slide.inert = index !== activeIndex
-              slide.setAttribute('aria-hidden', String(index !== activeIndex))
+              const opacity = frame.opacities[index]!
+              slide.style.opacity = String(opacity)
+              slide.style.visibility = opacity > 0 ? 'visible' : 'hidden'
+              slide.style.zIndex = index === frame.active ? '2' : '1'
+              // Crossfade photographs while keeping only one readable text layer.
+              if (bodies[index]) bodies[index]!.style.visibility = index === frame.active ? 'visible' : 'hidden'
+              slide.inert = index !== frame.active
+              slide.setAttribute('aria-hidden', String(index !== frame.active))
             })
+            if (currentIndicator) currentIndicator.textContent = String(frame.active + 1).padStart(2, '0')
+            if (progressFill) progressFill.style.transform = `scaleY(${playhead.value / (slides.length - 1)})`
           }
-          updateActive(0)
+          render()
 
-          const timeline = gsap.timeline({
-            defaults: { ease: 'none' },
+          gsap.to(playhead, {
+            value: slides.length - 1,
+            duration: slides.length - 1,
+            ease: 'none',
+            onUpdate: render,
             scrollTrigger: {
-              trigger: '.services__pin',
-              start: 'top 80px',
+              id: 'home-services',
+              trigger: pin,
+              start: 'top 96px',
               end: () => `+=${Math.max(520, window.innerHeight * 0.72) * (slides.length - 1)}`,
               pin: true,
-              scrub: 0.65,
+              scrub: 0.3,
               anticipatePin: 1,
               invalidateOnRefresh: true,
-              onUpdate: (self) => {
-                updateActive(self.progress)
-                gsap.set(progressFill, { scaleY: self.progress })
+              onRefresh: (self) => {
+                self.animation?.progress(self.progress)
+                render()
               },
             },
           })
 
-          slides.slice(1).forEach((nextSlide, nextIndex) => {
-            const currentSlide = slides[nextIndex]
-            if (!currentSlide) return
-            const currentImage = currentSlide.querySelector('.service-slide__image')
-            const currentCopy = currentSlide.querySelectorAll('.service-slide__body > *')
-            const nextVisual = nextSlide.querySelector('.service-slide__visual')
-            const nextImage = nextSlide.querySelector('.service-slide__image')
-            const nextCopy = nextSlide.querySelectorAll('.service-slide__body > *')
-
-            timeline
-              .set(nextSlide, { visibility: 'visible', zIndex: 3 }, nextIndex)
-              .fromTo(nextSlide, { opacity: 0 }, { opacity: 1, duration: 0.62 }, nextIndex)
-              .to(currentImage, { yPercent: -8, scale: 1.035, duration: 0.68, ease: EASE_IN_OUT }, nextIndex)
-              .to(currentCopy, { y: -18, opacity: 0, duration: 0.35, stagger: 0.02 }, nextIndex)
-              .fromTo(
-                nextVisual,
-                { clipPath: 'inset(100% 0 0 0)' },
-                { clipPath: 'inset(0% 0 0 0)', duration: 0.68, ease: EASE_IN_OUT },
-                nextIndex,
-              )
-              .fromTo(nextImage, { yPercent: 6, scale: 1.06 }, {
-                yPercent: 0,
-                scale: 1,
-                duration: 0.68,
-                ease: EASE_REVEAL,
-              }, nextIndex)
-              .fromTo(nextCopy, { autoAlpha: 0, y: 18 }, {
-                autoAlpha: 1,
-                y: 0,
-                duration: 0.46,
-                stagger: 0.035,
-                ease: EASE_REVEAL,
-              }, nextIndex + 0.12)
-              .set(currentSlide, { autoAlpha: 0, zIndex: 0 }, nextIndex + 0.72)
-              .set(nextSlide, { zIndex: 2 }, nextIndex + 0.98)
-              .to({}, { duration: 0.02 }, nextIndex + 0.98)
-          })
-
           return () => {
+            delete section.dataset.enhanced
             slides.forEach((slide) => {
               slide.inert = false
               slide.removeAttribute('aria-hidden')
+              for (const property of ['opacity', 'visibility', 'z-index']) slide.style.removeProperty(property)
             })
+            bodies.forEach(body => body?.style.removeProperty('visibility'))
+            progressFill?.style.removeProperty('transform')
+            if (currentIndicator) currentIndicator.textContent = '01'
           }
         },
       )

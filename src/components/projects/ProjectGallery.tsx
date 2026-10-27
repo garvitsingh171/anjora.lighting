@@ -7,7 +7,7 @@ export function ProjectGallery({ images, title }: { images: ProjectImage[]; titl
     <section className="project-gallery container" aria-label={`${title} project gallery`}>
       {images.map((image, index) => (
         <figure key={image.src} className="project-gallery__item" data-gallery-item data-gallery-size={index % 5}>
-          <img src={image.src} alt={image.alt} loading="lazy" decoding="async" />
+          <img src={image.src} alt={image.alt} width={image.width} height={image.height} loading="lazy" decoding="async" />
         </figure>
       ))}
     </section>
