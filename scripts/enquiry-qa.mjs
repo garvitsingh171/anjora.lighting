@@ -5,6 +5,7 @@ const errors = []
 let requestCount = 0
 let requestPayload
 let responseMode = 'success'
+let releaseResponse
 
 const browser = await chromium.launch({
   headless: true,
@@ -25,10 +26,12 @@ await page.route('https://api.web3forms.com/submit', async (route) => {
     return
   }
 
+  if (responseMode === 'slow') await new Promise(resolve => { releaseResponse = resolve })
+  const succeeds = responseMode === 'success' || responseMode === 'slow'
   await route.fulfill({
-    status: responseMode === 'success' ? 200 : 400,
+    status: succeeds ? 200 : 400,
     contentType: 'application/json',
-    body: JSON.stringify(responseMode === 'success'
+    body: JSON.stringify(succeeds
       ? { success: true, message: 'Email sent successfully!' }
       : { success: false, message: 'Invalid access key' }),
   })
@@ -82,6 +85,39 @@ for (const [key, value] of Object.entries(expectedPayload)) {
 }
 if (!requestPayload?.access_key || !requestPayload?.page_url) errors.push('payload omitted access_key or page_url')
 
+// Hold the mock response: two synchronous submit events must create one request,
+// and no success should be announced before the service accepts it.
+responseMode = 'slow'
+await page.reload({ waitUntil: 'domcontentloaded' })
+await fillValidForm()
+const beforePending = requestCount
+await page.locator('.enquiry-form').evaluate(form => { form.requestSubmit(); form.requestSubmit() })
+await page.getByRole('button', { name: /sending/i }).waitFor()
+await page.waitForTimeout(150)
+if (requestCount !== beforePending + 1) errors.push('concurrent submissions were not prevented')
+if (!await page.getByRole('button', { name: /sending/i }).isDisabled()) errors.push('pending submission button is enabled')
+if (await page.locator('.enquiry-form__feedback--success').count()) errors.push('pending request announced success')
+releaseResponse()
+await page.getByRole('button', { name: /enquiry sent/i }).waitFor()
+
+responseMode = 'success'
+await page.reload({ waitUntil: 'domcontentloaded' })
+await fillValidForm()
+await page.locator('[name="botcheck"]').evaluate(input => input.click())
+const beforeSpam = requestCount
+await page.getByRole('button', { name: /send enquiry/i }).click()
+await page.waitForTimeout(100)
+if (requestCount !== beforeSpam) errors.push('honeypot submission reached API')
+if (await page.locator('.enquiry-form__feedback--success').count()) errors.push('honeypot submission falsely reported success')
+
+await page.evaluate(() => localStorage.setItem('anjora-theme', 'dark'))
+await page.goto(`${baseUrl}/?product=recessed-downlight-type-01#enquiry`, { waitUntil: 'domcontentloaded' })
+await page.getByLabel('Name', { exact: true }).fill('Product QA')
+await page.getByLabel('Email', { exact: true }).fill('qa@example.com')
+await page.getByRole('button', { name: /send enquiry/i }).click()
+await page.getByRole('button', { name: /enquiry sent/i }).waitFor()
+if (requestPayload?.source !== 'Product Enquiry' || !requestPayload?.subject.includes('DL-01') || !requestPayload?.message.includes('DL-01')) errors.push('product payload context missing')
+
 responseMode = 'failure'
 await page.reload({ waitUntil: 'domcontentloaded' })
 await fillValidForm()
@@ -126,5 +162,5 @@ if (errors.length) {
   console.error(errors.join('\n'))
   process.exitCode = 1
 } else {
-  console.log('Enquiry QA complete: validation, success, API failure, network failure, context, and responsive layouts passed.')
+  console.log('Enquiry QA complete: validation, pending/duplicate prevention, honeypot, success, API/network failures, project/product payloads, both themes and responsive layouts passed.')
 }

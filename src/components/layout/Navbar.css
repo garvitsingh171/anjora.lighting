@@ -297,3 +297,31 @@
     background: var(--nav-control-bg);
   }
 }
+
+.projects-nav-trigger { display: flex; align-items: center; }
+.desktop-nav .projects-nav-trigger a { padding-right: 0.35rem; }
+.projects-nav-trigger > button { display: grid; place-items: center; width: 2.1rem; height: 2.8rem; padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--nav-text-strong); cursor: pointer; }
+.projects-nav-trigger > button[aria-expanded='true'] { transform: rotate(180deg); }
+.site-header--hero-context:not(.site-header--past-hero) .projects-nav-trigger > button { color: var(--color-on-media); }
+.site-header--menu-open { background: var(--ink); }
+.site-header--menu-open .brand-logo img { filter: var(--logo-filter); }
+.mobile-menu { overflow-y: auto; overscroll-behavior: contain; }
+@media (max-width: 900px) {
+  .mobile-menu { justify-content: flex-start; gap: 2rem; }
+  .mobile-projects-toggle { display: flex; align-items: baseline; gap: 1.5rem; padding: 0.85rem 0; border: 0; border-bottom: 1px solid var(--line); color: var(--paper); background: none; text-align: left; font-family: var(--display); font-size: clamp(1.9rem, 10vw, 3.1rem); letter-spacing: -0.04em; cursor: pointer; }
+  .mobile-projects-toggle b { margin-left: auto; color: var(--accent-soft); font-size: 1.6rem; font-weight: 400; }
+  .mobile-project-categories { padding: 0.65rem 0 1rem 2.2rem; border-bottom: 1px solid var(--line); }
+  .mobile-menu .mobile-project-categories a { min-height: 44px; padding: 0.55rem 0; border: 0; font-family: var(--sans); font-size: 1.4rem; letter-spacing: 0; }
+  .mobile-menu__enquiry { margin-top: auto; }
+}
+@media (prefers-reduced-motion: reduce) { .mobile-menu nav a { transform: none; } }
+
+.site-header--footer-context:not(.site-header--menu-open) .brand-logo img { filter: invert(1); }
+body.menu-open .site-header--footer-context .brand-logo img { filter: var(--logo-filter); }
+
+/* The transparent bridge keeps a slow pointer crossing inside the disclosure. */
+.projects-nav-trigger { position: relative; }
+.projects-nav-trigger:has([aria-expanded='true'])::before { position: absolute; inset: 100% -0.4rem auto; height: 2.25rem; content: ''; }
+@media (max-width: 900px) {
+  body.menu-open .site-header::before { position: fixed; inset: 0 0 auto; z-index: 52; height: 6.3rem; content: ''; background: var(--ink); pointer-events: auto; }
+}

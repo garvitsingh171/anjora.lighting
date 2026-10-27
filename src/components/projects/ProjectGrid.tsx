@@ -69,7 +69,7 @@ export function ProjectGrid({ projects, motionKey }: { projects: Project[]; moti
         })
       }
     },
-    { scope: gridRef, dependencies: [motionKey] },
+    { scope: gridRef, dependencies: [motionKey], revertOnUpdate: true },
   )
 
   return (

@@ -1,0 +1,10 @@
+.research-hero { padding-top: clamp(10rem, 16vw, 14rem); padding-bottom: 5rem; }
+.research-hero h1 { margin: 2rem 0; font-size: clamp(4rem, 8vw, 8rem); line-height: 0.9; text-transform: uppercase; }
+.research-hero > p:not(.eyebrow) { max-width: 38rem; margin-bottom: 2rem; color: var(--muted); font-size: var(--fs-body-large); line-height: 1.4; }
+.research-topic { padding-block: 3rem 4rem; border-top: 1px solid var(--line); }
+.research-topic > header { display: grid; grid-template-columns: 0.6fr 1fr 1fr; gap: 2rem; align-items: baseline; margin-bottom: 2.5rem; }
+.research-topic h2 { font-size: clamp(2.4rem, 3.5vw, 3.4rem); }
+.research-topic > header p { color: var(--muted); font-size: 1.2rem; line-height: 1.35; }
+.research-topic__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+@media (max-width: 900px) { .research-topic > header { grid-template-columns: 1fr; gap: 1rem; } }
+@media (max-width: 600px) { .research-topic__grid { grid-template-columns: 1fr; gap: 2.5rem; } }

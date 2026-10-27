@@ -11,8 +11,8 @@ export function ProjectTile({ project }: ProjectTileProps) {
           <img
             src={project.cover.src}
             alt={project.cover.alt}
-            width="1200"
-            height="800"
+            width={project.cover.width}
+            height={project.cover.height}
             loading="lazy"
           />
           <div className="project-tile__overlay" />

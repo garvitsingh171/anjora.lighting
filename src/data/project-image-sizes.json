@@ -1,0 +1,226 @@
+{
+  "gym-ajmer/gallery-03.jpg": {
+    "width": 179,
+    "height": 209
+  },
+  "gym-ajmer/gallery-02.jpg": {
+    "width": 312,
+    "height": 209
+  },
+  "gym-ajmer/cover.jpg": {
+    "width": 391,
+    "height": 302
+  },
+  "gym-ajmer/gallery-04.jpg": {
+    "width": 409,
+    "height": 241
+  },
+  "gym-ajmer/gallery-01.jpg": {
+    "width": 409,
+    "height": 273
+  },
+  "hobs-and-taters/gallery-02.jpg": {
+    "width": 774,
+    "height": 237
+  },
+  "hobs-and-taters/cover.jpg": {
+    "width": 266,
+    "height": 176
+  },
+  "hobs-and-taters/gallery-01.jpg": {
+    "width": 263,
+    "height": 176
+  },
+  "dyore/gallery-01.png": {
+    "width": 1024,
+    "height": 768
+  },
+  "dyore/cover.jpg": {
+    "width": 1600,
+    "height": 900
+  },
+  "dyore/gallery-02.png": {
+    "width": 1024,
+    "height": 768
+  },
+  "boozup/gallery-02.jpg": {
+    "width": 262,
+    "height": 215
+  },
+  "boozup/cover.webp": {
+    "width": 300,
+    "height": 180
+  },
+  "kingsman/cover.jpg": {
+    "width": 388,
+    "height": 518
+  },
+  "facade-3/cover.jpg": {
+    "width": 398,
+    "height": 284
+  },
+  "facade-3/gallery-01.jpg": {
+    "width": 383,
+    "height": 283
+  },
+  "rosado/cover.jpeg": {
+    "width": 960,
+    "height": 640
+  },
+  "rosado/gallery-03.jpg": {
+    "width": 600,
+    "height": 900
+  },
+  "rosado/gallery-07.jpg": {
+    "width": 1600,
+    "height": 1091
+  },
+  "rosado/gallery-02.jpg": {
+    "width": 1600,
+    "height": 1067
+  },
+  "rosado/gallery-05.jpg": {
+    "width": 1600,
+    "height": 1067
+  },
+  "rosado/gallery-08.jpg": {
+    "width": 1600,
+    "height": 1067
+  },
+  "rosado/gallery-06.jpg": {
+    "width": 1600,
+    "height": 1067
+  },
+  "rosado/gallery-09.jpg": {
+    "width": 500,
+    "height": 725
+  },
+  "rosado/gallery-04.jpg": {
+    "width": 1600,
+    "height": 1067
+  },
+  "code-black/cover.jpg": {
+    "width": 281,
+    "height": 169
+  },
+  "code-black/gallery-01.jpg": {
+    "width": 272,
+    "height": 176
+  },
+  "vr-theme-park/gallery-03.jpg": {
+    "width": 1600,
+    "height": 1200
+  },
+  "vr-theme-park/gallery-02.jpg": {
+    "width": 450,
+    "height": 359
+  },
+  "vr-theme-park/cover.jpg": {
+    "width": 1600,
+    "height": 2133
+  },
+  "vr-theme-park/gallery-01.jpg": {
+    "width": 1600,
+    "height": 1200
+  },
+  "city-palace/cover.jpg": {
+    "width": 1600,
+    "height": 1067
+  },
+  "facade-1/cover.jpg": {
+    "width": 302,
+    "height": 239
+  },
+  "office-3/cover.jpg": {
+    "width": 403,
+    "height": 258
+  },
+  "office-3/gallery-01.jpg": {
+    "width": 371,
+    "height": 258
+  },
+  "theatre/cover.jpg": {
+    "width": 380,
+    "height": 261
+  },
+  "theatre/gallery-01.jpg": {
+    "width": 403,
+    "height": 261
+  },
+  "office-2/cover.jpg": {
+    "width": 307,
+    "height": 489
+  },
+  "office-2/gallery-01.jpg": {
+    "width": 390,
+    "height": 358
+  },
+  "ohana/gallery-03.webp": {
+    "width": 360,
+    "height": 360
+  },
+  "ohana/gallery-02.jpg": {
+    "width": 394,
+    "height": 315
+  },
+  "ohana/gallery-05.jpg": {
+    "width": 1600,
+    "height": 1067
+  },
+  "ohana/cover.jpg": {
+    "width": 326,
+    "height": 150
+  },
+  "ohana/gallery-04.webp": {
+    "width": 360,
+    "height": 360
+  },
+  "ohana/gallery-01.jpg": {
+    "width": 311,
+    "height": 248
+  },
+  "office-1/gallery-02.jpg": {
+    "width": 319,
+    "height": 254
+  },
+  "office-1/cover.jpg": {
+    "width": 309,
+    "height": 254
+  },
+  "office-1/gallery-01.jpg": {
+    "width": 303,
+    "height": 254
+  },
+  "turmeric/cover.jpg": {
+    "width": 560,
+    "height": 293
+  },
+  "neo/cover.jpeg": {
+    "width": 720,
+    "height": 480
+  },
+  "neo/gallery-02.jpg": {
+    "width": 253,
+    "height": 147
+  },
+  "neo/gallery-01.jpg": {
+    "width": 204,
+    "height": 250
+  },
+  "facade-2/cover.jpg": {
+    "width": 209,
+    "height": 209
+  },
+  "facade-2/gallery-01.jpg": {
+    "width": 285,
+    "height": 381
+  },
+  "baramasi/cover.jpg": {
+    "width": 1080,
+    "height": 1350
+  },
+  "baramasi/gallery-01.jpg": {
+    "width": 500,
+    "height": 298
+  }
+}

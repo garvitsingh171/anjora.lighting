@@ -183,7 +183,7 @@ await desktop.locator('.project-gallery').screenshot({ path: `${outputDirectory}
 if (!(await desktop.title()).startsWith('Rosado')) errors.push('project detail document title was not updated')
 await desktop.locator('.next-project a').click()
 await desktop.waitForTimeout(100)
-if (!desktop.url().includes('/projects/office-1')) errors.push('Next Project did not advance to the next verified project')
+if (!desktop.url().includes('/projects/baramasi')) errors.push('Related project did not prefer another verified Clubs project')
 
 await desktop.goto(`${baseUrl}/projects/not-a-real-project`, { waitUntil: 'domcontentloaded' })
 if (await desktop.locator('.project-not-found').count() !== 1) errors.push('invalid project slug did not render the not-found state')

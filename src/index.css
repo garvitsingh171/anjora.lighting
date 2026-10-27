@@ -17,6 +17,11 @@
 }
 
 :root {
+  --color-glass-muted: color-mix(in srgb, var(--color-text-muted) 85%, var(--color-text));
+  --color-glass-background: rgba(14, 28, 41, 0.87);
+  --color-glass-highlight: rgba(241, 240, 233, 0.07);
+  --color-input-background: rgba(9, 20, 30, 0.5);
+  --color-error: #ffb7ae;
   --color-background: #0e1c29;
   --color-background-elevated: #122432;
   --color-surface: #152a39;
@@ -87,6 +92,10 @@
 }
 
 :root[data-theme='light'] {
+  --color-glass-background: rgba(243, 241, 232, 0.84);
+  --color-glass-highlight: rgba(255, 255, 255, 0.3);
+  --color-input-background: rgba(248, 246, 240, 0.72);
+  --color-error: #98261f;
   --color-background: #f3f1e8;
   --color-background-elevated: #eae7dc;
   --color-surface: #f8f6f0;
@@ -213,7 +222,7 @@ img {
   transition: transform 220ms ease;
 }
 
-.text-link:hover::after { transform: translate(3px, -3px); }
+.text-link:hover::after, .text-link:focus-visible::after { transform: translate(3px, -3px); }
 
 .theme-transition-overlay {
   position: fixed;
@@ -235,5 +244,7 @@ img {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    animation-delay: 0ms !important;
   }
 }

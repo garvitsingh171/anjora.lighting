@@ -130,7 +130,6 @@
   height: 100%;
   overflow: hidden;
   background: var(--ink-deep);
-  will-change: clip-path;
 }
 
 .service-slide__image {
@@ -138,7 +137,6 @@
   height: 100%;
   object-fit: cover;
   filter: contrast(1.04);
-  will-change: transform;
 }
 
 .service-slide__image-note {
@@ -293,4 +291,20 @@
 
   .service-slide__description,
   .service-slide ul { grid-column: auto; }
+}
+
+/* Progressive enhancement: without a live controller every service stays in flow. */
+.services-section:not([data-enhanced]) .services__pin { display: block; height: auto; overflow: visible; padding-bottom: var(--section-space); }
+.services-section:not([data-enhanced]) .services__rail { display: none; }
+.services-section:not([data-enhanced]) .services__stage { display: grid; height: auto; gap: 4rem; overflow: visible; }
+.services-section:not([data-enhanced]) .service-slide { position: relative; inset: auto; }
+.services-section:not([data-enhanced]) .service-slide__visual { aspect-ratio: 3 / 2; }
+.services-section[data-enhanced] .service-slide { background: var(--ink); }
+@media (min-width: 900px) {
+  .services-section[data-enhanced] .services__pin { height: min(calc(100svh - 110px), 49rem); padding-block: 1.5rem; }
+  .services-section[data-enhanced] .services__stage { height: min(calc(100svh - 160px), 37rem); min-height: 27rem; }
+}
+@media (max-height: 650px) and (min-width: 900px) {
+  .services-section[data-enhanced] .service-slide h3 { font-size: 2.5rem; }
+  .services-section[data-enhanced] .service-slide__description { font-size: 1.1rem; margin-top: 1rem; }
 }

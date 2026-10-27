@@ -65,7 +65,7 @@ export function BlogDetail() {
         })
       })
     },
-    { scope: rootRef, dependencies: [slug] },
+    { scope: rootRef, dependencies: [slug], revertOnUpdate: true },
   )
 
   if (!post) {
