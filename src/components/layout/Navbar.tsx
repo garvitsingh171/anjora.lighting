@@ -1,98 +1,89 @@
 import { useEffect, useRef, useState, type FocusEvent } from 'react'
 import { useGSAP } from '@gsap/react'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { gsap } from '../../lib/gsap'
 import { EASE_REVEAL, prefersReducedMotion } from '../../lib/motion'
-import { Link, NavLink, useLocation } from 'react-router-dom'
 import anjoraLogo from '../../assets/branding/anjora-logo.png'
 import { projectCategories, projectCategoryPath, projects } from '../../data/projects'
+import { productCategories, productCategoryPath } from '../../data/products'
 import { ProjectsMegaMenu } from './ProjectsMegaMenu'
+import { ProductsMegaMenu } from './ProductsMegaMenu'
 import { ThemeToggle } from './ThemeToggle'
 import './Navbar.css'
 
-const navItems = [
-  { label: 'Projects', to: '/projects' },
-  { label: 'Products', to: '/products' },
-  { label: 'Research', to: '/research' },
-  { label: 'Blog', to: '/blog' },
-  { label: 'About Us', to: '/about-us' },
-]
+const navItems = [{ label: 'Research', to: '/research' }, { label: 'Blog', to: '/blog' }, { label: 'About Us', to: '/about-us' }]
+type Menu = 'projects' | 'products'
+const menuKinds: Menu[] = ['projects', 'products']
 
 export function Navbar() {
   const location = useLocation()
-  // Any navigation (including history and filters) closes disclosures and releases scroll lock.
   return <NavbarContent key={location.key} />
 }
 
 function NavbarContent() {
   const [open, setOpen] = useState(false)
-  const [projectsOpen, setProjectsOpen] = useState(false)
-  const [mobileProjectsOpen, setMobileProjectsOpen] = useState(false)
-  const triggerRef = useRef<HTMLDivElement>(null)
-  const menuRef = useRef<HTMLDivElement>(null)
+  const [activeMenu, setActiveMenu] = useState<Menu | null>(null)
+  const [mobileSection, setMobileSection] = useState<Menu | null>(null)
+  const projectsTrigger = useRef<HTMLDivElement>(null)
+  const productsTrigger = useRef<HTMLDivElement>(null)
+  const projectsMenu = useRef<HTMLDivElement>(null)
+  const productsMenu = useRef<HTMLDivElement>(null)
   const mobileMenuRef = useRef<HTMLDivElement>(null)
   const mobileToggleRef = useRef<HTMLButtonElement>(null)
   const closeTimer = useRef(0)
-  const suppressFocus = useRef(false)
   const [scrolled, setScrolled] = useState(false)
   const [pastHero, setPastHero] = useState(false)
   const [overFooter, setOverFooter] = useState(false)
   const { pathname } = useLocation()
-  const isProjectRoute = pathname === '/projects' || pathname.startsWith('/projects/')
-  const isProjectDetail = pathname.startsWith('/projects/')
-  const isBlogRoute = pathname === '/blog' || pathname.startsWith('/blog/')
-  const isAboutRoute = pathname === '/about-us'
   const detail = projects.find(project => pathname === `/projects/${project.slug}`)
-  const isHeroContext = pathname === '/' || (isProjectDetail && detail?.cover.orientation !== 'portrait')
-
+  const isHeroContext = pathname === '/' || (pathname.startsWith('/projects/') && detail?.cover.orientation !== 'portrait')
+  const triggerFor = (kind: Menu) => kind === 'projects' ? projectsTrigger : productsTrigger
+  const menuFor = (kind: Menu) => kind === 'projects' ? projectsMenu : productsMenu
   const cancelClose = () => window.clearTimeout(closeTimer.current)
-  const openProjects = () => { cancelClose(); setProjectsOpen(true) }
-  const closeProjects = (restoreFocus = false) => {
+  const openMenu = (kind: Menu) => { cancelClose(); setActiveMenu(kind) }
+  const closeMenu = (kind: Menu, restoreFocus = false) => {
     cancelClose()
-    setProjectsOpen(false)
-    if (restoreFocus) {
-      suppressFocus.current = true
-      triggerRef.current?.querySelector<HTMLButtonElement>('button')?.focus()
-      suppressFocus.current = false
-    }
+    setActiveMenu(current => current === kind ? null : current)
+    if (restoreFocus) triggerFor(kind).current?.querySelector<HTMLButtonElement>('button')?.focus()
   }
-  const scheduleClose = () => {
+  const scheduleClose = (kind: Menu) => {
     cancelClose()
     closeTimer.current = window.setTimeout(() => {
-      if (menuRef.current?.contains(document.activeElement) || triggerRef.current?.contains(document.activeElement)) return
-      setProjectsOpen(false)
-    }, 180)
+      if (menuFor(kind).current?.contains(document.activeElement) || triggerFor(kind).current?.contains(document.activeElement)) return
+      setActiveMenu(current => current === kind ? null : current)
+    }, 220)
   }
-  const handleMenuBlur = (event: FocusEvent) => {
+  const handleBlur = (kind: Menu, event: FocusEvent) => {
     const next = event.relatedTarget as Node | null
-    if (!triggerRef.current?.contains(next) && !menuRef.current?.contains(next)) closeProjects()
+    if (!triggerFor(kind).current?.contains(next) && !menuFor(kind).current?.contains(next)) closeMenu(kind)
   }
-
   useGSAP(() => {
     if (!open || prefersReducedMotion()) return
-    gsap.fromTo('.mobile-menu__enquiry, nav > a, .mobile-projects-toggle', { opacity: 0, y: 10 }, {
-      opacity: 1, y: 0, duration: 0.3, stagger: 0.025, ease: EASE_REVEAL,
-    })
+    gsap.fromTo('.mobile-menu__enquiry, nav > a, .mobile-projects-toggle', { opacity: 0.5, y: 10 }, { opacity: 1, y: 0, duration: 0.3, stagger: 0.025, ease: EASE_REVEAL })
   }, { scope: mobileMenuRef, dependencies: [open], revertOnUpdate: true })
-
   useEffect(() => {
     document.body.classList.toggle('menu-open', open)
     return () => document.body.classList.remove('menu-open')
   }, [open])
-
   useEffect(() => {
     const closeOnEscape = (event: KeyboardEvent) => {
       if (event.key !== 'Escape') return
-      if (projectsOpen) {
-        setProjectsOpen(false)
-        triggerRef.current?.querySelector<HTMLButtonElement>('button')?.focus()
+      window.clearTimeout(closeTimer.current)
+      if (activeMenu) {
+        setActiveMenu(null)
+        const trigger = activeMenu === 'projects' ? projectsTrigger : productsTrigger
+        trigger.current?.querySelector<HTMLButtonElement>('button')?.focus()
       }
       if (open) { setOpen(false); mobileToggleRef.current?.focus() }
     }
     const closeOutside = (event: PointerEvent) => {
       const target = event.target as Node
-      if (!menuRef.current?.contains(target) && !triggerRef.current?.contains(target)) setProjectsOpen(false)
+      if (![projectsMenu, productsMenu, projectsTrigger, productsTrigger].some(ref => ref.current?.contains(target))) {
+        window.clearTimeout(closeTimer.current)
+        setActiveMenu(null)
+      }
     }
-    const closeOnResize = () => { setOpen(false); setProjectsOpen(false) }
+    const closeOnResize = () => { setOpen(false); setActiveMenu(null) }
     window.addEventListener('keydown', closeOnEscape)
     document.addEventListener('pointerdown', closeOutside)
     const breakpoint = window.matchMedia('(min-width: 901px)')
@@ -103,8 +94,7 @@ function NavbarContent() {
       document.removeEventListener('pointerdown', closeOutside)
       breakpoint.removeEventListener('change', closeOnResize)
     }
-  }, [projectsOpen, open])
-
+  }, [activeMenu, open])
   useEffect(() => {
     let frame = 0
     const updateScrollState = () => {
@@ -130,98 +120,43 @@ function NavbarContent() {
   }, [isHeroContext, pathname])
 
   return (
-    <header
-      className={`site-header${projectsOpen ? ' site-header--menu-open' : ''}${pathname === '/' ? '' : ' site-header--inner'}${isProjectRoute ? ' site-header--projects' : ''}${isBlogRoute ? ' site-header--blog' : ''}${isAboutRoute ? ' site-header--about' : ''}${isHeroContext ? ' site-header--hero-context' : ''}${scrolled ? ' site-header--scrolled' : ''}${pastHero ? ' site-header--past-hero' : ''}${overFooter ? ' site-header--footer-context' : ''}`}
-      data-hero-ui
-    >
-      <Link className="brand-logo" to="/" aria-label="Anjora Lighting home">
-        <img src={anjoraLogo} alt="Anjora Lighting" width="1600" height="570" />
-      </Link>
-
+    <header className={`site-header${activeMenu ? ' site-header--menu-open' : ''}${pathname === '/' ? '' : ' site-header--inner'}${isHeroContext ? ' site-header--hero-context' : ''}${scrolled ? ' site-header--scrolled' : ''}${pastHero ? ' site-header--past-hero' : ''}${overFooter ? ' site-header--footer-context' : ''}`} data-hero-ui>
+      <Link className="brand-logo" to="/" aria-label="Anjora Lighting home"><img src={anjoraLogo} alt="Anjora Lighting" width="1600" height="570" /></Link>
       <nav className="desktop-nav" aria-label="Primary navigation">
-        <div ref={triggerRef} className="projects-nav-trigger" onMouseEnter={openProjects} onMouseLeave={scheduleClose} onBlur={handleMenuBlur}
+        {menuKinds.map(kind => <div key={kind} ref={triggerFor(kind)} className={`mega-nav-trigger ${kind}-nav-trigger`} data-menu-open={activeMenu === kind}
+          onMouseEnter={() => openMenu(kind)} onMouseLeave={() => scheduleClose(kind)} onBlur={event => handleBlur(kind, event)}
           onKeyDown={event => {
-            if (event.key === 'Tab' && !event.shiftKey && event.target instanceof HTMLButtonElement && projectsOpen) {
-              event.preventDefault()
-              menuRef.current?.querySelector<HTMLButtonElement>('button')?.focus()
+            if ((event.key === 'Tab' && !event.shiftKey && event.target instanceof HTMLButtonElement && activeMenu === kind) || event.key === 'ArrowDown') {
+              event.preventDefault(); openMenu(kind)
+              const selector = event.key === 'ArrowDown' ? 'a' : 'button'
+              requestAnimationFrame(() => menuFor(kind).current?.querySelector<HTMLElement>(selector)?.focus())
             }
           }}>
-          <NavLink to="/projects" onFocus={() => { if (!suppressFocus.current) openProjects() }}
-            onKeyDown={event => {
-              if (event.key === 'ArrowDown') {
-                event.preventDefault()
-                openProjects()
-                requestAnimationFrame(() => menuRef.current?.querySelector<HTMLAnchorElement>('a')?.focus())
-              }
-            }}>Projects</NavLink>
-          <button type="button" aria-label="Browse project categories" aria-expanded={projectsOpen} aria-controls="projects-mega-menu"
-            onClick={() => projectsOpen ? closeProjects() : openProjects()}>⌄</button>
-        </div>
-        {navItems.slice(1).map((item) => (
-          <NavLink key={item.to} to={item.to}>{item.label}</NavLink>
-        ))}
-        <span className="desktop-nav__divider" aria-hidden="true" />
-        <ThemeToggle className="theme-toggle--desktop" />
+          <NavLink to={`/${kind}`} onFocus={() => openMenu(kind)}>{kind === 'projects' ? 'Projects' : 'Products'}</NavLink>
+          <button type="button" aria-label={`Browse ${kind === 'projects' ? 'project categories' : 'product collection'}`} aria-expanded={activeMenu === kind} aria-controls={`${kind}-mega-menu`}
+            onClick={() => activeMenu === kind ? closeMenu(kind) : openMenu(kind)}>⌄</button>
+        </div>)}
+        {navItems.map(item => <NavLink key={item.to} to={item.to}>{item.label}</NavLink>)}
+        <span className="desktop-nav__divider" aria-hidden="true" /><ThemeToggle className="theme-toggle--desktop" />
       </nav>
-
-      <ProjectsMegaMenu open={projectsOpen} menuRef={menuRef} onEnter={cancelClose} onLeave={scheduleClose}
-        onBlur={handleMenuBlur} onClose={() => closeProjects(true)} />
-
+      <ProjectsMegaMenu open={activeMenu === 'projects'} menuRef={projectsMenu} onEnter={cancelClose} onLeave={() => scheduleClose('projects')} onBlur={event => handleBlur('projects', event)} onClose={() => closeMenu('projects', true)} />
+      <ProductsMegaMenu open={activeMenu === 'products'} menuRef={productsMenu} onEnter={cancelClose} onLeave={() => scheduleClose('products')} onBlur={event => handleBlur('products', event)} onClose={() => closeMenu('products', true)} />
       <div className="mobile-header-controls">
         <ThemeToggle className="theme-toggle--mobile" />
-        <button
-          ref={mobileToggleRef}
-          className="menu-toggle"
-          type="button"
-          aria-expanded={open}
-          aria-controls="mobile-navigation"
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          onClick={() => setOpen((current) => !current)}
-        >
-          <span />
-          <span />
-        </button>
+        <button ref={mobileToggleRef} className="menu-toggle" type="button" aria-expanded={open} aria-controls="mobile-navigation" aria-label={open ? 'Close menu' : 'Open menu'} onClick={() => setOpen(current => !current)}><span /><span /></button>
       </div>
-
-      <div
-        ref={mobileMenuRef}
-        className="mobile-menu"
-        onBlur={event => {
-          if (event.relatedTarget instanceof Element && !event.relatedTarget.closest('.mobile-menu, .mobile-header-controls')) setOpen(false)
-        }}
-        id="mobile-navigation"
-        data-open={open}
-        aria-hidden={!open}
-        inert={!open}
-      >
+      <div ref={mobileMenuRef} className="mobile-menu" id="mobile-navigation" data-open={open} aria-hidden={!open} inert={!open}
+        onBlur={event => { if (event.relatedTarget instanceof Element && !event.relatedTarget.closest('.mobile-menu, .mobile-header-controls')) setOpen(false) }}>
         <nav aria-label="Mobile navigation">
-          <button className="mobile-projects-toggle" type="button" aria-expanded={mobileProjectsOpen} aria-controls="mobile-project-categories"
-            onClick={() => setMobileProjectsOpen(current => !current)}><span aria-hidden="true">01</span>Projects <b aria-hidden="true">{mobileProjectsOpen ? '−' : '+'}</b></button>
-          <div id="mobile-project-categories" className="mobile-project-categories" hidden={!mobileProjectsOpen}>
-            {(['All', ...projectCategories] as const).map(category => (
-              <Link key={category} to={projectCategoryPath(category)}>{category === 'All' ? 'All Projects' : category}</Link>
-            ))}
-          </div>
-          {navItems.slice(1).map((item, index) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              tabIndex={open ? 0 : -1}
-              onClick={() => setOpen(false)}
-            >
-              <span aria-hidden="true">0{index + 2}</span>
-              {item.label}
-            </NavLink>
-          ))}
+          {menuKinds.map((kind, index) => <div key={kind}>
+            <button className="mobile-projects-toggle" type="button" aria-expanded={mobileSection === kind} aria-controls={`mobile-${kind === 'projects' ? 'project' : 'product'}-categories`} onClick={() => setMobileSection(current => current === kind ? null : kind)}><span aria-hidden="true">0{index + 1}</span>{kind === 'projects' ? 'Projects' : 'Products'}<b aria-hidden="true">{mobileSection === kind ? '−' : '+'}</b></button>
+            <div id={`mobile-${kind === 'projects' ? 'project' : 'product'}-categories`} className="mobile-project-categories" hidden={mobileSection !== kind}>
+              {kind === 'projects' ? (['All', ...projectCategories] as const).map(category => <Link key={category} to={projectCategoryPath(category)}>{category === 'All' ? 'All Projects' : category}</Link>) : ['All', ...productCategories].map(category => <Link key={category} to={productCategoryPath(category)}>{category === 'All' ? 'All Products' : category}</Link>)}
+            </div>
+          </div>)}
+          {navItems.map((item, index) => <NavLink key={item.to} to={item.to} onClick={() => setOpen(false)}><span aria-hidden="true">0{index + 3}</span>{item.label}</NavLink>)}
         </nav>
-        <Link
-          className="mobile-menu__enquiry"
-          to="/#enquiry"
-          tabIndex={open ? 0 : -1}
-          onClick={() => setOpen(false)}
-        >
-          Start a project <span aria-hidden="true">↗</span>
-        </Link>
+        <Link className="mobile-menu__enquiry" to="/#enquiry" onClick={() => setOpen(false)}>Start a project <span aria-hidden="true">↗</span></Link>
       </div>
     </header>
   )

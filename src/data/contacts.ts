@@ -7,3 +7,9 @@ export const teamContacts = [
 // Client-supplied reel. Its publisher/content could not be independently inspected;
 // link only, without an account claim, fabricated thumbnail or third-party embed.
 export const clientReelUrl = 'https://www.instagram.com/reel/DePausjtUqP/'
+
+/** Official social URLs printed on Rajasthan catalogue page 89. */
+export const officialSocialLinks = [
+  { label: 'Instagram', href: 'https://www.instagram.com/anjora.lighting' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/anjora-lighting' },
+] as const

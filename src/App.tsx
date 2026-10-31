@@ -6,6 +6,7 @@ import { BlogDetail } from './pages/BlogDetail'
 import { About } from './pages/About'
 import { Research } from './pages/Research'
 import { ProductDetail } from './pages/ProductDetail'
+import { TalkToOurTeam } from './pages/TalkToOurTeam'
 import { Products } from './pages/Products'
 import { ProjectDetail } from './pages/ProjectDetail'
 import { Projects } from './pages/Projects'
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="projects/:slug" element={<ProjectDetail />} />
         <Route path="products" element={<Products />} />
         <Route path="products/:slug" element={<ProductDetail />} />
+        <Route path="talk-to-our-team" element={<TalkToOurTeam />} />
         <Route path="research" element={<Research />} />
         <Route path="blog" element={<Blog />} />
         <Route path="blog/:slug" element={<BlogDetail />} />

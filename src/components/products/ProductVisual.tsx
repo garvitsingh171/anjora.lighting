@@ -1,21 +1,16 @@
-import type { Product } from '../../data/products'
+import type { CatalogueImage, Product } from '../../data/products'
 
 interface ProductVisualProps {
   product: Product
+  image?: CatalogueImage
   large?: boolean
 }
 
-export function ProductVisual({ product, large = false }: ProductVisualProps) {
+export function ProductVisual({ product, image = product.cover, large = false }: ProductVisualProps) {
   return (
-    <figure className="product-visual">
-      <img
-        src={product.image}
-        alt={product.imageAlt}
-        width={1200}
-        height={800}
-        loading={large ? 'eager' : 'lazy'}
-      />
-      <figcaption>Illustrative installation · model pending confirmation</figcaption>
+    <figure className={`product-visual product-visual--${image.role}`}>
+      <img src={image.src} alt={image.alt} width={image.width} height={image.height}
+        loading={large ? 'eager' : 'lazy'} decoding="async" />
     </figure>
   )
 }

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ProductCard } from '../products/ProductCard'
-import { products } from '../../data/products'
+import { featuredProducts } from '../../data/products'
 import './ProductPreview.css'
 
 export function ProductPreview() {
@@ -8,16 +8,16 @@ export function ProductPreview() {
     <section className="product-preview" aria-labelledby="product-preview-title">
       <div className="container product-preview__header">
         <div>
-          <p className="eyebrow">Tools for the design</p>
-          <h2 id="product-preview-title" className="display-title">Selected products</h2>
+          <p className="eyebrow">Anjora design practice · Rajasthan</p>
+          <h2 id="product-preview-title" className="display-title">Light as an attitude.</h2>
         </div>
         <div>
-          <p>We source and specify products for their performance, visual comfort and fit within the wider lighting strategy.</p>
-          <Link className="text-link" to="/products">Explore the product library</Link>
+          <p>Alongside our lighting consultancy, discover bespoke pieces inspired by Rajasthan’s landscapes, heritage and craft. Size, shape and design can be tailored to your project.</p>
+          <Link className="text-link" to="/products">Explore the Rajasthan Collection</Link>
         </div>
       </div>
       <div className="product-grid container">
-        {products.slice(0, 3).map((product) => <ProductCard key={product.id} product={product} />)}
+        {featuredProducts.map((product) => <ProductCard key={product.id} product={product} />)}
       </div>
     </section>
   )

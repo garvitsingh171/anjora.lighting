@@ -1,6 +1,5 @@
-import type { ProductCategory } from '../../data/products'
-
-export type ProductFilter = 'All' | ProductCategory
+import type { ProductCategory, ProductFilter } from '../../data/products'
+export type { ProductFilter } from '../../data/products'
 
 interface ProductFiltersProps {
   categories: ProductCategory[]
@@ -10,15 +9,10 @@ interface ProductFiltersProps {
 
 export function ProductFilters({ categories, active, onChange }: ProductFiltersProps) {
   return (
-    <div className="product-filters" role="group" aria-label="Filter products by category">
-      {(['All', ...categories] as ProductFilter[]).map((category) => (
-        <button
-          key={category}
-          type="button"
-          aria-pressed={active === category}
-          onClick={() => onChange(category)}
-        >
-          {category}
+    <div className="product-filters" role="group" aria-label="Discover products by collection or material">
+      {['All', ...categories].map(category => (
+        <button key={category} type="button" aria-pressed={active === category} onClick={() => onChange(category)}>
+          {category === 'All' ? 'All Designs' : category}
         </button>
       ))}
     </div>

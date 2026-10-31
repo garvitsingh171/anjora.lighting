@@ -113,12 +113,13 @@ try {
   }
   assert.equal(await page.locator('.research-topic .blog-card').count(), 9)
   await screenshot('research-desktop')
+  await page.goto(`${base}/talk-to-our-team`)
   const contacts = [
     ['tel:+919116668039', '+91 9116668039'], ['mailto:kirti@anjora.lighting', 'kirti@anjora.lighting'],
     ['tel:+918619527505', '+91 861 952 7505'], ['mailto:shraddha@anjora.lighting', 'shraddha@anjora.lighting'],
     ['tel:+919929571272', '+91 99295 71272'], ['mailto:info@anjora.lighting', 'info@anjora.lighting'],
   ]
-  for (const [href, label] of contacts) assert.equal(await page.locator(`footer a[href="${href}"]`).textContent(), label)
+  for (const [href, label] of contacts) assert((await page.locator(`a[href="${href}"]`).textContent()).includes(label))
   const footerPaths = await page.locator('footer a[href^="/"]').evaluateAll(links => [...new Set(links.map(link => link.getAttribute('href').split('#')[0]))])
   for (const route of footerPaths) {
     await page.goto(`${base}${route}`)

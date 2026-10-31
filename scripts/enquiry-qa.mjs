@@ -111,12 +111,12 @@ if (requestCount !== beforeSpam) errors.push('honeypot submission reached API')
 if (await page.locator('.enquiry-form__feedback--success').count()) errors.push('honeypot submission falsely reported success')
 
 await page.evaluate(() => localStorage.setItem('anjora-theme', 'dark'))
-await page.goto(`${baseUrl}/?product=recessed-downlight-type-01#enquiry`, { waitUntil: 'domcontentloaded' })
+await page.goto(`${baseUrl}/?product=sunehri-dhara#enquiry`, { waitUntil: 'domcontentloaded' })
 await page.getByLabel('Name', { exact: true }).fill('Product QA')
 await page.getByLabel('Email', { exact: true }).fill('qa@example.com')
 await page.getByRole('button', { name: /send enquiry/i }).click()
 await page.getByRole('button', { name: /enquiry sent/i }).waitFor()
-if (requestPayload?.source !== 'Product Enquiry' || !requestPayload?.subject.includes('DL-01') || !requestPayload?.message.includes('DL-01')) errors.push('product payload context missing')
+if (requestPayload?.source !== 'Product Enquiry' || !requestPayload?.subject.includes('Sunehri Dhara') || !requestPayload?.message.includes('Sunehri Dhara')) errors.push('product payload context missing')
 
 responseMode = 'failure'
 await page.reload({ waitUntil: 'domcontentloaded' })

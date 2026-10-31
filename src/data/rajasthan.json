@@ -1,0 +1,1740 @@
+[
+  {
+    "id": "rajasthan-sunehri-dhara",
+    "slug": "sunehri-dhara",
+    "name": "Sunehri Dhara",
+    "collection": "Rajasthan",
+    "subtitle": "Unyielding in Every Environment",
+    "introduction": "This piece is not designed—it is sculpted like a Rajasthani desert tree. This structure is an inspiration from the flower bearing fruit of Khejdi tree. The leather back texture defines the shell; the glass flower describes the resilience of the tree by blooming in the scorching desert and the brass speaks of the richness and importance this tree hold in the Rajasthani culture.",
+    "introductionPage": 4,
+    "story": [],
+    "materials": [
+      "Glass",
+      "Metal",
+      "Jute & leather"
+    ],
+    "cover": {
+      "path": "sunehri-dhara/p08-image-01.webp",
+      "width": 800,
+      "height": 715,
+      "sourcePage": 8,
+      "role": "lifestyle",
+      "configurationPage": 5,
+      "alt": "Sunehri Dhara — in context",
+      "caption": "In context"
+    },
+    "gallery": [
+      {
+        "path": "sunehri-dhara/p05-image-01.webp",
+        "width": 720,
+        "height": 672,
+        "sourcePage": 5,
+        "role": "technical",
+        "configurationPage": 5,
+        "alt": "Sunehri Dhara — product view",
+        "caption": "Product view"
+      },
+      {
+        "path": "sunehri-dhara/p06-image-01.webp",
+        "width": 532,
+        "height": 799,
+        "sourcePage": 6,
+        "role": "lifestyle",
+        "configurationPage": 5,
+        "alt": "Sunehri Dhara — in context",
+        "caption": "In context"
+      }
+    ],
+    "configurations": [
+      {
+        "sourcePage": 5,
+        "finish": "Brass & Leather Finish",
+        "material": "Metal + Glass + Leather",
+        "lightSource": "Integrated Warm LED",
+        "weight": "22 kg",
+        "sizes": [
+          "1500 mm × 550 mm × 1250 mm"
+        ],
+        "customization": "Size, shape, and design can be customized to project requirements.",
+        "image": {
+          "path": "sunehri-dhara/p05-image-01.webp",
+          "width": 720,
+          "height": 672,
+          "sourcePage": 5,
+          "role": "technical",
+          "configurationPage": 5,
+          "alt": "Sunehri Dhara — product view",
+          "caption": "Product view"
+        },
+        "reviewStatus": "verified-from-catalogue"
+      }
+    ],
+    "customizable": true,
+    "sourcePdf": "Anjora_Lighting_Collection_May2026.pdf",
+    "sourcePages": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "reviewStatus": "needs-client-review",
+    "reviewNotes": [
+      "Page 7 shows a different vertical composition without its own technical block; omitted from public gallery."
+    ]
+  },
+  {
+    "id": "rajasthan-falpushpa",
+    "slug": "falpushpa",
+    "name": "Falpushpa",
+    "collection": "Rajasthan",
+    "subtitle": "Motif of Jaipur",
+    "introduction": "This collection is our humble attempt to preserve tradition while reinterpreting it for contemporary living. Inspired by the rich visual language found in architecture, textiles, and heritage motifs, each piece reflects a dialogue between culture, craftsmanship, and modern design.",
+    "introductionPage": 9,
+    "story": [
+      {
+        "text": "By combining finely crafted metalwork with hand-blown glass, the collection celebrates material artistry and timeless detailing. Every form is thoughtfully designed and meticulously handcrafted, bringing together traditional techniques and refined aesthetics to create luminous objects that enrich everyday spaces.",
+        "sourcePage": 11
+      }
+    ],
+    "materials": [
+      "Glass",
+      "Metal"
+    ],
+    "cover": {
+      "path": "falpushpa/p12-image-02.webp",
+      "width": 532,
+      "height": 799,
+      "sourcePage": 12,
+      "role": "lifestyle",
+      "configurationPage": 10,
+      "alt": "Falpushpa — in context",
+      "caption": "In context"
+    },
+    "gallery": [
+      {
+        "path": "falpushpa/p10-image-01.webp",
+        "width": 799,
+        "height": 532,
+        "sourcePage": 10,
+        "role": "technical",
+        "configurationPage": 10,
+        "alt": "Falpushpa — product view",
+        "caption": "Product view"
+      },
+      {
+        "path": "falpushpa/p11-image-02.webp",
+        "width": 799,
+        "height": 532,
+        "sourcePage": 11,
+        "role": "lifestyle",
+        "configurationPage": 10,
+        "alt": "Falpushpa — in context",
+        "caption": "In context"
+      },
+      {
+        "path": "falpushpa/p12-image-01.webp",
+        "width": 640,
+        "height": 800,
+        "sourcePage": 12,
+        "role": "lifestyle",
+        "configurationPage": 10,
+        "alt": "Falpushpa — in context",
+        "caption": "In context"
+      }
+    ],
+    "configurations": [
+      {
+        "sourcePage": 10,
+        "finish": "Textured Antique Bronze Finish",
+        "material": "Metal + Hand-Blown Glass",
+        "lightSource": "Integrated Warm LED",
+        "weight": "5–7 kg",
+        "sizes": [
+          "650 mm × 400 mm × 1200 / 1500 mm"
+        ],
+        "customization": "Size, shape, and design can be customized to project requirements.",
+        "image": {
+          "path": "falpushpa/p10-image-01.webp",
+          "width": 799,
+          "height": 532,
+          "sourcePage": 10,
+          "role": "technical",
+          "configurationPage": 10,
+          "alt": "Falpushpa — product view",
+          "caption": "Product view"
+        },
+        "reviewStatus": "verified-from-catalogue"
+      }
+    ],
+    "customizable": true,
+    "sourcePdf": "Anjora_Lighting_Collection_May2026.pdf",
+    "sourcePages": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "reviewStatus": "verified-from-catalogue",
+    "reviewNotes": []
+  },
+  {
+    "id": "rajasthan-abhaas",
+    "slug": "abhaas",
+    "name": "Abhaas",
+    "collection": "Rajasthan",
+    "subtitle": "The realisation",
+    "introduction": "This installation reflects the enduring power of growth, even in its final stage. Inspired by the deep cultural symbolism of charred bamboo in traditional heritage, the piece reinterprets its meaning through a contemporary artistic lens.",
+    "introductionPage": 13,
+    "story": [],
+    "materials": [
+      "Glass",
+      "Metal"
+    ],
+    "cover": {
+      "path": "abhaas/p16-image-01.webp",
+      "width": 600,
+      "height": 800,
+      "sourcePage": 16,
+      "role": "lifestyle",
+      "configurationPage": 14,
+      "alt": "Abhaas — in context",
+      "caption": "In context"
+    },
+    "gallery": [
+      {
+        "path": "abhaas/p14-image-01.webp",
+        "width": 567,
+        "height": 800,
+        "sourcePage": 14,
+        "role": "technical",
+        "configurationPage": 14,
+        "alt": "Abhaas — product view",
+        "caption": "Product view"
+      },
+      {
+        "path": "abhaas/p15-image-01.webp",
+        "width": 600,
+        "height": 800,
+        "sourcePage": 15,
+        "role": "lifestyle",
+        "configurationPage": 14,
+        "alt": "Abhaas — in context",
+        "caption": "In context"
+      }
+    ],
+    "configurations": [
+      {
+        "sourcePage": 14,
+        "finish": "Charred Black + Antique Brass",
+        "material": "Burnt Finish Metal + Glass",
+        "lightSource": "Integrated Warm LED",
+        "weight": "7 kg",
+        "sizes": [
+          "75 mm × 75 mm × 1800 / 2100 mm"
+        ],
+        "customization": "Size, shape, and design can be customized to project requirements.",
+        "image": {
+          "path": "abhaas/p14-image-01.webp",
+          "width": 567,
+          "height": 800,
+          "sourcePage": 14,
+          "role": "technical",
+          "configurationPage": 14,
+          "alt": "Abhaas — product view",
+          "caption": "Product view"
+        },
+        "reviewStatus": "verified-from-catalogue"
+      }
+    ],
+    "customizable": true,
+    "sourcePdf": "Anjora_Lighting_Collection_May2026.pdf",
+    "sourcePages": [
+      13,
+      14,
+      15,
+      16
+    ],
+    "reviewStatus": "needs-client-review",
+    "reviewNotes": [
+      "Page 15 red-leaf/golden-ring narrative does not clearly match the technical photograph; omitted pending confirmation."
+    ]
+  },
+  {
+    "id": "rajasthan-peet-vrinda",
+    "slug": "peet-vrinda",
+    "name": "Peet Vrinda",
+    "collection": "Rajasthan",
+    "subtitle": "The tree of heritage",
+    "introduction": "This piece stands as a modern tribute to Jaipur’s regal aesthetics — where craftsmanship, culture, and light come together in harmony.",
+    "introductionPage": 17,
+    "story": [],
+    "materials": [
+      "Alabaster",
+      "Metal"
+    ],
+    "cover": {
+      "path": "peet-vrinda/p19-image-01.webp",
+      "width": 600,
+      "height": 800,
+      "sourcePage": 19,
+      "role": "lifestyle",
+      "configurationPage": 18,
+      "alt": "Peet Vrinda — in context",
+      "caption": "In context"
+    },
+    "gallery": [
+      {
+        "path": "peet-vrinda/p18-image-01.webp",
+        "width": 533,
+        "height": 800,
+        "sourcePage": 18,
+        "role": "technical",
+        "configurationPage": 18,
+        "alt": "Peet Vrinda — product view",
+        "caption": "Product view"
+      }
+    ],
+    "configurations": [
+      {
+        "sourcePage": 18,
+        "finish": "Textured Antique Brass",
+        "material": "Brass + Alabaster",
+        "lightSource": "Integrated Warm LED",
+        "weight": "32 kg",
+        "sizes": [
+          "300 mm × 300 mm × 1350 mm"
+        ],
+        "customization": "Size, shape, and design can be customized to project requirements.",
+        "image": {
+          "path": "peet-vrinda/p18-image-01.webp",
+          "width": 533,
+          "height": 800,
+          "sourcePage": 18,
+          "role": "technical",
+          "configurationPage": 18,
+          "alt": "Peet Vrinda — product view",
+          "caption": "Product view"
+        },
+        "reviewStatus": "verified-from-catalogue"
+      }
+    ],
+    "customizable": true,
+    "sourcePdf": "Anjora_Lighting_Collection_May2026.pdf",
+    "sourcePages": [
+      17,
+      18,
+      19
+    ],
+    "reviewStatus": "verified-from-catalogue",
+    "reviewNotes": []
+  },
+  {
+    "id": "rajasthan-chheen",
+    "slug": "chheen",
+    "name": "CHHEEN",
+    "collection": "Rajasthan",
+    "subtitle": "Desert Whisper",
+    "introduction": "Flowing like the desert winds across Rajasthan, CHHEEN transforms traditional fabric craftsmanship into a sculptural suspended form. Inspired by the softness of hand-draped textiles seen in Jaipur’s heritage craft traditions, the layered silhouette creates a feeling of movement, lightness, and calm.",
+    "introductionPage": 20,
+    "story": [
+      {
+        "text": "The organic flowing form of CHHEEN introduces softness into architectural spaces, balancing scale with delicacy. The translucent jute fabric gently filters iillumination, creating a warm atmospheric presence that feels both contemporary and deeply rooted in craft. Designed as a suspended sculptural installation, CHHEEN celebrates texture, movement, and material honesty — where fabric becomes form, and form becomes atmosphere.",
+        "sourcePage": 22
+      }
+    ],
+    "materials": [
+      "Metal",
+      "Jute & leather"
+    ],
+    "cover": {
+      "path": "chheen/p23-image-01.webp",
+      "width": 800,
+      "height": 640,
+      "sourcePage": 23,
+      "role": "lifestyle",
+      "configurationPage": 21,
+      "alt": "CHHEEN — in context",
+      "caption": "In context"
+    },
+    "gallery": [
+      {
+        "path": "chheen/p21-image-01.webp",
+        "width": 720,
+        "height": 632,
+        "sourcePage": 21,
+        "role": "technical",
+        "configurationPage": 21,
+        "alt": "CHHEEN — product view",
+        "caption": "Product view"
+      },
+      {
+        "path": "chheen/p22-image-02.webp",
+        "width": 799,
+        "height": 710,
+        "sourcePage": 22,
+        "role": "lifestyle",
+        "configurationPage": 21,
+        "alt": "CHHEEN — in context",
+        "caption": "In context"
+      }
+    ],
+    "configurations": [
+      {
+        "sourcePage": 21,
+        "finish": "Natural Jute Fabric + Stainless Steel",
+        "material": "Jute Fabric + Metal Frame",
+        "lightSource": "Integrated Warm LED",
+        "weight": "15 kg",
+        "sizes": [
+          "Size 1 : 800 mm × 400 mm × 300 mm",
+          "Size 2 : 900 mm × 600 mm × 600 mm",
+          "Size 3 : 1200 mm × 800 mm × 900 mm"
+        ],
+        "customization": "Size, shape, and design can be customized to project requirements.",
+        "image": {
+          "path": "chheen/p21-image-01.webp",
+          "width": 720,
+          "height": 632,
+          "sourcePage": 21,
+          "role": "technical",
+          "configurationPage": 21,
+          "alt": "CHHEEN — product view",
+          "caption": "Product view"
+        },
+        "reviewStatus": "verified-from-catalogue"
+      }
+    ],
+    "customizable": true,
+    "sourcePdf": "Anjora_Lighting_Collection_May2026.pdf",
+    "sourcePages": [
+      20,
+      21,
+      22,
+      23
+    ],
+    "reviewStatus": "needs-client-review",
+    "reviewNotes": [
+      "Page 22 image 01 depicts Peet Vrinda, not CHHEEN; excluded."
+    ]
+  },
+  {
+    "id": "rajasthan-maru-bel",
+    "slug": "maru-bel",
+    "name": "Maru Bel",
+    "collection": "Rajasthan",
+    "subtitle": "The Desert Vine of Rajasthan",
+    "introduction": "Inspired by the naturally growing Maru Bel vine found across Rajasthan’s arid landscape, this sculptural lighting piece transforms the flowing rhythm of desert creepers into contemporary illumination.",
+    "introductionPage": 24,
+    "story": [
+      {
+        "text": "The elongated metallic structure reflects the organic movement of climbing desert vines, while the glowing handcrafted glass spheres are inspired by the vibrant berries blooming across the delicate stems of the Maru Bel plant. Crafted with refined metallic detailing and illuminated glass forms, MARU BEL balances warmth, movement, and sculptural elegance — creating a poetic dialogue between nature, material, and light.",
+        "sourcePage": 26
+      }
+    ],
+    "materials": [
+      "Glass",
+      "Metal"
+    ],
+    "cover": {
+      "path": "maru-bel/p26-image-01.webp",
+      "width": 563,
+      "height": 800,
+      "sourcePage": 26,
+      "role": "lifestyle",
+      "configurationPage": 25,
+      "alt": "Maru Bel — in context",
+      "caption": "In context"
+    },
+    "gallery": [
+      {
+        "path": "maru-bel/p25-image-01.webp",
+        "width": 671,
+        "height": 799,
+        "sourcePage": 25,
+        "role": "technical",
+        "configurationPage": 25,
+        "alt": "Maru Bel — product view",
+        "caption": "Product view"
+      },
+      {
+        "path": "maru-bel/p27-image-01.webp",
+        "width": 800,
+        "height": 751,
+        "sourcePage": 27,
+        "role": "lifestyle",
+        "configurationPage": 25,
+        "alt": "Maru Bel — in context",
+        "caption": "In context"
+      }
+    ],
+    "configurations": [
+      {
+        "sourcePage": 25,
+        "finish": "Brushed Brass Finish",
+        "material": "Metal + Glass",
+        "lightSource": "Integrated Warm LED",
+        "weight": "2–3 kg",
+        "sizes": [
+          "200 mm × 120 mm × 1550 mm"
+        ],
+        "customization": "Size, shape, and design can be customized to project requirements.",
+        "image": {
+          "path": "maru-bel/p25-image-01.webp",
+          "width": 671,
+          "height": 799,
+          "sourcePage": 25,
+          "role": "technical",
+          "configurationPage": 25,
+          "alt": "Maru Bel — product view",
+          "caption": "Product view"
+        },
+        "reviewStatus": "verified-from-catalogue"
+      }
+    ],
+    "customizable": true,
+    "sourcePdf": "Anjora_Lighting_Collection_May2026.pdf",
+    "sourcePages": [
+      24,
+      25,
+      26,
+      27
+    ],
+    "reviewStatus": "verified-from-catalogue",
+    "reviewNotes": []
+  },
+  {
+    "id": "rajasthan-chidkoli",
+    "slug": "chidkoli",
+    "name": "CHIDKOLI",
+    "collection": "Rajasthan",
+    "subtitle": "THE MARWARI BIRDS",
+    "introduction": "Crafted in backlit alabaster stone, the light is inspired by the quiet presence of birds resting in a moonlit garden, Chidkoli transforms outdoor lighting into an emotional landscape experience. More than a luminaire, it behaves like a glowing living form — softly illuminating pathways, gardens, and architectural greens with a warm poetic glow.",
+    "introductionPage": 28,
+    "story": [
+      {
+        "text": "During the day, the piece appears as a minimal sculptural object nestled within the landscape; at night, it awakens into a gentle beacon of warmth, casting a diffused amber glow across grass, stone, and foliage.",
+        "sourcePage": 30
+      }
+    ],
+    "materials": [
+      "Alabaster",
+      "Metal"
+    ],
+    "cover": {
+      "path": "chidkoli/p31-image-01.webp",
+      "width": 578,
+      "height": 800,
+      "sourcePage": 31,
+      "role": "lifestyle",
+      "configurationPage": 29,
+      "alt": "CHIDKOLI — in context",
+      "caption": "In context"
+    },
+    "gallery": [
+      {
+        "path": "chidkoli/p29-image-01.webp",
+        "width": 720,
+        "height": 625,
+        "sourcePage": 29,
+        "role": "technical",
+        "configurationPage": 29,
+        "alt": "CHIDKOLI — product view",
+        "caption": "Product view"
+      },
+      {
+        "path": "chidkoli/p28-image-01.webp",
+        "width": 800,
+        "height": 800,
+        "sourcePage": 28,
+        "role": "lifestyle",
+        "configurationPage": 29,
+        "alt": "CHIDKOLI — in context",
+        "caption": "In context"
+      },
+      {
+        "path": "chidkoli/p30-image-01.webp",
+        "width": 720,
+        "height": 618,
+        "sourcePage": 30,
+        "role": "lifestyle",
+        "configurationPage": 29,
+        "alt": "CHIDKOLI — in context",
+        "caption": "In context"
+      },
+      {
+        "path": "chidkoli/p30-image-03.webp",
+        "width": 800,
+        "height": 664,
+        "sourcePage": 30,
+        "role": "lifestyle",
+        "configurationPage": 29,
+        "alt": "CHIDKOLI — in context",
+        "caption": "In context"
+      }
+    ],
+    "configurations": [
+      {
+        "sourcePage": 29,
+        "finish": "Textured Antique Brass",
+        "material": "Brass + Alabaster",
+        "lightSource": "Integrated Warm LED",
+        "weight": "5–7 kg",
+        "sizes": [
+          "280 mm × 210 mm × 380 mm"
+        ],
+        "customization": "Size, shape, and design can be customized to project requirements.",
+        "image": {
+          "path": "chidkoli/p29-image-01.webp",
+          "width": 720,
+          "height": 625,
+          "sourcePage": 29,
+          "role": "technical",
+          "configurationPage": 29,
+          "alt": "CHIDKOLI — product view",
+          "caption": "Product view"
+        },
+        "reviewStatus": "verified-from-catalogue"
+      }
+    ],
+    "customizable": true,
+    "sourcePdf": "Anjora_Lighting_Collection_May2026.pdf",
+    "sourcePages": [
+      28,
+      29,
+      30,
+      31
+    ],
+    "reviewStatus": "needs-client-review",
+    "reviewNotes": [
+      "Page 30 image 02 depicts CHHEEN; excluded."
+    ]
+  },
+  {
+    "id": "rajasthan-kaag",
+    "slug": "kaag",
+    "name": "Kaag",
+    "collection": "Rajasthan",
+    "subtitle": "the bright crow",
+    "introduction": "The collection pairs softly glowing quartz and amethyst bird forms with solid cylindrical alabaster bases, creating a refined contrast between ethereal iillumination and grounded natural stone.",
+    "introductionPage": 32,
+    "story": [],
+    "materials": [
+      "Alabaster"
+    ],
+    "cover": {
+      "path": "kaag/p35-image-01.webp",
+      "width": 565,
+      "height": 800,
+      "sourcePage": 35,
+      "role": "lifestyle",
+      "configurationPage": 33,
+      "alt": "Kaag — in context",
+      "caption": "In context"
+    },
+    "gallery": [
+      {
+        "path": "kaag/p33-image-01.webp",
+        "width": 678,
+        "height": 800,
+        "sourcePage": 33,
+        "role": "technical",
+        "configurationPage": 33,
+        "alt": "Kaag — product view",
+        "caption": "Product view"
+      },
+      {
+        "path": "kaag/p34-image-02.webp",
+        "width": 800,
+        "height": 603,
+        "sourcePage": 34,
+        "role": "lifestyle",
+        "configurationPage": 33,
+        "alt": "Kaag — in context",
+        "caption": "In context"
+      }
+    ],
+    "configurations": [
+      {
+        "sourcePage": 33,
+        "finish": "Natural Stone Finish",
+        "material": "Alabaster Stone",
+        "lightSource": "Integrated Warm LED",
+        "weight": "2-3 kg",
+        "sizes": [
+          "50 mm × 50 mm × 350 / 550 / 675 mm"
+        ],
+        "customization": "Size, shape, and design can be customized to project requirements.",
+        "image": {
+          "path": "kaag/p33-image-01.webp",
+          "width": 678,
+          "height": 800,
+          "sourcePage": 33,
+          "role": "technical",
+          "configurationPage": 33,
+          "alt": "Kaag — product view",
+          "caption": "Product view"
+        },
+        "reviewStatus": "verified-from-catalogue"
+      }
+    ],
+    "customizable": true,
+    "sourcePdf": "Anjora_Lighting_Collection_May2026.pdf",
+    "sourcePages": [
+      32,
+      33,
+      34,
+      35
+    ],
+    "reviewStatus": "needs-client-review",
+    "reviewNotes": [
+      "Page 34 repeated Luma Birds story omitted; image 01 depicts CHIDKOLI and is excluded. Page 32 mentions quartz/amethyst, while page 33 specifies alabaster; material filter uses only the technical field."
+    ]
+  },
+  {
+    "id": "rajasthan-shilora",
+    "slug": "shilora",
+    "name": "Shilora",
+    "collection": "Rajasthan",
+    "subtitle": "The mini mounts",
+    "introduction": "While admiring the timeless silhouette of Jal Mahal and the majestic heights of Amergarh, we found inspiration in the quiet strength of the surrounding hills—standing tall through time, carrying stories of heritage and resilience. This lighting piece transforms that emotion into form, where stacked rock elements echo the layered mountains of Jaipur, symbolizing strength, balance, and permanence.",
+    "introductionPage": 36,
+    "story": [],
+    "materials": [
+      "Metal"
+    ],
+    "cover": {
+      "path": "shilora/p39-image-01.webp",
+      "width": 565,
+      "height": 800,
+      "sourcePage": 39,
+      "role": "lifestyle",
+      "configurationPage": 37,
+      "alt": "Shilora — in context",
+      "caption": "In context"
+    },
+    "gallery": [
+      {
+        "path": "shilora/p37-image-01.webp",
+        "width": 549,
+        "height": 800,
+        "sourcePage": 37,
+        "role": "technical",
+        "configurationPage": 37,
+        "alt": "Shilora — product view",
+        "caption": "Product view"
+      },
+      {
+        "path": "shilora/p38-image-01.webp",
+        "width": 800,
+        "height": 616,
+        "sourcePage": 38,
+        "role": "lifestyle",
+        "configurationPage": 37,
+        "alt": "Shilora — in context",
+        "caption": "In context"
+      }
+    ],
+    "configurations": [
+      {
+        "sourcePage": 37,
+        "finish": "Textured Stone Finish",
+        "material": "Stone, Metal & Acrylic",
+        "lightSource": "Integrated Warm LED",
+        "weight": "40 kg",
+        "sizes": [
+          "430 mm × 203 mm × 508 mm"
+        ],
+        "customization": "Size, shape, and design can be customized to project requirements.",
+        "image": {
+          "path": "shilora/p37-image-01.webp",
+          "width": 549,
+          "height": 800,
+          "sourcePage": 37,
+          "role": "technical",
+          "configurationPage": 37,
+          "alt": "Shilora — product view",
+          "caption": "Product view"
+        },
+        "reviewStatus": "verified-from-catalogue"
+      }
+    ],
+    "customizable": true,
+    "sourcePdf": "Anjora_Lighting_Collection_May2026.pdf",
+    "sourcePages": [
+      36,
+      37,
+      38,
+      39
+    ],
+    "reviewStatus": "needs-client-review",
+    "reviewNotes": [
+      "Page 38 repeated Luma Birds story omitted."
+    ]
+  },
+  {
+    "id": "rajasthan-atki-badli",
+    "slug": "atki-badli",
+    "name": "Atki badli",
+    "collection": "Rajasthan",
+    "subtitle": "The passing cloud",
+    "introduction": "Inspired by Jaipur’s landscape where majestic hills embrace drifting clouds around Jal Mahal and Amer Fort, this sculptural lighting piece transforms nature into a contemporary form. The stacked stone-like forms echo the layered mountains surrounding the Pink City, while the glowing cloud above captures the dreamy morning mist that settles over Jaipur’s heritage skyline.",
+    "introductionPage": 40,
+    "story": [],
+    "materials": [
+      "Alabaster",
+      "Metal"
+    ],
+    "cover": {
+      "path": "atki-badli/p43-image-01.webp",
+      "width": 565,
+      "height": 800,
+      "sourcePage": 43,
+      "role": "lifestyle",
+      "configurationPage": 41,
+      "alt": "Atki badli — in context",
+      "caption": "In context"
+    },
+    "gallery": [
+      {
+        "path": "atki-badli/p41-image-01.webp",
+        "width": 391,
+        "height": 694,
+        "sourcePage": 41,
+        "role": "technical",
+        "configurationPage": 41,
+        "alt": "Atki badli — product view",
+        "caption": "Product view"
+      },
+      {
+        "path": "atki-badli/p42-image-02.webp",
+        "width": 800,
+        "height": 640,
+        "sourcePage": 42,
+        "role": "lifestyle",
+        "configurationPage": 41,
+        "alt": "Atki badli — in context",
+        "caption": "In context"
+      }
+    ],
+    "configurations": [
+      {
+        "sourcePage": 41,
+        "finish": "Textured Stone Finish",
+        "material": "Stone, Metal & Alabaster",
+        "lightSource": "Integrated Warm LED",
+        "weight": "55 kg",
+        "sizes": [
+          "356 mm × 203 mm × 680 mm"
+        ],
+        "customization": "Size, shape, and design can be customized to project requirements.",
+        "image": {
+          "path": "atki-badli/p41-image-01.webp",
+          "width": 391,
+          "height": 694,
+          "sourcePage": 41,
+          "role": "technical",
+          "configurationPage": 41,
+          "alt": "Atki badli — product view",
+          "caption": "Product view"
+        },
+        "reviewStatus": "verified-from-catalogue"
+      }
+    ],
+    "customizable": true,
+    "sourcePdf": "Anjora_Lighting_Collection_May2026.pdf",
+    "sourcePages": [
+      40,
+      41,
+      42,
+      43
+    ],
+    "reviewStatus": "needs-client-review",
+    "reviewNotes": [
+      "Page 42 repeated Luma Birds story omitted; image 01 depicts Shilora and is excluded."
+    ]
+  },
+  {
+    "id": "rajasthan-shilpstambh",
+    "slug": "shilpstambh",
+    "name": "Shilpstambh",
+    "collection": "Rajasthan",
+    "subtitle": "the crafted pillar",
+    "introduction": "The design celebrates the dialogue between tradition and modernity — where artisanal inspiration meets refined contemporary lighting. A statement piece created not only to illuminate spaces, but to bring the soul of Jaipur’s craft heritage into modern interiors.",
+    "introductionPage": 44,
+    "story": [],
+    "materials": [
+      "Alabaster",
+      "Metal"
+    ],
+    "cover": {
+      "path": "shilpstambh/p47-image-02.webp",
+      "width": 663,
+      "height": 800,
+      "sourcePage": 47,
+      "role": "lifestyle",
+      "configurationPage": 45,
+      "alt": "Shilpstambh — in context",
+      "caption": "In context"
+    },
+    "gallery": [
+      {
+        "path": "shilpstambh/p45-image-01.webp",
+        "width": 532,
+        "height": 799,
+        "sourcePage": 45,
+        "role": "technical",
+        "configurationPage": 45,
+        "alt": "Shilpstambh — product view",
+        "caption": "Product view"
+      },
+      {
+        "path": "shilpstambh/p46-image-01.webp",
+        "width": 566,
+        "height": 799,
+        "sourcePage": 46,
+        "role": "lifestyle",
+        "configurationPage": 45,
+        "alt": "Shilpstambh — in context",
+        "caption": "In context"
+      },
+      {
+        "path": "shilpstambh/p47-image-01.webp",
+        "width": 640,
+        "height": 800,
+        "sourcePage": 47,
+        "role": "lifestyle",
+        "configurationPage": 45,
+        "alt": "Shilpstambh — in context",
+        "caption": "In context"
+      },
+      {
+        "path": "shilpstambh/p48-image-01.webp",
+        "width": 800,
+        "height": 600,
+        "sourcePage": 48,
+        "role": "lifestyle",
+        "configurationPage": null,
+        "alt": "Shilpstambh — alternate catalogue composition · confirm finish and specifications with anjora",
+        "caption": "Alternate catalogue composition · confirm finish and specifications with Anjora"
+      },
+      {
+        "path": "shilpstambh/p49-image-01.webp",
+        "width": 644,
+        "height": 800,
+        "sourcePage": 49,
+        "role": "lifestyle",
+        "configurationPage": null,
+        "alt": "Shilpstambh — alternate catalogue composition · confirm finish and specifications with anjora",
+        "caption": "Alternate catalogue composition · confirm finish and specifications with Anjora"
+      }
+    ],
+    "configurations": [
+      {
+        "sourcePage": 45,
+        "finish": "Powder Coated",
+        "material": "Metal & Alabaster",
+        "lightSource": "G9 Bulb Holder",
+        "weight": "8 kg",
+        "sizes": [
+          "450 mm × 180 mm × 980 mm"
+        ],
+        "customization": "Size, shape, and design can be customized to project requirements.",
+        "image": {
+          "path": "shilpstambh/p45-image-01.webp",
+          "width": 532,
+          "height": 799,
+          "sourcePage": 45,
+          "role": "technical",
+          "configurationPage": 45,
+          "alt": "Shilpstambh — product view",
+          "caption": "Product view"
+        },
+        "reviewStatus": "verified-from-catalogue"
+      }
+    ],
+    "customizable": true,
+    "sourcePdf": "Anjora_Lighting_Collection_May2026.pdf",
+    "sourcePages": [
+      44,
+      45,
+      46,
+      47,
+      48,
+      49
+    ],
+    "reviewStatus": "needs-client-review",
+    "reviewNotes": [
+      "Page 46 bronze/glass narrative conflicts with page 45 powder-coated metal/alabaster; omitted. Pages 48–49 are alternate compositions with no separate technical specifications. G9 Blub Holder corrected to G9 Bulb Holder."
+    ]
+  },
+  {
+    "id": "rajasthan-dhwani-stambh",
+    "slug": "dhwani-stambh",
+    "name": "Dhwani stambh",
+    "collection": "Rajasthan",
+    "subtitle": "Light, held within. Revealed with intention.",
+    "introduction": "The illumination is warm, intimate, and atmospheric. The perforated mesh transforms light into a subtle, ever-changing pattern.",
+    "introductionPage": 50,
+    "story": [
+      {
+        "text": "The main design is described in the catalogue with an app-controlled sound system and an aroma diffuser. Contact Anjora to confirm the features of your chosen configuration.",
+        "sourcePage": 50
+      }
+    ],
+    "materials": [
+      "Glass",
+      "Metal",
+      "Wood & ceramic"
+    ],
+    "cover": {
+      "path": "dhwani-stambh/p52-image-01.webp",
+      "width": 532,
+      "height": 799,
+      "sourcePage": 52,
+      "role": "lifestyle",
+      "configurationPage": 51,
+      "alt": "Dhwani stambh — in context",
+      "caption": "In context"
+    },
+    "gallery": [
+      {
+        "path": "dhwani-stambh/p51-image-01.webp",
+        "width": 407,
+        "height": 800,
+        "sourcePage": 51,
+        "role": "technical",
+        "configurationPage": 51,
+        "alt": "Dhwani stambh — product view",
+        "caption": "Product view"
+      },
+      {
+        "path": "dhwani-stambh/p54-image-01.webp",
+        "width": 640,
+        "height": 800,
+        "sourcePage": 54,
+        "role": "technical",
+        "configurationPage": 54,
+        "alt": "Dhwani stambh — product view",
+        "caption": "Product view"
+      },
+      {
+        "path": "dhwani-stambh/p55-image-01.webp",
+        "width": 640,
+        "height": 800,
+        "sourcePage": 55,
+        "role": "technical",
+        "configurationPage": 55,
+        "alt": "Dhwani stambh — product view",
+        "caption": "Product view"
+      },
+      {
+        "path": "dhwani-stambh/p56-image-01.webp",
+        "width": 640,
+        "height": 800,
+        "sourcePage": 56,
+        "role": "technical",
+        "configurationPage": 56,
+        "alt": "Dhwani stambh — product view",
+        "caption": "Product view"
+      }
+    ],
+    "configurations": [
+      {
+        "sourcePage": 51,
+        "finish": "Blue Pottery & Brush Gold Finish",
+        "material": "Ceramic , Glass and metal",
+        "lightSource": "Integrated LED",
+        "weight": "11–13 kg",
+        "sizes": [
+          "356 mm × 203 mm × 1520 mm"
+        ],
+        "customization": "Size, shape, and design can be customized to project requirements.",
+        "image": {
+          "path": "dhwani-stambh/p51-image-01.webp",
+          "width": 407,
+          "height": 800,
+          "sourcePage": 51,
+          "role": "technical",
+          "configurationPage": 51,
+          "alt": "Dhwani stambh — product view",
+          "caption": "Product view"
+        },
+        "reviewStatus": "needs-client-review"
+      },
+      {
+        "sourcePage": 54,
+        "finish": "Blue Pottery",
+        "material": "Ceramic , Glass",
+        "lightSource": "Integrated LED",
+        "weight": "1 kg",
+        "sizes": [
+          "180 mm × 215 mm × 340 mm"
+        ],
+        "customization": "Size, shape, and design can be customized to project requirements.",
+        "image": {
+          "path": "dhwani-stambh/p54-image-01.webp",
+          "width": 640,
+          "height": 800,
+          "sourcePage": 54,
+          "role": "technical",
+          "configurationPage": 54,
+          "alt": "Dhwani stambh — product view",
+          "caption": "Product view"
+        },
+        "reviewStatus": "needs-client-review"
+      },
+      {
+        "sourcePage": 55,
+        "finish": "Blue Pottery & Brush Gold Finish",
+        "material": "Ceramic, Glass and “meta” (source incomplete; please confirm)",
+        "lightSource": "Integrated LED",
+        "weight": "2-3 kg",
+        "sizes": [
+          "280 mm × 190 mm × 750 mm"
+        ],
+        "customization": "Size, shape, and design can be customized to project requirements.",
+        "image": {
+          "path": "dhwani-stambh/p55-image-01.webp",
+          "width": 640,
+          "height": 800,
+          "sourcePage": 55,
+          "role": "technical",
+          "configurationPage": 55,
+          "alt": "Dhwani stambh — product view",
+          "caption": "Product view"
+        },
+        "reviewStatus": "needs-client-review"
+      },
+      {
+        "sourcePage": 56,
+        "finish": "Blue Pottery & Antique Gold Finish",
+        "material": "Blue Pottery, Metal",
+        "lightSource": "Integrated LED",
+        "weight": "3 kg",
+        "sizes": [
+          "356 mm × 195 mm × 508 mm"
+        ],
+        "customization": "Size, shape, and design can be customized to project requirements.",
+        "image": {
+          "path": "dhwani-stambh/p56-image-01.webp",
+          "width": 640,
+          "height": 800,
+          "sourcePage": 56,
+          "role": "technical",
+          "configurationPage": 56,
+          "alt": "Dhwani stambh — product view",
+          "caption": "Product view"
+        },
+        "reviewStatus": "needs-client-review"
+      }
+    ],
+    "customizable": true,
+    "sourcePdf": "Anjora_Lighting_Collection_May2026.pdf",
+    "sourcePages": [
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56
+    ],
+    "reviewStatus": "needs-client-review",
+    "reviewNotes": [
+      "Pages 54–56 have no distinct names; separate source-linked configurations, family classification pending. Page 55 material ends in meta; do not infer metal. Page 53 has a different form without paired specifications; retained internally only. Sound/aroma claim on page 50 is not extended to additional configurations."
+    ]
+  },
+  {
+    "id": "rajasthan-vrikshamani",
+    "slug": "vrikshamani",
+    "name": "Vrikshamani",
+    "collection": "Rajasthan",
+    "subtitle": "The jewelled tree",
+    "introduction": "A celebration of Jaipur’s rich ornamental culture, this lighting object transforms the essence of Johari Bazaar into a modern collectible — where light becomes jewelry for the space.",
+    "introductionPage": 57,
+    "story": [
+      {
+        "text": "The branching silhouette draws from the graceful geometry of handcrafted metalwork and woodwork seen across the palaces and havelis of the Pink City, while the textured illuminated alabaster stone echo the tactile richness of lime-plaster motifs and stone carving traditions native to Jaipur.",
+        "sourcePage": 59
+      }
+    ],
+    "materials": [
+      "Alabaster",
+      "Metal",
+      "Wood & ceramic"
+    ],
+    "cover": {
+      "path": "vrikshamani/p60-image-01.webp",
+      "width": 565,
+      "height": 800,
+      "sourcePage": 60,
+      "role": "lifestyle",
+      "configurationPage": 58,
+      "alt": "Vrikshamani — in context",
+      "caption": "In context"
+    },
+    "gallery": [
+      {
+        "path": "vrikshamani/p58-image-01.webp",
+        "width": 532,
+        "height": 800,
+        "sourcePage": 58,
+        "role": "technical",
+        "configurationPage": 58,
+        "alt": "Vrikshamani — product view",
+        "caption": "Product view"
+      },
+      {
+        "path": "vrikshamani/p59-image-01.webp",
+        "width": 640,
+        "height": 800,
+        "sourcePage": 59,
+        "role": "lifestyle",
+        "configurationPage": 58,
+        "alt": "Vrikshamani — in context",
+        "caption": "In context"
+      }
+    ],
+    "configurations": [
+      {
+        "sourcePage": 58,
+        "finish": "Handcrafted Wood & Metallic Finish",
+        "material": "Wood, Alabaster Stone & Metal",
+        "lightSource": "Integrated Warm LED",
+        "weight": "9–10 kg",
+        "sizes": [
+          "508 mm × 305 mm × 1220 mm"
+        ],
+        "customization": "Size, shape, and design can be customized to project requirements.",
+        "image": {
+          "path": "vrikshamani/p58-image-01.webp",
+          "width": 532,
+          "height": 800,
+          "sourcePage": 58,
+          "role": "technical",
+          "configurationPage": 58,
+          "alt": "Vrikshamani — product view",
+          "caption": "Product view"
+        },
+        "reviewStatus": "verified-from-catalogue"
+      }
+    ],
+    "customizable": true,
+    "sourcePdf": "Anjora_Lighting_Collection_May2026.pdf",
+    "sourcePages": [
+      57,
+      58,
+      59,
+      60
+    ],
+    "reviewStatus": "verified-from-catalogue",
+    "reviewNotes": []
+  },
+  {
+    "id": "rajasthan-minar",
+    "slug": "minar",
+    "name": "MINAR",
+    "collection": "Rajasthan",
+    "subtitle": "A Royal Presence",
+    "introduction": "MINAR draws from the elegant silhouettes of Jaipur’s historic minarets and architectural towers. Crafted in illuminated glass, the sculptural form transforms Rajasthan’s timeless geometry into a contemporary decorative object — balancing softness, symmetry, and presence.",
+    "introductionPage": 61,
+    "story": [],
+    "materials": [
+      "Glass"
+    ],
+    "cover": {
+      "path": "minar/p63-image-02.webp",
+      "width": 800,
+      "height": 640,
+      "sourcePage": 63,
+      "role": "lifestyle",
+      "configurationPage": 62,
+      "alt": "MINAR — in context",
+      "caption": "In context"
+    },
+    "gallery": [
+      {
+        "path": "minar/p62-image-01.webp",
+        "width": 800,
+        "height": 640,
+        "sourcePage": 62,
+        "role": "technical",
+        "configurationPage": 62,
+        "alt": "MINAR — product view",
+        "caption": "Product view"
+      },
+      {
+        "path": "minar/p64-image-01.webp",
+        "width": 640,
+        "height": 800,
+        "sourcePage": 64,
+        "role": "lifestyle",
+        "configurationPage": null,
+        "alt": "MINAR — alternate catalogue composition · confirm finish and specifications with anjora",
+        "caption": "Alternate catalogue composition · confirm finish and specifications with Anjora"
+      },
+      {
+        "path": "minar/p65-image-02.webp",
+        "width": 800,
+        "height": 782,
+        "sourcePage": 65,
+        "role": "lifestyle",
+        "configurationPage": null,
+        "alt": "MINAR — alternate catalogue composition · confirm finish and specifications with anjora",
+        "caption": "Alternate catalogue composition · confirm finish and specifications with Anjora"
+      },
+      {
+        "path": "minar/p66-image-02.webp",
+        "width": 640,
+        "height": 800,
+        "sourcePage": 66,
+        "role": "lifestyle",
+        "configurationPage": null,
+        "alt": "MINAR — alternate catalogue composition · confirm finish and specifications with anjora",
+        "caption": "Alternate catalogue composition · confirm finish and specifications with Anjora"
+      }
+    ],
+    "configurations": [
+      {
+        "sourcePage": 62,
+        "finish": "Frosted Glass & Amber Glass Finish",
+        "material": "Handcrafted Glass & Acrylic Diffuser",
+        "lightSource": "Integrated Warm LED",
+        "weight": "5–6 kg",
+        "sizes": [
+          "356 mm × 356 mm × 1320 mm"
+        ],
+        "customization": "Size, shape, and design can be customized to project requirements.",
+        "image": {
+          "path": "minar/p62-image-01.webp",
+          "width": 800,
+          "height": 640,
+          "sourcePage": 62,
+          "role": "technical",
+          "configurationPage": 62,
+          "alt": "MINAR — product view",
+          "caption": "Product view"
+        },
+        "reviewStatus": "verified-from-catalogue"
+      }
+    ],
+    "customizable": true,
+    "sourcePdf": "Anjora_Lighting_Collection_May2026.pdf",
+    "sourcePages": [
+      61,
+      62,
+      63,
+      64,
+      65,
+      66
+    ],
+    "reviewStatus": "needs-client-review",
+    "reviewNotes": [
+      "Page 63 woodwork story and image 01 belong to Vrikshamani; excluded. White/blue/red visualizations have no separate finish or electrical specifications; do not imply selectable RGB controls."
+    ]
+  },
+  {
+    "id": "rajasthan-kankad",
+    "slug": "kankad",
+    "name": "Kankad",
+    "collection": "Rajasthan",
+    "subtitle": "Echoes of Stone",
+    "introduction": "Across the landscapes of Rajasthan, scattered desert stones quietly shape the character of the land — softened by time, sun, and shifting winds. KANKAD captures this raw simplicity through a composition of glowing alabaster forms and casted brass elements. The illuminated stone pieces resemble smooth pebbles resting across the desert terrain, creating a sculptural form that feels organic, balanced, and timeless.",
+    "introductionPage": 67,
+    "story": [
+      {
+        "text": "The warm brass accents introduce depth and richness, reflecting the handcrafted detailing and material warmth often associated with Jaipur’s artisanal culture. Each element is intentionally imperfect yet harmonious — celebrating natural texture, softness, and quiet elegance. KANKAD brings together earth, material, and glow in a way that feels intimate, contemporary, and deeply connected to Rajasthan’s landscape.",
+        "sourcePage": 69
+      }
+    ],
+    "materials": [
+      "Alabaster",
+      "Metal"
+    ],
+    "cover": {
+      "path": "kankad/p69-image-01.webp",
+      "width": 800,
+      "height": 640,
+      "sourcePage": 69,
+      "role": "lifestyle",
+      "configurationPage": 68,
+      "alt": "Kankad — in context",
+      "caption": "In context"
+    },
+    "gallery": [
+      {
+        "path": "kankad/p68-image-01.webp",
+        "width": 560,
+        "height": 800,
+        "sourcePage": 68,
+        "role": "technical",
+        "configurationPage": 68,
+        "alt": "Kankad — product view",
+        "caption": "Product view"
+      },
+      {
+        "path": "kankad/p70-image-01.webp",
+        "width": 565,
+        "height": 800,
+        "sourcePage": 70,
+        "role": "lifestyle",
+        "configurationPage": 68,
+        "alt": "Kankad — in context",
+        "caption": "In context"
+      }
+    ],
+    "configurations": [
+      {
+        "sourcePage": 68,
+        "finish": "Natural Alabaster & Metallic Finish",
+        "material": "Alabaster Stone & Metal",
+        "lightSource": "Integrated Warm LED",
+        "weight": "8–12 kg",
+        "sizes": [
+          "111 mm × 980 mm × 127 mm"
+        ],
+        "customization": "Size, shape, and design can be customized to project requirements.",
+        "image": {
+          "path": "kankad/p68-image-01.webp",
+          "width": 560,
+          "height": 800,
+          "sourcePage": 68,
+          "role": "technical",
+          "configurationPage": 68,
+          "alt": "Kankad — product view",
+          "caption": "Product view"
+        },
+        "reviewStatus": "verified-from-catalogue"
+      }
+    ],
+    "customizable": true,
+    "sourcePdf": "Anjora_Lighting_Collection_May2026.pdf",
+    "sourcePages": [
+      67,
+      68,
+      69,
+      70
+    ],
+    "reviewStatus": "verified-from-catalogue",
+    "reviewNotes": []
+  },
+  {
+    "id": "rajasthan-phog",
+    "slug": "phog",
+    "name": "PHOG",
+    "collection": "Rajasthan",
+    "subtitle": "The Soul of The Desert",
+    "introduction": "Inspired by the resilient Phog flower found across Rajasthan’s desert this sculptural lighting piece transforms the quiet poetry of the dunes into contemporary iillumination. The branching silhouette reflects the organic rhythm of desert flora, while the softly illuminated acrylic tubes recreate the warmth of fading desert sunlight.",
+    "introductionPage": 71,
+    "story": [],
+    "materials": [
+      "Glass",
+      "Metal"
+    ],
+    "cover": {
+      "path": "phog/p72-image-01.webp",
+      "width": 493,
+      "height": 800,
+      "sourcePage": 72,
+      "role": "technical",
+      "configurationPage": 72,
+      "alt": "PHOG — product view",
+      "caption": "Product view"
+    },
+    "gallery": [
+      {
+        "path": "phog/p73-image-01.webp",
+        "width": 472,
+        "height": 720,
+        "sourcePage": 73,
+        "role": "technical",
+        "configurationPage": 73,
+        "alt": "PHOG — product view",
+        "caption": "Product view"
+      },
+      {
+        "path": "phog/p74-image-01.webp",
+        "width": 549,
+        "height": 800,
+        "sourcePage": 74,
+        "role": "lifestyle",
+        "configurationPage": 73,
+        "alt": "PHOG — in context",
+        "caption": "In context"
+      },
+      {
+        "path": "phog/p75-image-01.webp",
+        "width": 558,
+        "height": 681,
+        "sourcePage": 75,
+        "role": "technical",
+        "configurationPage": 75,
+        "alt": "PHOG — product view",
+        "caption": "Product view"
+      },
+      {
+        "path": "phog/p76-image-01.webp",
+        "width": 800,
+        "height": 640,
+        "sourcePage": 76,
+        "role": "lifestyle",
+        "configurationPage": 75,
+        "alt": "PHOG — in context",
+        "caption": "In context"
+      }
+    ],
+    "configurations": [
+      {
+        "sourcePage": 72,
+        "finish": "Textured Green Paint",
+        "material": "Metal, Glass & Acrylic",
+        "lightSource": "Integrated Warm LED",
+        "weight": "7–10 kg",
+        "sizes": [
+          "610 mm × 80 mm × 1524 mm"
+        ],
+        "customization": "Size, shape, and design can be customized to project requirements.",
+        "image": {
+          "path": "phog/p72-image-01.webp",
+          "width": 493,
+          "height": 800,
+          "sourcePage": 72,
+          "role": "technical",
+          "configurationPage": 72,
+          "alt": "PHOG — product view",
+          "caption": "Product view"
+        },
+        "reviewStatus": "needs-client-review"
+      },
+      {
+        "sourcePage": 73,
+        "finish": "Textured Green Finish",
+        "material": "Metal & Acrylic",
+        "lightSource": "Integrated Warm LED",
+        "weight": "3–4 kg",
+        "sizes": [
+          "610 mm × 305 mm × 1524 mm"
+        ],
+        "customization": "Size, shape, and design can be customized to project requirements.",
+        "image": {
+          "path": "phog/p73-image-01.webp",
+          "width": 472,
+          "height": 720,
+          "sourcePage": 73,
+          "role": "technical",
+          "configurationPage": 73,
+          "alt": "PHOG — product view",
+          "caption": "Product view"
+        },
+        "reviewStatus": "needs-client-review"
+      },
+      {
+        "sourcePage": 75,
+        "finish": "Textured Green Finish",
+        "material": "Metal & Acrylic",
+        "lightSource": "Integrated Warm LED",
+        "weight": "0.6 - 1.8 kg",
+        "sizes": [
+          "90 mm × 80 mm × 458 mm"
+        ],
+        "customization": "Size, shape, and design can be customized to project requirements.",
+        "image": {
+          "path": "phog/p75-image-01.webp",
+          "width": 558,
+          "height": 681,
+          "sourcePage": 75,
+          "role": "technical",
+          "configurationPage": 75,
+          "alt": "PHOG — product view",
+          "caption": "Product view"
+        },
+        "reviewStatus": "needs-client-review"
+      }
+    ],
+    "customizable": true,
+    "sourcePdf": "Anjora_Lighting_Collection_May2026.pdf",
+    "sourcePages": [
+      71,
+      72,
+      73,
+      74,
+      75,
+      76
+    ],
+    "reviewStatus": "needs-client-review",
+    "reviewNotes": [
+      "Pages 72, 73, 75 retained as independent configurations with matching images; official variant names pending."
+    ]
+  },
+  {
+    "id": "rajasthan-imlika",
+    "slug": "imlika",
+    "name": "Imlika",
+    "collection": "Rajasthan",
+    "subtitle": "Essence of the Tamarind",
+    "introduction": "Inspired by the organic form of the tamarind pod, this sculptural lighting piece transforms nature’s flowing rhythm into contemporary iillumination. The undulating silhouette reflects the natural curvature of hanging tamarind branches, while the glowing light points evoke seeds illuminated within the warmth of the shell.",
+    "introductionPage": 77,
+    "story": [
+      {
+        "text": "Crafted with refined metallic detailing and illuminated alabaster stone, IMLIKA is designed as both sculpture and light. The flowing composition introduces movement and depth into the space while the natural translucency of alabaster creates a soft, atmospheric glow.",
+        "sourcePage": 79
+      }
+    ],
+    "materials": [
+      "Alabaster",
+      "Metal"
+    ],
+    "cover": {
+      "path": "imlika/p80-image-01.webp",
+      "width": 585,
+      "height": 800,
+      "sourcePage": 80,
+      "role": "lifestyle",
+      "configurationPage": 78,
+      "alt": "Imlika — in context",
+      "caption": "In context"
+    },
+    "gallery": [
+      {
+        "path": "imlika/p78-image-01.webp",
+        "width": 553,
+        "height": 800,
+        "sourcePage": 78,
+        "role": "technical",
+        "configurationPage": 78,
+        "alt": "Imlika — product view",
+        "caption": "Product view"
+      },
+      {
+        "path": "imlika/p79-image-01.webp",
+        "width": 629,
+        "height": 800,
+        "sourcePage": 79,
+        "role": "lifestyle",
+        "configurationPage": 78,
+        "alt": "Imlika — in context",
+        "caption": "In context"
+      }
+    ],
+    "configurations": [
+      {
+        "sourcePage": 78,
+        "finish": "Textured Metallic",
+        "material": "Metal & Alabaster Stone",
+        "lightSource": "Integrated Warm LED",
+        "weight": "3 kg per piece",
+        "sizes": [
+          "570 mm × 60 mm × 304 mm"
+        ],
+        "customization": "Size, shape, and design can be customized to project requirements.",
+        "image": {
+          "path": "imlika/p78-image-01.webp",
+          "width": 553,
+          "height": 800,
+          "sourcePage": 78,
+          "role": "technical",
+          "configurationPage": 78,
+          "alt": "Imlika — product view",
+          "caption": "Product view"
+        },
+        "reviewStatus": "verified-from-catalogue"
+      }
+    ],
+    "customizable": true,
+    "sourcePdf": "Anjora_Lighting_Collection_May2026.pdf",
+    "sourcePages": [
+      77,
+      78,
+      79,
+      80
+    ],
+    "reviewStatus": "verified-from-catalogue",
+    "reviewNotes": []
+  },
+  {
+    "id": "rajasthan-meghchhatra",
+    "slug": "meghchhatra",
+    "name": "Meghchhatra",
+    "collection": "Rajasthan",
+    "subtitle": "The Canopy of Monsoon",
+    "introduction": "Inspired by the rare arrival of monsoon across Rajasthan, this sculptural lighting piece captures the poetic moment when rain transforms the desert landscape.",
+    "introductionPage": 81,
+    "story": [
+      {
+        "text": "The layered glass forms resemble protective canopies emerging over the dunes, while the flowing arrangement recreates the rhythm of drifting clouds and falling rain. Soft iillumination radiates through every element, celebrating the contrast between Rajasthan's arid beauty and its fleeting season of renewal. MEGHCHHATRA becomes a suspended landscape where light, water, and heritage come together in a contemporary form.",
+        "sourcePage": 83
+      }
+    ],
+    "materials": [
+      "Glass",
+      "Metal"
+    ],
+    "cover": {
+      "path": "meghchhatra/p84-image-01.webp",
+      "width": 800,
+      "height": 694,
+      "sourcePage": 84,
+      "role": "lifestyle",
+      "configurationPage": 82,
+      "alt": "Meghchhatra — in context",
+      "caption": "In context"
+    },
+    "gallery": [
+      {
+        "path": "meghchhatra/p82-image-01.webp",
+        "width": 800,
+        "height": 800,
+        "sourcePage": 82,
+        "role": "technical",
+        "configurationPage": 82,
+        "alt": "Meghchhatra — product view",
+        "caption": "Product view"
+      },
+      {
+        "path": "meghchhatra/p83-image-01.webp",
+        "width": 800,
+        "height": 731,
+        "sourcePage": 83,
+        "role": "lifestyle",
+        "configurationPage": 82,
+        "alt": "Meghchhatra — in context",
+        "caption": "In context"
+      }
+    ],
+    "configurations": [
+      {
+        "sourcePage": 82,
+        "finish": "Textured Brass",
+        "material": "Brass & Textured Glass Stone",
+        "lightSource": "Integrated Warm LED",
+        "weight": "1.2 kg per piece",
+        "sizes": [
+          "184 mm × 184 mm × 305 mm"
+        ],
+        "customization": "Size, shape, and design can be customized to project requirements.",
+        "image": {
+          "path": "meghchhatra/p82-image-01.webp",
+          "width": 800,
+          "height": 800,
+          "sourcePage": 82,
+          "role": "technical",
+          "configurationPage": 82,
+          "alt": "Meghchhatra — product view",
+          "caption": "Product view"
+        },
+        "reviewStatus": "verified-from-catalogue"
+      }
+    ],
+    "customizable": true,
+    "sourcePdf": "Anjora_Lighting_Collection_May2026.pdf",
+    "sourcePages": [
+      81,
+      82,
+      83,
+      84
+    ],
+    "reviewStatus": "verified-from-catalogue",
+    "reviewNotes": []
+  }
+]

@@ -1,4 +1,6 @@
 import { useRef } from 'react'
+import { Link } from 'react-router-dom'
+import { featuredProducts } from '../data/products'
 import { useGSAP } from '@gsap/react'
 import founderImage from '../assets/about/shubham-khandelwal.png'
 import { AboutClosing } from '../components/about/AboutClosing'
@@ -182,6 +184,10 @@ export function About() {
       <Principles />
       <LightingPhilosophy />
       <CompanyStory />
+      <section className="about-collection container" aria-labelledby="about-collection-title" data-story-reveal>
+        <div><p className="eyebrow">Rajasthan · Our design practice</p><h2 id="about-collection-title">A sense of place,<br />expressed in light.</h2><p>The Rajasthan Collection brings regional landscapes and craft into our bespoke designs: the Khejdi tree in Sunehri Dhara, flowing desert winds in CHHEEN, and the arrival of monsoon in Meghchhatra.</p><Link className="text-link" to="/products">Discover the collection ↗</Link></div>
+        <img src={featuredProducts[0]!.cover.src} alt={featuredProducts[0]!.cover.alt} width={featuredProducts[0]!.cover.width} height={featuredProducts[0]!.cover.height} loading="lazy" />
+      </section>
       <AboutClosing />
       <EnquirySection source="About Us" />
     </main>

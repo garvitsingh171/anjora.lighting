@@ -20,17 +20,15 @@
 .site-footer nav a::after, .site-footer address a::after { position: absolute; right: 0; bottom: -0.1rem; left: 0; height: 1px; content: ''; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 200ms var(--ease-ui); }
 .site-footer a:hover, .site-footer a:focus-visible { color: var(--color-footer-text); }
 .site-footer a:hover::after, .site-footer a:focus-visible::after { transform: scaleX(1); }
-.site-footer__team { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2.5rem; padding-block: 2.5rem; border-top: 1px solid var(--color-footer-line); }
-.site-footer__team > div > p { color: var(--color-footer-muted); font-size: 1.15rem; line-height: 1.35; }
-.site-footer__person h3 { margin: 0; font-size: 1.6rem; font-weight: 500; color: var(--color-footer-text); }
-.site-footer__person p { margin: 0 0 0.4rem; color: var(--color-media-accent); font-size: 1rem; }
 .site-footer__legal { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; padding-block: 1.4rem; border-top: 1px solid var(--color-footer-line); color: var(--color-footer-muted); font-size: 0.9rem; }
 @media (max-width: 1100px) { .site-footer__main { grid-template-columns: 1fr 1fr; gap: 3rem; } }
 @media (max-width: 760px) {
   .site-footer__invitation { align-items: flex-start; flex-direction: column; }
-  .site-footer__team { grid-template-columns: 1fr 1fr; gap: 2rem; }
-  .site-footer__team > div { grid-column: 1 / -1; }
   .site-footer__legal { flex-direction: column; }
 }
-@media (max-width: 480px) { .site-footer__main { gap: 2.5rem 1rem; } .site-footer__brand, .site-footer__main > address { grid-column: 1 / -1; } .site-footer__team { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .site-footer__main { gap: 2.5rem 1rem; } .site-footer__brand, .site-footer__main > address { grid-column: 1 / -1; } }
 @media (prefers-reduced-motion: reduce) { [data-footer-reveal] { opacity: 1 !important; transform: none !important; } }
+
+.site-footer__connect { display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding-block: 2rem; border-top: 1px solid var(--color-footer-line); }
+.site-footer__connect nav { display: flex; gap: 1.5rem; font-size: 1.15rem; }
+@media (max-width: 600px) { .site-footer__connect { align-items: flex-start; flex-direction: column; } }

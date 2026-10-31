@@ -1,0 +1,1070 @@
+[
+  {
+    "slug": "sunehri-dhara",
+    "cover": "images/sunehri-dhara/p08-image-01.webp",
+    "notes": [
+      "Page 7 shows a different vertical composition without its own technical block; omitted from public gallery."
+    ],
+    "images": [
+      {
+        "path": "images/sunehri-dhara/p04-image-01.webp",
+        "width": 533,
+        "height": 800,
+        "sourcePage": 4,
+        "pdfImageXref": 756,
+        "fileBytes": 128618,
+        "decision": "internal-only: inspiration, duplicate, mismatched or unpaired configuration"
+      },
+      {
+        "path": "images/sunehri-dhara/p05-image-01.webp",
+        "width": 720,
+        "height": 672,
+        "sourcePage": 5,
+        "pdfImageXref": 762,
+        "fileBytes": 81334,
+        "decision": "public: technical"
+      },
+      {
+        "path": "images/sunehri-dhara/p06-image-01.webp",
+        "width": 532,
+        "height": 799,
+        "sourcePage": 6,
+        "pdfImageXref": 767,
+        "fileBytes": 61702,
+        "decision": "public: lifestyle"
+      },
+      {
+        "path": "images/sunehri-dhara/p07-image-01.webp",
+        "width": 800,
+        "height": 640,
+        "sourcePage": 7,
+        "pdfImageXref": 771,
+        "fileBytes": 99912,
+        "decision": "internal-only: inspiration, duplicate, mismatched or unpaired configuration"
+      },
+      {
+        "path": "images/sunehri-dhara/p08-image-01.webp",
+        "width": 800,
+        "height": 715,
+        "sourcePage": 8,
+        "pdfImageXref": 775,
+        "fileBytes": 83484,
+        "decision": "public: lifestyle"
+      }
+    ]
+  },
+  {
+    "slug": "falpushpa",
+    "cover": "images/falpushpa/p12-image-02.webp",
+    "notes": [],
+    "images": [
+      {
+        "path": "images/falpushpa/p09-image-01.webp",
+        "width": 725,
+        "height": 800,
+        "sourcePage": 9,
+        "pdfImageXref": 779,
+        "fileBytes": 112370,
+        "decision": "internal-only: inspiration, duplicate, mismatched or unpaired configuration"
+      },
+      {
+        "path": "images/falpushpa/p10-image-01.webp",
+        "width": 799,
+        "height": 532,
+        "sourcePage": 10,
+        "pdfImageXref": 784,
+        "fileBytes": 26620,
+        "decision": "public: technical"
+      },
+      {
+        "path": "images/falpushpa/p11-image-01.webp",
+        "width": 640,
+        "height": 800,
+        "sourcePage": 11,
+        "pdfImageXref": 789,
+        "fileBytes": 50908,
+        "decision": "internal-only: inspiration, duplicate, mismatched or unpaired configuration"
+      },
+      {
+        "path": "images/falpushpa/p11-image-02.webp",
+        "width": 799,
+        "height": 532,
+        "sourcePage": 11,
+        "pdfImageXref": 790,
+        "fileBytes": 45942,
+        "decision": "public: lifestyle"
+      },
+      {
+        "path": "images/falpushpa/p12-image-01.webp",
+        "width": 640,
+        "height": 800,
+        "sourcePage": 12,
+        "pdfImageXref": 795,
+        "fileBytes": 57702,
+        "decision": "public: lifestyle"
+      },
+      {
+        "path": "images/falpushpa/p12-image-02.webp",
+        "width": 532,
+        "height": 799,
+        "sourcePage": 12,
+        "pdfImageXref": 796,
+        "fileBytes": 76128,
+        "decision": "public: lifestyle"
+      }
+    ]
+  },
+  {
+    "slug": "abhaas",
+    "cover": "images/abhaas/p16-image-01.webp",
+    "notes": [
+      "Page 15 red-leaf/golden-ring narrative does not clearly match the technical photograph; omitted pending confirmation."
+    ],
+    "images": [
+      {
+        "path": "images/abhaas/p13-image-01.webp",
+        "width": 720,
+        "height": 495,
+        "sourcePage": 13,
+        "pdfImageXref": 801,
+        "fileBytes": 55678,
+        "decision": "internal-only: inspiration, duplicate, mismatched or unpaired configuration"
+      },
+      {
+        "path": "images/abhaas/p14-image-01.webp",
+        "width": 567,
+        "height": 800,
+        "sourcePage": 14,
+        "pdfImageXref": 806,
+        "fileBytes": 39320,
+        "decision": "public: technical"
+      },
+      {
+        "path": "images/abhaas/p15-image-01.webp",
+        "width": 600,
+        "height": 800,
+        "sourcePage": 15,
+        "pdfImageXref": 811,
+        "fileBytes": 63852,
+        "decision": "public: lifestyle"
+      },
+      {
+        "path": "images/abhaas/p16-image-01.webp",
+        "width": 600,
+        "height": 800,
+        "sourcePage": 16,
+        "pdfImageXref": 816,
+        "fileBytes": 45956,
+        "decision": "public: lifestyle"
+      }
+    ]
+  },
+  {
+    "slug": "peet-vrinda",
+    "cover": "images/peet-vrinda/p19-image-01.webp",
+    "notes": [],
+    "images": [
+      {
+        "path": "images/peet-vrinda/p17-image-01.webp",
+        "width": 509,
+        "height": 720,
+        "sourcePage": 17,
+        "pdfImageXref": 820,
+        "fileBytes": 217358,
+        "decision": "internal-only: inspiration, duplicate, mismatched or unpaired configuration"
+      },
+      {
+        "path": "images/peet-vrinda/p18-image-01.webp",
+        "width": 533,
+        "height": 800,
+        "sourcePage": 18,
+        "pdfImageXref": 825,
+        "fileBytes": 32226,
+        "decision": "public: technical"
+      },
+      {
+        "path": "images/peet-vrinda/p19-image-01.webp",
+        "width": 600,
+        "height": 800,
+        "sourcePage": 19,
+        "pdfImageXref": 830,
+        "fileBytes": 74818,
+        "decision": "public: lifestyle"
+      }
+    ]
+  },
+  {
+    "slug": "chheen",
+    "cover": "images/chheen/p23-image-01.webp",
+    "notes": [
+      "Page 22 image 01 depicts Peet Vrinda, not CHHEEN; excluded."
+    ],
+    "images": [
+      {
+        "path": "images/chheen/p20-image-01.webp",
+        "width": 557,
+        "height": 720,
+        "sourcePage": 20,
+        "pdfImageXref": 1339,
+        "fileBytes": 66378,
+        "decision": "internal-only: inspiration, duplicate, mismatched or unpaired configuration"
+      },
+      {
+        "path": "images/chheen/p21-image-01.webp",
+        "width": 720,
+        "height": 632,
+        "sourcePage": 21,
+        "pdfImageXref": 839,
+        "fileBytes": 64876,
+        "decision": "public: technical"
+      },
+      {
+        "path": "images/chheen/p22-image-01.webp",
+        "width": 600,
+        "height": 800,
+        "sourcePage": 22,
+        "pdfImageXref": 845,
+        "fileBytes": 56148,
+        "decision": "internal-only: inspiration, duplicate, mismatched or unpaired configuration"
+      },
+      {
+        "path": "images/chheen/p22-image-02.webp",
+        "width": 799,
+        "height": 710,
+        "sourcePage": 22,
+        "pdfImageXref": 846,
+        "fileBytes": 105054,
+        "decision": "public: lifestyle"
+      },
+      {
+        "path": "images/chheen/p23-image-01.webp",
+        "width": 800,
+        "height": 640,
+        "sourcePage": 23,
+        "pdfImageXref": 851,
+        "fileBytes": 94744,
+        "decision": "public: lifestyle"
+      }
+    ]
+  },
+  {
+    "slug": "maru-bel",
+    "cover": "images/maru-bel/p26-image-01.webp",
+    "notes": [],
+    "images": [
+      {
+        "path": "images/maru-bel/p24-image-01.webp",
+        "width": 533,
+        "height": 800,
+        "sourcePage": 24,
+        "pdfImageXref": 855,
+        "fileBytes": 77880,
+        "decision": "internal-only: inspiration, duplicate, mismatched or unpaired configuration"
+      },
+      {
+        "path": "images/maru-bel/p25-image-01.webp",
+        "width": 671,
+        "height": 799,
+        "sourcePage": 25,
+        "pdfImageXref": 860,
+        "fileBytes": 17602,
+        "decision": "public: technical"
+      },
+      {
+        "path": "images/maru-bel/p26-image-01.webp",
+        "width": 563,
+        "height": 800,
+        "sourcePage": 26,
+        "pdfImageXref": 865,
+        "fileBytes": 39000,
+        "decision": "public: lifestyle"
+      },
+      {
+        "path": "images/maru-bel/p27-image-01.webp",
+        "width": 800,
+        "height": 751,
+        "sourcePage": 27,
+        "pdfImageXref": 870,
+        "fileBytes": 75986,
+        "decision": "public: lifestyle"
+      }
+    ]
+  },
+  {
+    "slug": "chidkoli",
+    "cover": "images/chidkoli/p31-image-01.webp",
+    "notes": [
+      "Page 30 image 02 depicts CHHEEN; excluded."
+    ],
+    "images": [
+      {
+        "path": "images/chidkoli/p28-image-01.webp",
+        "width": 800,
+        "height": 800,
+        "sourcePage": 28,
+        "pdfImageXref": 874,
+        "fileBytes": 156854,
+        "decision": "public: lifestyle"
+      },
+      {
+        "path": "images/chidkoli/p29-image-01.webp",
+        "width": 720,
+        "height": 625,
+        "sourcePage": 29,
+        "pdfImageXref": 879,
+        "fileBytes": 32710,
+        "decision": "public: technical"
+      },
+      {
+        "path": "images/chidkoli/p30-image-01.webp",
+        "width": 720,
+        "height": 618,
+        "sourcePage": 30,
+        "pdfImageXref": 884,
+        "fileBytes": 85642,
+        "decision": "public: lifestyle"
+      },
+      {
+        "path": "images/chidkoli/p30-image-02.webp",
+        "width": 799,
+        "height": 710,
+        "sourcePage": 30,
+        "pdfImageXref": 885,
+        "fileBytes": 105054,
+        "decision": "internal-only: inspiration, duplicate, mismatched or unpaired configuration"
+      },
+      {
+        "path": "images/chidkoli/p30-image-03.webp",
+        "width": 800,
+        "height": 664,
+        "sourcePage": 30,
+        "pdfImageXref": 886,
+        "fileBytes": 154598,
+        "decision": "public: lifestyle"
+      },
+      {
+        "path": "images/chidkoli/p30-image-04.webp",
+        "width": 800,
+        "height": 686,
+        "sourcePage": 30,
+        "pdfImageXref": 887,
+        "fileBytes": 109790,
+        "decision": "internal-only: inspiration, duplicate, mismatched or unpaired configuration"
+      },
+      {
+        "path": "images/chidkoli/p31-image-01.webp",
+        "width": 578,
+        "height": 800,
+        "sourcePage": 31,
+        "pdfImageXref": 892,
+        "fileBytes": 105190,
+        "decision": "public: lifestyle"
+      }
+    ]
+  },
+  {
+    "slug": "kaag",
+    "cover": "images/kaag/p35-image-01.webp",
+    "notes": [
+      "Page 34 repeated Luma Birds story omitted; image 01 depicts CHIDKOLI and is excluded. Page 32 mentions quartz/amethyst, while page 33 specifies alabaster; material filter uses only the technical field."
+    ],
+    "images": [
+      {
+        "path": "images/kaag/p32-image-01.webp",
+        "width": 530,
+        "height": 800,
+        "sourcePage": 32,
+        "pdfImageXref": 896,
+        "fileBytes": 72606,
+        "decision": "internal-only: inspiration, duplicate, mismatched or unpaired configuration"
+      },
+      {
+        "path": "images/kaag/p33-image-01.webp",
+        "width": 678,
+        "height": 800,
+        "sourcePage": 33,
+        "pdfImageXref": 901,
+        "fileBytes": 35018,
+        "decision": "public: technical"
+      },
+      {
+        "path": "images/kaag/p34-image-01.webp",
+        "width": 800,
+        "height": 686,
+        "sourcePage": 34,
+        "pdfImageXref": 906,
+        "fileBytes": 109790,
+        "decision": "internal-only: inspiration, duplicate, mismatched or unpaired configuration"
+      },
+      {
+        "path": "images/kaag/p34-image-02.webp",
+        "width": 800,
+        "height": 603,
+        "sourcePage": 34,
+        "pdfImageXref": 907,
+        "fileBytes": 81996,
+        "decision": "public: lifestyle"
+      },
+      {
+        "path": "images/kaag/p35-image-01.webp",
+        "width": 565,
+        "height": 800,
+        "sourcePage": 35,
+        "pdfImageXref": 912,
+        "fileBytes": 114320,
+        "decision": "public: lifestyle"
+      }
+    ]
+  },
+  {
+    "slug": "shilora",
+    "cover": "images/shilora/p39-image-01.webp",
+    "notes": [
+      "Page 38 repeated Luma Birds story omitted."
+    ],
+    "images": [
+      {
+        "path": "images/shilora/p36-image-01.webp",
+        "width": 498,
+        "height": 720,
+        "sourcePage": 36,
+        "pdfImageXref": 916,
+        "fileBytes": 152960,
+        "decision": "internal-only: inspiration, duplicate, mismatched or unpaired configuration"
+      },
+      {
+        "path": "images/shilora/p37-image-01.webp",
+        "width": 549,
+        "height": 800,
+        "sourcePage": 37,
+        "pdfImageXref": 921,
+        "fileBytes": 46114,
+        "decision": "public: technical"
+      },
+      {
+        "path": "images/shilora/p38-image-01.webp",
+        "width": 800,
+        "height": 616,
+        "sourcePage": 38,
+        "pdfImageXref": 926,
+        "fileBytes": 95398,
+        "decision": "public: lifestyle"
+      },
+      {
+        "path": "images/shilora/p39-image-01.webp",
+        "width": 565,
+        "height": 800,
+        "sourcePage": 39,
+        "pdfImageXref": 931,
+        "fileBytes": 113616,
+        "decision": "public: lifestyle"
+      }
+    ]
+  },
+  {
+    "slug": "atki-badli",
+    "cover": "images/atki-badli/p43-image-01.webp",
+    "notes": [
+      "Page 42 repeated Luma Birds story omitted; image 01 depicts Shilora and is excluded."
+    ],
+    "images": [
+      {
+        "path": "images/atki-badli/p40-image-01.webp",
+        "width": 509,
+        "height": 720,
+        "sourcePage": 40,
+        "pdfImageXref": 935,
+        "fileBytes": 79158,
+        "decision": "internal-only: inspiration, duplicate, mismatched or unpaired configuration"
+      },
+      {
+        "path": "images/atki-badli/p41-image-01.webp",
+        "width": 391,
+        "height": 694,
+        "sourcePage": 41,
+        "pdfImageXref": 940,
+        "fileBytes": 31452,
+        "decision": "public: technical"
+      },
+      {
+        "path": "images/atki-badli/p42-image-01.webp",
+        "width": 800,
+        "height": 616,
+        "sourcePage": 42,
+        "pdfImageXref": 945,
+        "fileBytes": 95398,
+        "decision": "internal-only: inspiration, duplicate, mismatched or unpaired configuration"
+      },
+      {
+        "path": "images/atki-badli/p42-image-02.webp",
+        "width": 800,
+        "height": 640,
+        "sourcePage": 42,
+        "pdfImageXref": 946,
+        "fileBytes": 110370,
+        "decision": "public: lifestyle"
+      },
+      {
+        "path": "images/atki-badli/p43-image-01.webp",
+        "width": 565,
+        "height": 800,
+        "sourcePage": 43,
+        "pdfImageXref": 951,
+        "fileBytes": 89162,
+        "decision": "public: lifestyle"
+      }
+    ]
+  },
+  {
+    "slug": "shilpstambh",
+    "cover": "images/shilpstambh/p47-image-02.webp",
+    "notes": [
+      "Page 46 bronze/glass narrative conflicts with page 45 powder-coated metal/alabaster; omitted. Pages 48–49 are alternate compositions with no separate technical specifications. G9 Blub Holder corrected to G9 Bulb Holder."
+    ],
+    "images": [
+      {
+        "path": "images/shilpstambh/p44-image-01.webp",
+        "width": 357,
+        "height": 720,
+        "sourcePage": 44,
+        "pdfImageXref": 1416,
+        "fileBytes": 28344,
+        "decision": "internal-only: inspiration, duplicate, mismatched or unpaired configuration"
+      },
+      {
+        "path": "images/shilpstambh/p45-image-01.webp",
+        "width": 532,
+        "height": 799,
+        "sourcePage": 45,
+        "pdfImageXref": 964,
+        "fileBytes": 31034,
+        "decision": "public: technical"
+      },
+      {
+        "path": "images/shilpstambh/p46-image-01.webp",
+        "width": 566,
+        "height": 799,
+        "sourcePage": 46,
+        "pdfImageXref": 969,
+        "fileBytes": 78216,
+        "decision": "public: lifestyle"
+      },
+      {
+        "path": "images/shilpstambh/p47-image-01.webp",
+        "width": 640,
+        "height": 800,
+        "sourcePage": 47,
+        "pdfImageXref": 974,
+        "fileBytes": 74564,
+        "decision": "public: lifestyle"
+      },
+      {
+        "path": "images/shilpstambh/p47-image-02.webp",
+        "width": 663,
+        "height": 800,
+        "sourcePage": 47,
+        "pdfImageXref": 975,
+        "fileBytes": 73142,
+        "decision": "public: lifestyle"
+      },
+      {
+        "path": "images/shilpstambh/p48-image-01.webp",
+        "width": 800,
+        "height": 600,
+        "sourcePage": 48,
+        "pdfImageXref": 979,
+        "fileBytes": 55456,
+        "decision": "public: lifestyle"
+      },
+      {
+        "path": "images/shilpstambh/p49-image-01.webp",
+        "width": 644,
+        "height": 800,
+        "sourcePage": 49,
+        "pdfImageXref": 983,
+        "fileBytes": 51104,
+        "decision": "public: lifestyle"
+      }
+    ]
+  },
+  {
+    "slug": "dhwani-stambh",
+    "cover": "images/dhwani-stambh/p52-image-01.webp",
+    "notes": [
+      "Pages 54–56 have no distinct names; separate source-linked configurations, family classification pending. Page 55 material ends in meta; do not infer metal. Page 53 has a different form without paired specifications; retained internally only. Sound/aroma claim on page 50 is not extended to additional configurations."
+    ],
+    "images": [
+      {
+        "path": "images/dhwani-stambh/p50-image-01.webp",
+        "width": 479,
+        "height": 720,
+        "sourcePage": 50,
+        "pdfImageXref": 987,
+        "fileBytes": 202638,
+        "decision": "internal-only: inspiration, duplicate, mismatched or unpaired configuration"
+      },
+      {
+        "path": "images/dhwani-stambh/p51-image-01.webp",
+        "width": 407,
+        "height": 800,
+        "sourcePage": 51,
+        "pdfImageXref": 992,
+        "fileBytes": 24546,
+        "decision": "public: technical"
+      },
+      {
+        "path": "images/dhwani-stambh/p52-image-01.webp",
+        "width": 532,
+        "height": 799,
+        "sourcePage": 52,
+        "pdfImageXref": 997,
+        "fileBytes": 64344,
+        "decision": "public: lifestyle"
+      },
+      {
+        "path": "images/dhwani-stambh/p53-image-01.webp",
+        "width": 640,
+        "height": 800,
+        "sourcePage": 53,
+        "pdfImageXref": 1001,
+        "fileBytes": 89376,
+        "decision": "internal-only: inspiration, duplicate, mismatched or unpaired configuration"
+      },
+      {
+        "path": "images/dhwani-stambh/p54-image-01.webp",
+        "width": 640,
+        "height": 800,
+        "sourcePage": 54,
+        "pdfImageXref": 1005,
+        "fileBytes": 70846,
+        "decision": "public: technical"
+      },
+      {
+        "path": "images/dhwani-stambh/p55-image-01.webp",
+        "width": 640,
+        "height": 800,
+        "sourcePage": 55,
+        "pdfImageXref": 1010,
+        "fileBytes": 57252,
+        "decision": "public: technical"
+      },
+      {
+        "path": "images/dhwani-stambh/p56-image-01.webp",
+        "width": 640,
+        "height": 800,
+        "sourcePage": 56,
+        "pdfImageXref": 1015,
+        "fileBytes": 60416,
+        "decision": "public: technical"
+      }
+    ]
+  },
+  {
+    "slug": "vrikshamani",
+    "cover": "images/vrikshamani/p60-image-01.webp",
+    "notes": [],
+    "images": [
+      {
+        "path": "images/vrikshamani/p57-image-01.webp",
+        "width": 499,
+        "height": 720,
+        "sourcePage": 57,
+        "pdfImageXref": 1020,
+        "fileBytes": 139130,
+        "decision": "internal-only: inspiration, duplicate, mismatched or unpaired configuration"
+      },
+      {
+        "path": "images/vrikshamani/p58-image-01.webp",
+        "width": 532,
+        "height": 800,
+        "sourcePage": 58,
+        "pdfImageXref": 1025,
+        "fileBytes": 21232,
+        "decision": "public: technical"
+      },
+      {
+        "path": "images/vrikshamani/p59-image-01.webp",
+        "width": 640,
+        "height": 800,
+        "sourcePage": 59,
+        "pdfImageXref": 1030,
+        "fileBytes": 80250,
+        "decision": "public: lifestyle"
+      },
+      {
+        "path": "images/vrikshamani/p60-image-01.webp",
+        "width": 565,
+        "height": 800,
+        "sourcePage": 60,
+        "pdfImageXref": 1035,
+        "fileBytes": 72754,
+        "decision": "public: lifestyle"
+      }
+    ]
+  },
+  {
+    "slug": "minar",
+    "cover": "images/minar/p63-image-02.webp",
+    "notes": [
+      "Page 63 woodwork story and image 01 belong to Vrikshamani; excluded. White/blue/red visualizations have no separate finish or electrical specifications; do not imply selectable RGB controls."
+    ],
+    "images": [
+      {
+        "path": "images/minar/p61-image-01.webp",
+        "width": 621,
+        "height": 800,
+        "sourcePage": 61,
+        "pdfImageXref": 1039,
+        "fileBytes": 50066,
+        "decision": "internal-only: inspiration, duplicate, mismatched or unpaired configuration"
+      },
+      {
+        "path": "images/minar/p61-image-02.webp",
+        "width": 618,
+        "height": 800,
+        "sourcePage": 61,
+        "pdfImageXref": 1040,
+        "fileBytes": 34202,
+        "decision": "internal-only: inspiration, duplicate, mismatched or unpaired configuration"
+      },
+      {
+        "path": "images/minar/p62-image-01.webp",
+        "width": 800,
+        "height": 640,
+        "sourcePage": 62,
+        "pdfImageXref": 1045,
+        "fileBytes": 11728,
+        "decision": "public: technical"
+      },
+      {
+        "path": "images/minar/p63-image-01.webp",
+        "width": 640,
+        "height": 800,
+        "sourcePage": 63,
+        "pdfImageXref": 1050,
+        "fileBytes": 80250,
+        "decision": "internal-only: inspiration, duplicate, mismatched or unpaired configuration"
+      },
+      {
+        "path": "images/minar/p63-image-02.webp",
+        "width": 800,
+        "height": 640,
+        "sourcePage": 63,
+        "pdfImageXref": 1051,
+        "fileBytes": 60598,
+        "decision": "public: lifestyle"
+      },
+      {
+        "path": "images/minar/p64-image-01.webp",
+        "width": 640,
+        "height": 800,
+        "sourcePage": 64,
+        "pdfImageXref": 1056,
+        "fileBytes": 75648,
+        "decision": "public: lifestyle"
+      },
+      {
+        "path": "images/minar/p65-image-01.webp",
+        "width": 565,
+        "height": 799,
+        "sourcePage": 65,
+        "pdfImageXref": 1060,
+        "fileBytes": 77004,
+        "decision": "internal-only: inspiration, duplicate, mismatched or unpaired configuration"
+      },
+      {
+        "path": "images/minar/p65-image-02.webp",
+        "width": 800,
+        "height": 782,
+        "sourcePage": 65,
+        "pdfImageXref": 1061,
+        "fileBytes": 56008,
+        "decision": "public: lifestyle"
+      },
+      {
+        "path": "images/minar/p66-image-01.webp",
+        "width": 731,
+        "height": 800,
+        "sourcePage": 66,
+        "pdfImageXref": 1065,
+        "fileBytes": 69698,
+        "decision": "internal-only: inspiration, duplicate, mismatched or unpaired configuration"
+      },
+      {
+        "path": "images/minar/p66-image-02.webp",
+        "width": 640,
+        "height": 800,
+        "sourcePage": 66,
+        "pdfImageXref": 1066,
+        "fileBytes": 62788,
+        "decision": "public: lifestyle"
+      }
+    ]
+  },
+  {
+    "slug": "kankad",
+    "cover": "images/kankad/p69-image-01.webp",
+    "notes": [],
+    "images": [
+      {
+        "path": "images/kankad/p67-image-01.webp",
+        "width": 720,
+        "height": 550,
+        "sourcePage": 67,
+        "pdfImageXref": 1070,
+        "fileBytes": 114896,
+        "decision": "internal-only: inspiration, duplicate, mismatched or unpaired configuration"
+      },
+      {
+        "path": "images/kankad/p67-image-02.webp",
+        "width": 720,
+        "height": 550,
+        "sourcePage": 67,
+        "pdfImageXref": 1071,
+        "fileBytes": 56292,
+        "decision": "internal-only: inspiration, duplicate, mismatched or unpaired configuration"
+      },
+      {
+        "path": "images/kankad/p67-image-03.webp",
+        "width": 365,
+        "height": 211,
+        "sourcePage": 67,
+        "pdfImageXref": 1468,
+        "fileBytes": 208,
+        "decision": "internal-only: inspiration, duplicate, mismatched or unpaired configuration"
+      },
+      {
+        "path": "images/kankad/p68-image-01.webp",
+        "width": 560,
+        "height": 800,
+        "sourcePage": 68,
+        "pdfImageXref": 1077,
+        "fileBytes": 29120,
+        "decision": "public: technical"
+      },
+      {
+        "path": "images/kankad/p69-image-01.webp",
+        "width": 800,
+        "height": 640,
+        "sourcePage": 69,
+        "pdfImageXref": 1082,
+        "fileBytes": 51952,
+        "decision": "public: lifestyle"
+      },
+      {
+        "path": "images/kankad/p70-image-01.webp",
+        "width": 565,
+        "height": 800,
+        "sourcePage": 70,
+        "pdfImageXref": 1087,
+        "fileBytes": 104556,
+        "decision": "public: lifestyle"
+      }
+    ]
+  },
+  {
+    "slug": "phog",
+    "cover": "images/phog/p72-image-01.webp",
+    "notes": [
+      "Pages 72, 73, 75 retained as independent configurations with matching images; official variant names pending."
+    ],
+    "images": [
+      {
+        "path": "images/phog/p71-image-01.webp",
+        "width": 599,
+        "height": 800,
+        "sourcePage": 71,
+        "pdfImageXref": 1091,
+        "fileBytes": 73396,
+        "decision": "internal-only: inspiration, duplicate, mismatched or unpaired configuration"
+      },
+      {
+        "path": "images/phog/p72-image-01.webp",
+        "width": 493,
+        "height": 800,
+        "sourcePage": 72,
+        "pdfImageXref": 1096,
+        "fileBytes": 13924,
+        "decision": "public: technical"
+      },
+      {
+        "path": "images/phog/p73-image-01.webp",
+        "width": 472,
+        "height": 720,
+        "sourcePage": 73,
+        "pdfImageXref": 1101,
+        "fileBytes": 16450,
+        "decision": "public: technical"
+      },
+      {
+        "path": "images/phog/p74-image-01.webp",
+        "width": 549,
+        "height": 800,
+        "sourcePage": 74,
+        "pdfImageXref": 1106,
+        "fileBytes": 44710,
+        "decision": "public: lifestyle"
+      },
+      {
+        "path": "images/phog/p75-image-01.webp",
+        "width": 558,
+        "height": 681,
+        "sourcePage": 75,
+        "pdfImageXref": 1110,
+        "fileBytes": 9332,
+        "decision": "public: technical"
+      },
+      {
+        "path": "images/phog/p76-image-01.webp",
+        "width": 800,
+        "height": 640,
+        "sourcePage": 76,
+        "pdfImageXref": 1115,
+        "fileBytes": 49506,
+        "decision": "public: lifestyle"
+      }
+    ]
+  },
+  {
+    "slug": "imlika",
+    "cover": "images/imlika/p80-image-01.webp",
+    "notes": [],
+    "images": [
+      {
+        "path": "images/imlika/p77-image-01.webp",
+        "width": 640,
+        "height": 640,
+        "sourcePage": 77,
+        "pdfImageXref": 1119,
+        "fileBytes": 127400,
+        "decision": "internal-only: inspiration, duplicate, mismatched or unpaired configuration"
+      },
+      {
+        "path": "images/imlika/p78-image-01.webp",
+        "width": 553,
+        "height": 800,
+        "sourcePage": 78,
+        "pdfImageXref": 1124,
+        "fileBytes": 24884,
+        "decision": "public: technical"
+      },
+      {
+        "path": "images/imlika/p79-image-01.webp",
+        "width": 629,
+        "height": 800,
+        "sourcePage": 79,
+        "pdfImageXref": 1129,
+        "fileBytes": 43762,
+        "decision": "public: lifestyle"
+      },
+      {
+        "path": "images/imlika/p80-image-01.webp",
+        "width": 585,
+        "height": 800,
+        "sourcePage": 80,
+        "pdfImageXref": 1134,
+        "fileBytes": 69724,
+        "decision": "public: lifestyle"
+      }
+    ]
+  },
+  {
+    "slug": "meghchhatra",
+    "cover": "images/meghchhatra/p84-image-01.webp",
+    "notes": [],
+    "images": [
+      {
+        "path": "images/meghchhatra/p81-image-01.webp",
+        "width": 800,
+        "height": 543,
+        "sourcePage": 81,
+        "pdfImageXref": 1138,
+        "fileBytes": 132806,
+        "decision": "internal-only: inspiration, duplicate, mismatched or unpaired configuration"
+      },
+      {
+        "path": "images/meghchhatra/p82-image-01.webp",
+        "width": 800,
+        "height": 800,
+        "sourcePage": 82,
+        "pdfImageXref": 1143,
+        "fileBytes": 52882,
+        "decision": "public: technical"
+      },
+      {
+        "path": "images/meghchhatra/p83-image-01.webp",
+        "width": 800,
+        "height": 731,
+        "sourcePage": 83,
+        "pdfImageXref": 1148,
+        "fileBytes": 82782,
+        "decision": "public: lifestyle"
+      },
+      {
+        "path": "images/meghchhatra/p84-image-01.webp",
+        "width": 800,
+        "height": 694,
+        "sourcePage": 84,
+        "pdfImageXref": 1153,
+        "fileBytes": 80408,
+        "decision": "public: lifestyle"
+      }
+    ]
+  },
+  {
+    "slug": "unidentified-piece-page-85",
+    "status": "name-confirmation-required",
+    "sourcePages": [
+      85,
+      86
+    ],
+    "images": [
+      {
+        "path": "images/unidentified-piece-page-85/p85-image-01.webp",
+        "width": 259,
+        "height": 563,
+        "sourcePage": 85,
+        "pdfImageXref": 1157,
+        "fileBytes": 16114,
+        "decision": "internal-only: unnamed design"
+      },
+      {
+        "path": "images/unidentified-piece-page-85/p86-image-01.webp",
+        "width": 600,
+        "height": 800,
+        "sourcePage": 86,
+        "pdfImageXref": 1162,
+        "fileBytes": 49010,
+        "decision": "internal-only: unnamed design"
+      }
+    ]
+  },
+  {
+    "slug": "unidentified-piece-page-87",
+    "status": "name-confirmation-required",
+    "sourcePages": [
+      87,
+      88
+    ],
+    "images": [
+      {
+        "path": "images/unidentified-piece-page-87/p87-image-01.webp",
+        "width": 309,
+        "height": 720,
+        "sourcePage": 87,
+        "pdfImageXref": 1166,
+        "fileBytes": 12048,
+        "decision": "internal-only: unnamed design"
+      },
+      {
+        "path": "images/unidentified-piece-page-87/p88-image-01.webp",
+        "width": 600,
+        "height": 800,
+        "sourcePage": 88,
+        "pdfImageXref": 1171,
+        "fileBytes": 46480,
+        "decision": "internal-only: unnamed design"
+      }
+    ]
+  }
+]

@@ -5,7 +5,7 @@ import { useGSAP } from '@gsap/react'
 import { gsap } from '../../lib/gsap'
 import { EASE_REVEAL, EASE_UI, prefersReducedMotion } from '../../lib/motion'
 import { submitWeb3FormsEnquiry } from '../../lib/web3forms'
-import { getProductBySlug, type Product } from '../../data/products'
+import { getProductBySlug, getProductConfiguration, type Product } from '../../data/products'
 import atmosphere from '../../assets/projects/rosado/gallery-07.jpg'
 import './EnquirySection.css'
 
@@ -65,11 +65,13 @@ function validateForm(formData: EnquiryFormData): FormErrors {
 
 export function EnquirySection(props: EnquirySectionProps) {
   const location = useLocation()
-  const selectedProduct = getProductBySlug(new URLSearchParams(location.search).get('product') ?? undefined)
-  return <EnquirySectionContent key={`${selectedProduct?.slug ?? 'general'}:${props.projectName ?? ''}`} selectedProduct={selectedProduct} {...props} />
+  const params = new URLSearchParams(location.search)
+  const selectedProduct = getProductBySlug(params.get('product') ?? undefined)
+  const configurationPage = selectedProduct ? getProductConfiguration(selectedProduct, params.get('configuration')).sourcePage : undefined
+  return <EnquirySectionContent key={`${selectedProduct?.slug ?? 'general'}:${configurationPage}:${props.projectName ?? ''}`} selectedProduct={selectedProduct} configurationPage={configurationPage} {...props} />
 }
 
-function EnquirySectionContent({ source, projectName, selectedProduct }: EnquirySectionProps & { selectedProduct?: Product }) {
+function EnquirySectionContent({ source, projectName, selectedProduct, configurationPage }: EnquirySectionProps & { selectedProduct?: Product; configurationPage?: number }) {
   const sectionRef = useRef<HTMLElement>(null)
   const successRef = useRef<HTMLDivElement>(null)
   const fieldId = useId()
@@ -79,7 +81,7 @@ function EnquirySectionContent({ source, projectName, selectedProduct }: Enquiry
   const [formData, setFormData] = useState<EnquiryFormData>(() => ({
     ...initialFormData,
     message: selectedProduct
-      ? `I would like to enquire about ${selectedProduct.name} (${selectedProduct.id}), ${selectedProduct.category}. Please share the available specification options for my project.`
+      ? `Product: ${selectedProduct.name}\nCollection: ${selectedProduct.collection}\nSelected configuration: catalogue page ${configurationPage}\n\nPlease share the available specification options for my project.`
       : '',
   }))
   const [errors, setErrors] = useState<FormErrors>({})
@@ -170,7 +172,7 @@ function EnquirySectionContent({ source, projectName, selectedProduct }: Enquiry
     try {
       await submitWeb3FormsEnquiry({
         access_key: accessKey,
-        subject: selectedProduct ? `Product Enquiry: ${selectedProduct.name} (${selectedProduct.id}) | Anjora Lighting` : 'New Website Enquiry | Anjora Lighting',
+        subject: selectedProduct ? `Product Enquiry: ${selectedProduct.name} — ${selectedProduct.collection}, catalogue page ${configurationPage} | Anjora Lighting` : 'New Website Enquiry | Anjora Lighting',
         from_name: 'Anjora Lighting Website',
         name: formData.name.trim(),
         email: formData.email.trim(),
@@ -228,7 +230,7 @@ function EnquirySectionContent({ source, projectName, selectedProduct }: Enquiry
           <span className="enquiry-section__line" aria-hidden="true" />
           <p>Let’s explore how thoughtful lighting can shape the way your space is seen and experienced.</p>
           {projectName && <p className="enquiry-section__product">A conversation about <strong>{projectName}</strong></p>}
-          {selectedProduct && <p className="enquiry-section__product">Enquiring about <strong>{selectedProduct.name} · {selectedProduct.id}</strong></p>}
+          {selectedProduct && <p className="enquiry-section__product">Enquiring about <strong>{selectedProduct.name} · {selectedProduct.collection} · Catalogue p. {configurationPage}</strong></p>}
         </div>
 
         <form className="enquiry-form" onSubmit={handleSubmit} onFocusCapture={() => revealRef.current?.progress(1)} noValidate aria-busy={status === 'submitting'}>

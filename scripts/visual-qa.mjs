@@ -75,7 +75,7 @@ await desktop.goto(`${baseUrl}/products`, { waitUntil: 'domcontentloaded' })
 await desktop.locator('.products-page__hero').screenshot({ path: `${outputDirectory}/products-hero.png` })
 await desktop.locator('.product-card').first().screenshot({ path: `${outputDirectory}/product-card.png` })
 
-await desktop.goto(`${baseUrl}/products/recessed-downlight-type-01`, { waitUntil: 'domcontentloaded' })
+await desktop.goto(`${baseUrl}/products/sunehri-dhara`, { waitUntil: 'domcontentloaded' })
 await desktop.locator('.product-detail__hero').screenshot({ path: `${outputDirectory}/product-detail.png` })
 
 await desktop.goto(`${baseUrl}/projects`, { waitUntil: 'domcontentloaded' })
@@ -140,7 +140,7 @@ await desktop.goto(`${baseUrl}/projects`, { waitUntil: 'domcontentloaded' })
 
 for (const [filter, expected] of Object.entries({ Clubs: 10, Heritage: 1, Commercial: 1, Facade: 3, Gym: 1, Office: 3, Theatre: 1 })) {
   await desktop.getByRole('button', { name: filter, exact: true }).click()
-  await desktop.waitForTimeout(50)
+  await desktop.waitForFunction(count => document.querySelectorAll('.project-card').length === count, expected)
   const filteredCount = await desktop.locator('.project-card').count()
   if (filteredCount !== expected) errors.push(`${filter} filter returned ${filteredCount} projects instead of ${expected}`)
   const filteredGroups = await desktop.locator('[data-project-group]').evaluateAll((groups) => groups.map((group) => ({
@@ -180,6 +180,7 @@ await desktop.goto(`${baseUrl}/projects/rosado`, { waitUntil: 'domcontentloaded'
 await checkHorizontalOverflow(desktop, 'desktop project detail')
 await desktop.locator('.project-detail__hero').screenshot({ path: `${outputDirectory}/project-detail-hero.png` })
 await desktop.locator('.project-gallery').screenshot({ path: `${outputDirectory}/project-detail-gallery.png` })
+await desktop.waitForFunction(() => document.title.startsWith('Rosado'))
 if (!(await desktop.title()).startsWith('Rosado')) errors.push('project detail document title was not updated')
 await desktop.locator('.next-project a').click()
 await desktop.waitForTimeout(100)

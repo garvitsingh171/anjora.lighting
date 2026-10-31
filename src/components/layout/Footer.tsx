@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import { useGSAP } from '@gsap/react'
 import { Link } from 'react-router-dom'
 import anjoraLogo from '../../assets/branding/anjora-logo.png'
-import { teamContacts } from '../../data/contacts'
+import { officialSocialLinks } from '../../data/contacts'
 import { services } from '../../data/services'
 import { gsap } from '../../lib/gsap'
 import { EASE_REVEAL, prefersReducedMotion } from '../../lib/motion'
@@ -60,17 +60,10 @@ export function Footer() {
             <a href="mailto:info@anjora.lighting">info@anjora.lighting</a>
           </address>
         </div>
-        <section className="site-footer__team" aria-labelledby="footer-team-title">
-          <div data-footer-reveal><h2 id="footer-team-title">Talk to our team</h2><p>A direct conversation,<br />from the first idea.</p></div>
-          {teamContacts.map(contact => (
-            <address key={contact.email} className="site-footer__person" data-footer-reveal>
-              <h3>{contact.name}</h3>
-              <p>{contact.role}</p>
-              <a href={`tel:${contact.telephone}`}>{contact.phone}</a>
-              <a href={`mailto:${contact.email}`}>{contact.email}</a>
-            </address>
-          ))}
-        </section>
+        <div className="site-footer__connect" data-footer-reveal>
+          <Link className="site-footer__cta" to="/talk-to-our-team">Talk to Our Team <span aria-hidden="true">↗</span></Link>
+          <nav aria-label="Social links">{officialSocialLinks.map(link => <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer">{link.label} ↗</a>)}</nav>
+        </div>
         <div className="site-footer__legal" data-footer-reveal>
           <span>© {new Date().getFullYear()} Anjora Lighting</span>
           <span>Architectural lighting consultancy · Jaipur, India</span>

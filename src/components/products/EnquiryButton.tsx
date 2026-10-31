@@ -4,13 +4,14 @@ import { getProductEnquiryUrl } from '../../lib/enquiry'
 
 interface EnquiryButtonProps {
   product: Product
+  configurationPage?: number
   className?: string
   label?: string
 }
 
-export function EnquiryButton({ product, className = '', label = 'Enquire' }: EnquiryButtonProps) {
+export function EnquiryButton({ product, configurationPage, className = '', label = 'Enquire' }: EnquiryButtonProps) {
   return (
-    <Link className={`enquiry-button ${className}`.trim()} to={getProductEnquiryUrl(product)} aria-label={`${label}: ${product.name}`}>
+    <Link className={`enquiry-button ${className}`.trim()} to={getProductEnquiryUrl(product, configurationPage)} aria-label={`${label}: ${product.name}`}>
       <span>{label}</span>
       <span aria-hidden="true">↗</span>
     </Link>

@@ -11,7 +11,7 @@ const routes = [
   '/projects',
   '/projects/rosado',
   '/products',
-  '/products/recessed-downlight-type-01',
+  '/products/sunehri-dhara',
   '/research',
   '/blog',
   '/blog/how-to-choose-outdoor-lights-ip-rating-explained',

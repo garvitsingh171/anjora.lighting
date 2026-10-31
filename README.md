@@ -40,4 +40,6 @@ Never add `.env.local`, a real access key, or mailbox/SMTP credentials to Git. V
 
 ## Content
 
-Service, project and product content lives in `src/data`. Product photography and final catalogue specifications are deliberately marked as pending rather than represented with unrelated assets.
+Service, project and product content lives in `src/data`. The public product experience uses the 18 named designs in the official Rajasthan catalogue. Original images, technical configurations and source-page provenance are retained; ambiguous source content is recorded separately for client review.
+
+See the [Rajasthan integration report](docs/catalogue/IMPLEMENTATION.md) for data provenance, image exclusions and unresolved source questions. Regenerate reviewed records with `python3 scripts/import-rajasthan.py`, and run `npm run catalogue:qa` for catalogue, mega-menu, team page and responsive regression checks.
