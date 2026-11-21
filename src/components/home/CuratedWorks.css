@@ -7,7 +7,7 @@
 .curated-works .eyebrow { color: var(--accent-soft); }
 
 .curated-works__header,
-.curated-works__grid { width: min(100%, 1280px); }
+.curated-works__grid { width: min(100%, var(--content-width)); }
 
 .curated-works__header > div {
   display: grid;
@@ -103,7 +103,7 @@
 .project-tile__caption h3 {
   margin: 0;
   font-family: var(--display);
-  font-size: clamp(1.6rem, 2.25vw, 2.05rem);
+  font-size: var(--fs-card-title);
   font-weight: 600;
   letter-spacing: -0.04em;
   text-transform: uppercase;
@@ -160,7 +160,7 @@
     gap: 2rem;
   }
 
-  .curated-works h2 { font-size: clamp(2.8rem, 13vw, 3.7rem); }
+  .curated-works h2 { font-size: var(--fs-statement); }
 
   .curated-works__grid {
     gap: 0.85rem;

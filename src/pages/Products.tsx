@@ -1,4 +1,5 @@
 import { Link, useSearchParams } from 'react-router-dom'
+import { ExperienceCrossLink } from '../components/experience/ExperienceCrossLink'
 import { ProductFilters } from '../components/products/ProductFilters'
 import { ProductGrid } from '../components/products/ProductGrid'
 import { featuredProducts, productCategories, productMatchesCategory, products } from '../data/products'
@@ -57,6 +58,15 @@ export function Products() {
           <div><p>Size, shape, and design can be customized to project requirements. Our team can help bring the collection into your lighting scheme.</p><Link className="text-link" to="/#enquiry">Discuss your project ↗</Link></div>
         </div>
       </section>
+      <section className="collection-stories container" aria-labelledby="collection-stories-title">
+        <header><p className="eyebrow">Craft / Landscape / Memory</p><h2 id="collection-stories-title" className="display-title">Rooted in Rajasthan.</h2>
+        <p>Explore the ideas behind selected designs, from desert trees to architectural forms. Each piece carries its own material story.</p></header>
+        <div className="collection-stories__grid">{featuredProducts.map(product => <article key={product.id}>
+          <Link to={`/products/${product.slug}`}><img src={product.cover.src} alt={product.cover.alt} width={product.cover.width} height={product.cover.height} loading="lazy" /><h3>{product.name}</h3></Link>
+          <p>{product.introduction}</p><Link className="text-link" to={`/products/${product.slug}`}>Explore the design</Link>
+        </article>)}</div>
+      </section>
+      <ExperienceCrossLink to="consultancy" />
     </main>
   )
 }

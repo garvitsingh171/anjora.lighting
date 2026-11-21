@@ -11,7 +11,7 @@ import { ProductsMegaMenu } from './ProductsMegaMenu'
 import { ThemeToggle } from './ThemeToggle'
 import './Navbar.css'
 
-const navItems = [{ label: 'Research', to: '/research' }, { label: 'Blog', to: '/blog' }, { label: 'About Us', to: '/about-us' }]
+const navItems = [{ label: 'Consultancy', to: '/consultancy' }, { label: 'Research', to: '/research' }, { label: 'Blog', to: '/blog' }, { label: 'About Us', to: '/about-us' }]
 type Menu = 'projects' | 'products'
 const menuKinds: Menu[] = ['projects', 'products']
 
@@ -21,6 +21,7 @@ export function Navbar() {
 }
 
 function NavbarContent() {
+  const headerRef = useRef<HTMLElement>(null)
   const [open, setOpen] = useState(false)
   const [activeMenu, setActiveMenu] = useState<Menu | null>(null)
   const [mobileSection, setMobileSection] = useState<Menu | null>(null)
@@ -36,7 +37,7 @@ function NavbarContent() {
   const [overFooter, setOverFooter] = useState(false)
   const { pathname } = useLocation()
   const detail = projects.find(project => pathname === `/projects/${project.slug}`)
-  const isHeroContext = pathname === '/' || (pathname.startsWith('/projects/') && detail?.cover.orientation !== 'portrait')
+  const isHeroContext = pathname === '/' || pathname === '/consultancy' || (pathname.startsWith('/projects/') && detail?.cover.orientation !== 'portrait')
   const triggerFor = (kind: Menu) => kind === 'projects' ? projectsTrigger : productsTrigger
   const menuFor = (kind: Menu) => kind === 'projects' ? projectsMenu : productsMenu
   const cancelClose = () => window.clearTimeout(closeTimer.current)
@@ -62,6 +63,15 @@ function NavbarContent() {
     gsap.fromTo('.mobile-menu__enquiry, nav > a, .mobile-projects-toggle', { opacity: 0.5, y: 10 }, { opacity: 1, y: 0, duration: 0.3, stagger: 0.025, ease: EASE_REVEAL })
   }, { scope: mobileMenuRef, dependencies: [open], revertOnUpdate: true })
   useEffect(() => {
+    const header = headerRef.current
+    if (!header) return
+    const measure = () => document.documentElement.style.setProperty('--header-height', `${Math.ceil(header.getBoundingClientRect().height)}px`)
+    measure()
+    const observer = new ResizeObserver(measure)
+    observer.observe(header)
+    return () => observer.disconnect()
+  }, [])
+  useEffect(() => {
     document.body.classList.toggle('menu-open', open)
     return () => document.body.classList.remove('menu-open')
   }, [open])
@@ -86,7 +96,7 @@ function NavbarContent() {
     const closeOnResize = () => { setOpen(false); setActiveMenu(null) }
     window.addEventListener('keydown', closeOnEscape)
     document.addEventListener('pointerdown', closeOutside)
-    const breakpoint = window.matchMedia('(min-width: 901px)')
+    const breakpoint = window.matchMedia('(min-width: 1041px)')
     breakpoint.addEventListener('change', closeOnResize)
     return () => {
       window.clearTimeout(closeTimer.current)
@@ -101,7 +111,7 @@ function NavbarContent() {
       window.cancelAnimationFrame(frame)
       frame = window.requestAnimationFrame(() => {
         setScrolled(window.scrollY > 48)
-        const hero = document.querySelector<HTMLElement>(pathname === '/' ? '.hero-section' : '.project-detail__hero')
+        const hero = document.querySelector<HTMLElement>((pathname === '/' || pathname === '/consultancy') ? '.hero-section' : '.project-detail__hero')
         const logo = document.querySelector<HTMLElement>('.brand-logo')
         const footer = document.querySelector<HTMLElement>('.site-footer')
         setOverFooter(Boolean(footer && logo && footer.getBoundingClientRect().top <= logo.getBoundingClientRect().bottom))
@@ -120,7 +130,7 @@ function NavbarContent() {
   }, [isHeroContext, pathname])
 
   return (
-    <header className={`site-header${activeMenu ? ' site-header--menu-open' : ''}${pathname === '/' ? '' : ' site-header--inner'}${isHeroContext ? ' site-header--hero-context' : ''}${scrolled ? ' site-header--scrolled' : ''}${pastHero ? ' site-header--past-hero' : ''}${overFooter ? ' site-header--footer-context' : ''}`} data-hero-ui>
+    <header ref={headerRef} className={`site-header${activeMenu ? ' site-header--menu-open' : ''}${pathname === '/' ? '' : ' site-header--inner'}${isHeroContext ? ' site-header--hero-context' : ''}${scrolled ? ' site-header--scrolled' : ''}${pastHero ? ' site-header--past-hero' : ''}${overFooter ? ' site-header--footer-context' : ''}`} data-hero-ui>
       <Link className="brand-logo" to="/" aria-label="Anjora Lighting home"><img src={anjoraLogo} alt="Anjora Lighting" width="1600" height="570" /></Link>
       <nav className="desktop-nav" aria-label="Primary navigation">
         {menuKinds.map(kind => <div key={kind} ref={triggerFor(kind)} className={`mega-nav-trigger ${kind}-nav-trigger`} data-menu-open={activeMenu === kind}

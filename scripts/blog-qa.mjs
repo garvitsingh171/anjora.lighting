@@ -97,8 +97,8 @@ for (const href of archiveState.hrefs) {
 await desktop.goto(`${baseUrl}/blog/not-a-real-article`, { waitUntil: 'domcontentloaded' })
 if (await desktop.locator('.blog-not-found').count() !== 1) errors.push('invalid blog slug does not render article-not-found state')
 
-await desktop.goto(baseUrl, { waitUntil: 'networkidle' })
-if (await desktop.locator('.insights-preview [data-blog-card]').count() !== 4) errors.push('Home does not show four linked insight previews')
+await desktop.goto(`${baseUrl}/consultancy`, { waitUntil: 'networkidle' })
+if (await desktop.locator('.insights-preview [data-blog-card]').count() !== 4) errors.push('Consultancy does not show four linked insight previews')
 
 const motion = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 })
 observe(motion)

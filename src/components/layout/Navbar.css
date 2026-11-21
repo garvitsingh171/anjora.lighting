@@ -7,7 +7,7 @@
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  padding: 1.35rem var(--page-pad);
+  padding: 1rem var(--page-pad);
   pointer-events: none;
   transition: padding var(--motion-fast) var(--ease-ui);
 }
@@ -19,12 +19,12 @@
   position: relative;
   z-index: 52;
   display: block;
-  width: clamp(10rem, 14vw, 12.5rem);
+  width: clamp(9rem, 11vw, 11rem);
   line-height: 0;
   transition: width var(--motion-fast) var(--ease-ui), filter var(--motion-fast) ease;
 }
 
-.site-header--scrolled .brand-logo { width: clamp(9.5rem, 13vw, 11.75rem); }
+.site-header--scrolled .brand-logo { width: clamp(8.7rem, 10.5vw, 10.5rem); }
 
 .brand-logo img {
   width: 100%;
@@ -63,7 +63,7 @@
   display: inline-flex;
   min-height: 2.9rem;
   align-items: center;
-  padding: 0.72rem 1rem;
+  padding: 0.72rem clamp(0.55rem, 0.8vw, 0.9rem);
   border-radius: 999px;
   color: var(--nav-text);
   font-size: var(--fs-nav);
@@ -163,7 +163,7 @@
   background: var(--nav-control-bg);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1040px) {
   .site-header { padding-top: 1.2rem; }
   .site-header--scrolled { padding-top: 0.75rem; }
   .brand-logo { width: 8.7rem; }
@@ -300,13 +300,13 @@
 
 .mega-nav-trigger { display: flex; align-items: center; }
 .desktop-nav .mega-nav-trigger a { padding-right: 0.35rem; }
-.mega-nav-trigger > button { display: grid; place-items: center; width: 2.1rem; height: 2.8rem; padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--nav-text-strong); cursor: pointer; }
+.mega-nav-trigger > button { display: grid; place-items: center; width: 2.75rem; height: 2.8rem; padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--nav-text-strong); cursor: pointer; }
 .mega-nav-trigger > button[aria-expanded='true'] { transform: rotate(180deg); }
 .site-header--hero-context:not(.site-header--past-hero) .mega-nav-trigger > button { color: var(--color-on-media); }
 .site-header--menu-open { background: transparent; }
 
 .mobile-menu { overflow-y: auto; overscroll-behavior: contain; }
-@media (max-width: 900px) {
+@media (max-width: 1040px) {
   .mobile-menu { justify-content: flex-start; gap: 2rem; }
   .mobile-projects-toggle { display: flex; align-items: baseline; gap: 1.5rem; padding: 0.85rem 0; border: 0; border-bottom: 1px solid var(--line); color: var(--paper); background: none; text-align: left; font-family: var(--display); font-size: clamp(1.9rem, 10vw, 3.1rem); letter-spacing: -0.04em; cursor: pointer; }
   .mobile-projects-toggle b { margin-left: auto; color: var(--accent-soft); font-size: 1.6rem; font-weight: 400; }
@@ -322,7 +322,7 @@ body.menu-open .site-header--footer-context .brand-logo img { filter: var(--logo
 /* The transparent bridge keeps a slow pointer crossing inside the disclosure. */
 .mega-nav-trigger { position: relative; }
 .mega-nav-trigger:has([aria-expanded='true'])::before { position: absolute; inset: 100% -0.4rem auto; height: 2.25rem; content: ''; }
-@media (max-width: 900px) {
+@media (max-width: 1040px) {
   body.menu-open .site-header::before { position: fixed; inset: 0 0 auto; z-index: 52; height: 6.3rem; content: ''; background: var(--ink); pointer-events: auto; }
 }
 
@@ -333,5 +333,11 @@ body.menu-open .site-header--footer-context .brand-logo img { filter: var(--logo
 .mega-nav-trigger[data-menu-open='true'] a { color: var(--nav-text-strong); }
 .mega-nav-trigger[data-menu-open='true'] a::after { transform: scaleX(1); }
 .site-header--hero-context:not(.site-header--past-hero) .mega-nav-trigger { --nav-active-bg: rgba(241,240,233,0.09); --nav-text-strong: #f1f0e9; }
-@media (max-width: 1100px) and (min-width: 901px) { .desktop-nav { gap: 0.1rem; } .desktop-nav a { padding-inline: 0.7rem; } .brand-logo { width: 9.5rem; } }
-@media (max-width: 900px) { .mobile-projects-toggle { width: 100%; } }
+@media (max-width: 1100px) and (min-width: 1041px) { .desktop-nav { gap: 0.1rem; } .desktop-nav a { padding-inline: 0.7rem; } .brand-logo { width: 9.5rem; } }
+@media (max-width: 1040px) { .mobile-projects-toggle { width: 100%; } }
+
+.site-header--scrolled:not(.site-header--hero-context),
+.site-header--past-hero { background: var(--color-background); border-bottom: 1px solid var(--line); }
+.site-header--footer-context:not(.site-header--menu-open) { background: var(--color-footer-bg); }
+/* Once scrolling begins, hero copy passes behind a solid masthead instead of the logo. */
+.site-header--hero-context.site-header--scrolled:not(.site-header--past-hero):not(.site-header--footer-context) { background: var(--ink-deep); }

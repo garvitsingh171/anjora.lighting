@@ -1,12 +1,12 @@
 .team-page { padding-block: clamp(9rem, 14vw, 12rem) var(--section-space); background: var(--ink); color: var(--paper); }
 .team-page .eyebrow { color: var(--accent-soft); }
-.team-page__intro h1 { margin: 1.8rem 0; font-size: clamp(3rem, 6.7vw, 6.2rem); max-width: 18ch; line-height: 0.98; }
+.team-page__intro h1 { margin: 1.8rem 0; font-size: var(--fs-hero); max-width: 18ch; line-height: 0.98; }
 .team-page__intro > p:last-child { margin: 2rem 0 0 auto; max-width: 31rem; color: var(--muted); font-size: 1.4rem; line-height: 1.35; }
 .team-page__contacts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(2rem, 7vw, 7rem); padding-top: var(--section-space); }
 .team-contact { min-width: 0; }
 .team-contact__rule { height: 1px; background: var(--line); transform-origin: left; }
 .team-contact__label { display: flex; justify-content: space-between; gap: 1rem; margin-top: 1.2rem; color: var(--muted); }
-.team-contact h2 { margin: 2.8rem 0 0.5rem; font-size: clamp(2.7rem, 4vw, 4rem); line-height: 1; font-weight: 400; letter-spacing: -0.03em; }
+.team-contact h2 { margin: 2.8rem 0 0.5rem; font-size: var(--fs-heading); line-height: 1; font-weight: 400; letter-spacing: -0.03em; }
 .team-contact > p { margin: 0 0 2rem; min-height: 1.8rem; color: var(--muted); font-size: 1.2rem; }
 .team-contact address { font-style: normal; }
 .team-contact address a { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--line); font-size: clamp(1.4rem, 2vw, 2rem); overflow-wrap: anywhere; }

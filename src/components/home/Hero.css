@@ -1,6 +1,6 @@
 .hero-section {
   position: relative;
-  min-height: 100svh;
+  min-height: 72svh;
   overflow: hidden;
   color: var(--color-on-media);
   background: var(--ink-deep);
@@ -32,18 +32,18 @@
   position: relative;
   z-index: 2;
   display: grid;
-  min-height: 100svh;
+  min-height: 72svh;
   align-items: center;
-  padding: 8rem clamp(1.25rem, 8.5vw, 9rem) 4rem;
+  padding: calc(var(--header-clearance) + 2rem) var(--page-pad) 3rem;
 }
 
-.hero__content.container { max-width: 1440px; }
+.hero__content.container { max-width: var(--content-width); }
 
 .hero__body { width: min(100%, 43rem); }
 .hero__eyebrow { margin-bottom: clamp(1rem, 1.5vw, 1.5rem); }
 
 .hero__title {
-  font-size: clamp(3.5rem, 5.8vw, 6rem);
+  font-size: var(--fs-hero);
   font-weight: 600;
   line-height: 0.91;
   letter-spacing: -0.055em;
@@ -65,7 +65,7 @@
   max-width: 30rem;
   margin: clamp(1.25rem, 2vw, 1.75rem) 0 0;
   color: rgba(241, 240, 233, 0.84);
-  font-size: clamp(1.2rem, 1.55vw, 1.45rem);
+  font-size: var(--fs-body-large);
   line-height: 1.35;
 }
 
@@ -113,11 +113,18 @@
       linear-gradient(0deg, rgba(5, 12, 18, 0.65), transparent 64%, rgba(5, 12, 18, 0.38));
   }
 
-  .hero__content { padding: 7.25rem var(--page-pad) 3rem; }
-  .hero__title { font-size: clamp(2.35rem, 10.7vw, 4.4rem); }
+  .hero__content { padding: calc(var(--header-clearance) + 1rem) var(--page-pad) 2.5rem; }
+  .hero__title { font-size: var(--fs-hero); }
   .hero__support { max-width: 23rem; font-size: 1.08rem; }
 }
 
 @media (max-width: 380px) {
-  .hero__title { font-size: 10.2vw; }
+  .hero__title { font-size: var(--fs-hero); }
 }
+
+.hero-section--brand, .hero-section--brand .hero__content { min-height: 62svh; }
+.hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2rem; margin-top: 1.5rem; }
+.hero__actions .hero__enquiry { margin-top: 0; }
+.hero-section--brand .hero__enquiry { min-width: 8rem; min-height: 2.75rem; padding: 0.5rem 0.8rem; }
+.hero__explore { display: inline-flex; align-items: center; gap: 1.25rem; min-height: 44px; font-size: var(--fs-cta); letter-spacing: 0.12em; text-transform: uppercase; border-bottom: 1px solid rgba(241,240,233,0.45); }
+@media (max-width: 700px) { .hero__line > span { white-space: normal; } }

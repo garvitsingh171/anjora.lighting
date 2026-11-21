@@ -19,7 +19,8 @@
     "product-service:qa": "node scripts/product-service-qa.mjs",
     "premium:qa": "node scripts/premium-qa.mjs",
     "preview": "vite preview",
-    "catalogue:qa": "node scripts/catalogue-qa.mjs"
+    "catalogue:qa": "node scripts/catalogue-qa.mjs",
+    "experience:qa": "node scripts/experience-qa.mjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

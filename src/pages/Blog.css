@@ -26,7 +26,7 @@
 .article-hero__title-mask { overflow: hidden; }
 
 .blog-hero h1 {
-  font-size: clamp(4rem, 9vw, 8rem);
+  font-size: var(--fs-hero);
   text-transform: uppercase;
 }
 
@@ -45,7 +45,7 @@
   transform-origin: left center;
 }
 
-.blog-index { width: min(100%, 1280px); padding-bottom: var(--section-space-lg); }
+.blog-index { width: min(100%, var(--content-width)); padding-bottom: var(--section-space-lg); }
 
 .blog-feature { margin-top: 1.5rem; }
 
@@ -99,7 +99,7 @@
 .blog-feature__content h2 {
   margin: 1.2rem 0 1.4rem;
   font-family: var(--display);
-  font-size: clamp(2.25rem, 3.5vw, 3.35rem);
+  font-size: var(--fs-heading);
   font-weight: 600;
   line-height: 1.03;
   letter-spacing: -0.045em;
@@ -257,7 +257,7 @@
 }
 
 .article-hero {
-  width: min(100%, 1280px);
+  width: min(100%, var(--content-width));
   padding-top: clamp(8.5rem, 13vw, 11rem);
 }
 
@@ -278,7 +278,7 @@
 .article-hero h1 {
   max-width: 20ch;
   margin: clamp(1.5rem, 3vw, 2.5rem) 0;
-  font-size: clamp(3.25rem, 5.8vw, 5.3rem);
+  font-size: var(--fs-hero);
   line-height: 0.98;
 }
 
@@ -294,7 +294,7 @@
   grid-template-columns: minmax(9rem, 0.28fr) minmax(0, 48rem) minmax(0, 0.18fr);
   gap: clamp(2.5rem, 6vw, 6rem);
   align-items: start;
-  width: min(100%, 1160px);
+  width: min(100%, var(--reading-width));
   padding-block: clamp(4.5rem, 8vw, 7rem);
 }
 
@@ -370,7 +370,7 @@
 .article-body figure img { width: 100%; height: auto; }
 
 .related-articles {
-  width: min(100%, 1280px);
+  width: min(100%, var(--content-width));
   padding-block: var(--section-space);
   border-top: 1px solid var(--line);
 }
@@ -410,7 +410,7 @@
 @media (max-width: 767px) {
   .blog-hero { min-height: 34rem; padding-bottom: 3rem; }
   .blog-hero__headline { grid-template-columns: 1fr; gap: 1.75rem; }
-  .blog-hero h1 { font-size: clamp(3.25rem, 17vw, 5.2rem); }
+  .blog-hero h1 { font-size: var(--fs-hero); }
   .blog-hero__headline > p { max-width: 25rem; }
 
   .blog-feature > a,
@@ -435,7 +435,7 @@
   .blog-card[data-size='wide'] .blog-card__content h2 { font-size: clamp(1.65rem, 7vw, 2.15rem); }
 
   .article-hero { padding-top: 8.5rem; }
-  .article-hero h1 { font-size: clamp(2.45rem, 10vw, 3.65rem); }
+  .article-hero h1 { font-size: var(--fs-hero); }
   .article-hero__media { aspect-ratio: 4 / 3; }
   .article-layout { display: block; padding-block: 3.75rem; }
   .article-rail { position: static; margin-bottom: 3rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--line); }

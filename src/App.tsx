@@ -1,5 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { SiteLayout } from './components/layout/SiteLayout'
+import { Consultancy } from './pages/Consultancy'
 import { Home } from './pages/Home'
 import { Blog } from './pages/Blog'
 import { BlogDetail } from './pages/BlogDetail'
@@ -16,6 +17,7 @@ export default function App() {
     <Routes>
       <Route element={<SiteLayout />}>
         <Route index element={<Home />} />
+        <Route path="consultancy" element={<Consultancy />} />
         <Route path="projects" element={<Projects />} />
         <Route path="projects/:slug" element={<ProjectDetail />} />
         <Route path="products" element={<Products />} />

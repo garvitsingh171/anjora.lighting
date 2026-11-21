@@ -5,7 +5,8 @@ import { gsap } from '../../lib/gsap'
 import { EASE_REVEAL, prefersReducedMotion } from '../../lib/motion'
 import './Hero.css'
 
-export function Hero() {
+export function Hero({ experience = 'brand' }: { experience?: 'brand' | 'consultancy' }) {
+  const isBrand = experience === 'brand'
   const heroRef = useRef<HTMLElement>(null)
 
   useGSAP(
@@ -43,7 +44,7 @@ export function Hero() {
   )
 
   return (
-    <section ref={heroRef} className="hero-section" aria-labelledby="hero-title">
+    <section ref={heroRef} className={`hero-section hero-section--${experience}`} aria-labelledby="hero-title">
       <div className="hero__media" aria-hidden="true">
         <img
           className="hero__image"
@@ -57,22 +58,25 @@ export function Hero() {
       <div className="hero__shade" />
       <div className="hero__content container">
         <div className="hero__body">
-          <p className="eyebrow hero__eyebrow">Architectural lighting consultancy</p>
+          <p className="eyebrow hero__eyebrow">{isBrand ? 'Lighting consultancy & bespoke products' : 'Architectural lighting consultancy'}</p>
           <h1 id="hero-title" className="display-title hero__title">
             <span className="hero__line"><span>Anjora: Where</span></span>
             <span className="hero__line"><span>Light Shapes</span></span>
             <span className="hero__line"><span>Space</span></span>
           </h1>
           <p className="hero__support">
-            We plan, specify and deliver light for architecture—working with designers and project teams from first concept through commissioning.
+            {isBrand ? 'We design light for architecture and create bespoke lighting pieces. Discover our consultancy practice and the Rajasthan Collection.' : 'We plan, specify and deliver light for architecture—working with designers and project teams from first concept through commissioning.'}
           </p>
+          <div className="hero__actions">
+          {isBrand && <a className="hero__explore" href="#explore">Explore Anjora <span aria-hidden="true">↓</span></a>}
           <a
             className="hero__enquiry"
             href="#enquiry"
           >
-            <span>Enquiry</span>
+            <span>{isBrand ? 'Enquiry' : 'Discuss your project'}</span>
             <span aria-hidden="true">↗</span>
           </a>
+          </div>
         </div>
       </div>
     </section>

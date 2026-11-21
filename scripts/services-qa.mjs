@@ -34,6 +34,7 @@ async function checkStage(label, expected) {
   if (expected !== undefined) assert.equal(state.counter, expected, `${label}: wrong service`)
 }
 async function seek(progress, wait = 400) {
+  await page.waitForFunction(async () => Boolean((await import('/src/lib/gsap.ts')).ScrollTrigger.getById('home-services')))
   await page.evaluate(async p => {
     const { ScrollTrigger } = await import('/src/lib/gsap.ts')
     const trigger = ScrollTrigger.getAll().find(t => t.pin?.classList.contains('services__pin'))
@@ -53,7 +54,7 @@ async function cycle() {
   await checkStage('final release', 6)
 }
 try {
-  await page.goto(base)
+  await page.goto(`${base}/consultancy`)
   await page.evaluate(() => document.fonts.ready)
   await page.waitForTimeout(700)
   await cycle()
@@ -65,11 +66,13 @@ try {
   await page.waitForTimeout(500)
   await seek(.5)
   await checkStage('resize', 3)
+  await page.setViewportSize({ width: 1100, height: 900 })
+  await page.waitForTimeout(500)
   for (const route of ['/projects', '/about-us', '/projects']) {
     await page.locator(`.desktop-nav a[href="${route}"]`).click()
     await page.waitForURL(`${base}${route}`)
-    await page.locator('.brand-logo').click()
-    await page.waitForURL(`${base}/`)
+    await page.locator('.desktop-nav a[href="/consultancy"]').click()
+    await page.waitForURL(`${base}/consultancy`)
     await page.waitForTimeout(500)
     await seek(.5)
     await checkStage(`revisit ${route}`, 3)

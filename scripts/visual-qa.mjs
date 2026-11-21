@@ -47,6 +47,8 @@ await preparePage(desktop)
 await checkHorizontalOverflow(desktop, 'desktop home')
 await desktop.screenshot({ path: `${outputDirectory}/hero-desktop.png` })
 
+await desktop.goto(`${baseUrl}/consultancy`)
+await desktop.waitForTimeout(1000)
 const servicesPin = desktop.locator('.services__pin')
 await servicesPin.scrollIntoViewIfNeeded()
 await desktop.waitForTimeout(400)
@@ -64,13 +66,14 @@ for (const [selector, name] of [
   ['.services__intro', 'services-intro'],
   ['.curated-works', 'curated-works'],
   ['.consultancy-process', 'process'],
-  ['.product-preview', 'product-preview'],
   ['.enquiry-section', 'enquiry'],
   ['.site-footer', 'footer'],
 ]) {
   await desktop.locator(selector).screenshot({ path: `${outputDirectory}/${name}.png` })
 }
 
+await desktop.goto(baseUrl)
+await desktop.locator('.product-preview').screenshot({ path: `${outputDirectory}/product-preview.png` })
 await desktop.goto(`${baseUrl}/products`, { waitUntil: 'domcontentloaded' })
 await desktop.locator('.products-page__hero').screenshot({ path: `${outputDirectory}/products-hero.png` })
 await desktop.locator('.product-card').first().screenshot({ path: `${outputDirectory}/product-card.png` })
@@ -217,6 +220,7 @@ await mobile.emulateMedia({ reducedMotion: 'reduce' })
 await preparePage(mobile)
 await checkHorizontalOverflow(mobile, 'mobile home')
 await mobile.screenshot({ path: `${outputDirectory}/hero-mobile.png` })
+await mobile.goto(`${baseUrl}/consultancy`)
 await mobile.locator('.services__intro').screenshot({ path: `${outputDirectory}/services-mobile.png` })
 await mobile.locator('.project-tile').first().screenshot({ path: `${outputDirectory}/project-tile-mobile.png` })
 await mobile.locator('.menu-toggle').click()

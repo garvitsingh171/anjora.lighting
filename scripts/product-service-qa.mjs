@@ -34,6 +34,9 @@ for (const theme of ['dark', 'light']) {
     await page.waitForTimeout(1100)
     await page.locator('.enquiry-section').screenshot({ path: `${output}/enquiry-${label}.png` })
     if (width === 1440) {
+      await page.goto(`${baseUrl}/consultancy`, { waitUntil: 'domcontentloaded' })
+      await page.evaluate(() => document.fonts.ready)
+      await page.waitForTimeout(500)
       await page.evaluate(() => {
         const spacer = document.querySelector('.services__pin').parentElement
         window.scrollTo({ top: spacer.getBoundingClientRect().top + scrollY + 10, behavior: 'instant' })

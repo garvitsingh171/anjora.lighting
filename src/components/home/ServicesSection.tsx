@@ -21,7 +21,7 @@ export function ServicesSection() {
 
       media.add(
         {
-          desktop: '(min-width: 900px)',
+          desktop: '(min-width: 1000px) and (min-height: 720px)',
           motion: '(prefers-reduced-motion: no-preference)',
         },
         (context) => {
@@ -60,8 +60,8 @@ export function ServicesSection() {
             scrollTrigger: {
               id: 'home-services',
               trigger: pin,
-              start: 'top 96px',
-              end: () => `+=${Math.max(520, window.innerHeight * 0.72) * (slides.length - 1)}`,
+              start: () => `top ${parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) + 16}px`,
+              end: () => `+=${Math.max(pin.clientHeight, window.innerHeight * 0.65) * (slides.length - 1)}`,
               pin: true,
               scrub: 0.3,
               anticipatePin: 1,

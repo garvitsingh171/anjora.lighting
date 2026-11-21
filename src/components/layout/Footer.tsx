@@ -35,12 +35,13 @@ export function Footer() {
             <Link className="site-footer__logo" to="/" aria-label="Anjora Lighting home">
               <img src={anjoraLogo} alt="Anjora Lighting" width="1600" height="570" />
             </Link>
-            <p>Independent architectural<br />lighting consultancy.</p>
+            <p>Architectural lighting consultancy<br />& bespoke lighting products.</p>
             <span>Jaipur, India</span>
           </div>
           <nav aria-label="Footer navigation" data-footer-reveal>
             <h2>Explore</h2>
             <Link to="/">Home</Link>
+            <Link to="/consultancy">Consultancy</Link>
             <Link to="/projects">Projects</Link>
             <Link to="/products">Products</Link>
             <Link to="/research">Research & insights</Link>
@@ -49,7 +50,7 @@ export function Footer() {
           </nav>
           <nav aria-label="Our expertise" data-footer-reveal>
             <h2>Expertise</h2>
-            {services.map(service => <Link key={service.id} to="/#services">{service.title}</Link>)}
+            {services.map(service => <Link key={service.id} to="/consultancy#services">{service.title}</Link>)}
           </nav>
           <address data-footer-reveal>
             <h2>Visit & connect</h2>
